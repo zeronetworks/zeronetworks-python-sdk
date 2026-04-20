@@ -1,0 +1,11 @@
+# CustomGroupBody
+
+
+## Fields
+
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      | Example                                                          |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `name`                                                           | *str*                                                            | :heavy_check_mark:                                               | N/A                                                              |                                                                  |
+| `description`                                                    | *Optional[str]*                                                  | :heavy_minus_sign:                                               | N/A                                                              |                                                                  |
+| `members_id`                                                     | List[*str*]                                                      | :heavy_minus_sign:                                               | members id                                                       | [<br/>"g:c:ab124as2"<br/>]                                       |
+| `conditions`                                                     | [Optional[models.GroupConditions]](../models/groupconditions.md) | :heavy_minus_sign:                                               | N/A                                                              |                                                                  |

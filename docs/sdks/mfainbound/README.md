@@ -1,0 +1,239 @@
+# MFAInbound
+
+## Overview
+
+API calls related to Inbound MFA policies.
+
+### Available Operations
+
+* [mfa_inbound_policies_create](#mfa_inbound_policies_create) - Add Inbound MFA Policy
+* [mfa_inbound_policies_get](#mfa_inbound_policies_get) - Get Inbound MFA Policy
+* [mfa_inbound_policies_update](#mfa_inbound_policies_update) - Update Inbound MFA Policy
+* [mfa_inbound_policies_delete](#mfa_inbound_policies_delete) - Remove Inbound MFA Policy
+
+## mfa_inbound_policies_create
+
+Returns the properties of the inbound MFA policy after creation.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="MFAInboundPolicies_Create" method="post" path="/protection/reactive-policies/inbound" -->
+```python
+import os
+from zeronetworks import Zeronetworks
+
+
+with Zeronetworks(
+    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+) as z_client:
+
+    res = z_client.mfa_inbound.mfa_inbound_policies_create(additional_ports_list=[
+        {},
+    ], dst_entity_info={
+        "id": "<id>",
+    }, dst_port="<value>", dst_process_names=[
+        "<value 1>",
+        "<value 2>",
+    ], fallback_to_logged_on_user=True, mfa_methods=[], override_builtins=False, protocol_type=369819, rule_duration=3, src_entity_infos=[
+        {
+            "id": "<id>",
+        },
+    ], src_process_names=[
+        "<value 1>",
+    ], src_user_infos=[], state=1)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `additional_ports_list`                                                                                                       | List[[models.PortsList](../../models/portslist.md)]                                                                           | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `dst_entity_info`                                                                                                             | [models.ReactivePolicyInboundBodyDstEntityInfo](../../models/reactivepolicyinboundbodydstentityinfo.md)                       | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `dst_port`                                                                                                                    | *str*                                                                                                                         | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `dst_process_names`                                                                                                           | List[*str*]                                                                                                                   | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `fallback_to_logged_on_user`                                                                                                  | *bool*                                                                                                                        | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `mfa_methods`                                                                                                                 | List[[models.MfaMethods](../../models/mfamethods.md)]                                                                         | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `override_builtins`                                                                                                           | *bool*                                                                                                                        | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `protocol_type`                                                                                                               | *int*                                                                                                                         | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `rule_duration`                                                                                                               | [models.RuleDuration](../../models/ruleduration.md)                                                                           | :heavy_check_mark:                                                                                                            | * '1' - Hour<br/>* '2' - Day<br/>* '3' - Week<br/>* '4' - Month<br/>* '5' - Never<br/>* '6' - 4 hours<br/>* '7' - 12 hours<br/>* '8' - 8 hours<br/> |
+| `src_entity_infos`                                                                                                            | List[[models.ReactivePolicyInboundBodySrcEntityInfo](../../models/reactivepolicyinboundbodysrcentityinfo.md)]                 | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `src_process_names`                                                                                                           | List[*str*]                                                                                                                   | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `src_user_infos`                                                                                                              | List[[models.ReactivePolicyInboundBodySrcUserInfo](../../models/reactivepolicyinboundbodysrcuserinfo.md)]                     | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `state`                                                                                                                       | [models.ReactivePolicyState](../../models/reactivepolicystate.md)                                                             | :heavy_check_mark:                                                                                                            | * '1' - Enabled<br/>* '2' - Disabled<br/>                                                                                     |
+| `change_ticket`                                                                                                               | *Optional[str]*                                                                                                               | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `description`                                                                                                                 | *Optional[str]*                                                                                                               | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `excluded_src_entity_infos`                                                                                                   | List[[models.ReactivePolicyInboundBodyExcludedSrcEntityInfo](../../models/reactivepolicyinboundbodyexcludedsrcentityinfo.md)] | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `excluded_src_processes`                                                                                                      | List[*str*]                                                                                                                   | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `identity_protection_category_list`                                                                                           | List[[models.IdentityProtectionCategory](../../models/identityprotectioncategory.md)]                                         | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `name`                                                                                                                        | *Optional[str]*                                                                                                               | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `restrict_login_to_originating_user`                                                                                          | *Optional[bool]*                                                                                                              | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `use_default_idp`                                                                                                             | *Optional[bool]*                                                                                                              | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `use_occasional_mfa`                                                                                                          | *Optional[bool]*                                                                                                              | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `retries`                                                                                                                     | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                              | :heavy_minus_sign:                                                                                                            | Configuration to override the default retry behavior of the client.                                                           |
+
+### Response
+
+**[models.ReactivePolicyItem](../../models/reactivepolicyitem.md)**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.Error                    | 400, 401, 403                   | application/json                |
+| errors.Error                    | 500                             | application/json                |
+| errors.ZeronetworksDefaultError | 4XX, 5XX                        | \*/\*                           |
+
+## mfa_inbound_policies_get
+
+Returns a inbound MFA policy object.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="MFAInboundPolicies_Get" method="get" path="/protection/reactive-policies/inbound/{reactivePolicyId}" -->
+```python
+import os
+from zeronetworks import Zeronetworks
+
+
+with Zeronetworks(
+    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+) as z_client:
+
+    res = z_client.mfa_inbound.mfa_inbound_policies_get(id="ca4bdda5-1788-4d8a-a3bf-cc4a62cc6675")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `id`                                                                | *str*                                                               | :heavy_check_mark:                                                  | The id of the MFA policy                                            |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ReactivePolicyResponse](../../models/reactivepolicyresponse.md)**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.Error                    | 400, 401, 403, 404              | application/json                |
+| errors.Error                    | 500                             | application/json                |
+| errors.ZeronetworksDefaultError | 4XX, 5XX                        | \*/\*                           |
+
+## mfa_inbound_policies_update
+
+Returns the properties of the inbound MFA policy after updating.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="MFAInboundPolicies_Update" method="put" path="/protection/reactive-policies/inbound/{reactivePolicyId}" -->
+```python
+import os
+from zeronetworks import Zeronetworks
+
+
+with Zeronetworks(
+    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+) as z_client:
+
+    res = z_client.mfa_inbound.mfa_inbound_policies_update(id="2f9f3997-7c69-4504-9dab-862c45955898", additional_ports_list=[
+        {},
+    ], dst_entity_info={
+        "id": "<id>",
+    }, dst_port="<value>", dst_process_names=[], fallback_to_logged_on_user=False, mfa_methods=[], override_builtins=True, protocol_type=227196, rule_duration=5, src_entity_infos=[], src_process_names=[], src_user_infos=[
+        {
+            "id": "<id>",
+        },
+    ], state=2)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                                          | *str*                                                                                                                         | :heavy_check_mark:                                                                                                            | The id of the MFA policy                                                                                                      |
+| `additional_ports_list`                                                                                                       | List[[models.PortsList](../../models/portslist.md)]                                                                           | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `dst_entity_info`                                                                                                             | [models.ReactivePolicyInboundBodyDstEntityInfo](../../models/reactivepolicyinboundbodydstentityinfo.md)                       | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `dst_port`                                                                                                                    | *str*                                                                                                                         | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `dst_process_names`                                                                                                           | List[*str*]                                                                                                                   | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `fallback_to_logged_on_user`                                                                                                  | *bool*                                                                                                                        | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `mfa_methods`                                                                                                                 | List[[models.MfaMethods](../../models/mfamethods.md)]                                                                         | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `override_builtins`                                                                                                           | *bool*                                                                                                                        | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `protocol_type`                                                                                                               | *int*                                                                                                                         | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `rule_duration`                                                                                                               | [models.RuleDuration](../../models/ruleduration.md)                                                                           | :heavy_check_mark:                                                                                                            | * '1' - Hour<br/>* '2' - Day<br/>* '3' - Week<br/>* '4' - Month<br/>* '5' - Never<br/>* '6' - 4 hours<br/>* '7' - 12 hours<br/>* '8' - 8 hours<br/> |
+| `src_entity_infos`                                                                                                            | List[[models.ReactivePolicyInboundBodySrcEntityInfo](../../models/reactivepolicyinboundbodysrcentityinfo.md)]                 | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `src_process_names`                                                                                                           | List[*str*]                                                                                                                   | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `src_user_infos`                                                                                                              | List[[models.ReactivePolicyInboundBodySrcUserInfo](../../models/reactivepolicyinboundbodysrcuserinfo.md)]                     | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `state`                                                                                                                       | [models.ReactivePolicyState](../../models/reactivepolicystate.md)                                                             | :heavy_check_mark:                                                                                                            | * '1' - Enabled<br/>* '2' - Disabled<br/>                                                                                     |
+| `change_ticket`                                                                                                               | *Optional[str]*                                                                                                               | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `description`                                                                                                                 | *Optional[str]*                                                                                                               | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `excluded_src_entity_infos`                                                                                                   | List[[models.ReactivePolicyInboundBodyExcludedSrcEntityInfo](../../models/reactivepolicyinboundbodyexcludedsrcentityinfo.md)] | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `excluded_src_processes`                                                                                                      | List[*str*]                                                                                                                   | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `identity_protection_category_list`                                                                                           | List[[models.IdentityProtectionCategory](../../models/identityprotectioncategory.md)]                                         | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `name`                                                                                                                        | *Optional[str]*                                                                                                               | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `restrict_login_to_originating_user`                                                                                          | *Optional[bool]*                                                                                                              | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `use_default_idp`                                                                                                             | *Optional[bool]*                                                                                                              | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `use_occasional_mfa`                                                                                                          | *Optional[bool]*                                                                                                              | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `retries`                                                                                                                     | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                              | :heavy_minus_sign:                                                                                                            | Configuration to override the default retry behavior of the client.                                                           |
+
+### Response
+
+**[models.ReactivePolicyItem](../../models/reactivepolicyitem.md)**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.Error                    | 400, 401, 403, 404              | application/json                |
+| errors.Error                    | 500                             | application/json                |
+| errors.ZeronetworksDefaultError | 4XX, 5XX                        | \*/\*                           |
+
+## mfa_inbound_policies_delete
+
+Returns an empty object.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="MFAInboundPolicies_Delete" method="delete" path="/protection/reactive-policies/inbound/{reactivePolicyId}" -->
+```python
+import os
+from zeronetworks import Zeronetworks
+
+
+with Zeronetworks(
+    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+) as z_client:
+
+    z_client.mfa_inbound.mfa_inbound_policies_delete(id="3bc96f59-cb97-40a6-87b1-1c2e3020109b")
+
+    # Use the SDK ...
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `id`                                                                | *str*                                                               | :heavy_check_mark:                                                  | The id of the MFA policy                                            |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.Error                    | 400, 401, 403, 404              | application/json                |
+| errors.Error                    | 500                             | application/json                |
+| errors.ZeronetworksDefaultError | 4XX, 5XX                        | \*/\*                           |

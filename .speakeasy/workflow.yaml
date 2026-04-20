@@ -1,0 +1,21 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    Zero Networks:
+        inputs:
+            - location: openapi.yaml
+        overlays:
+            - location: overlay.yaml
+        output: .speakeasy/out.openapi.yaml
+        registry:
+            location: registry.speakeasyapi.dev/zeronetworks/zeronetworks/zero-networks
+targets:
+    zeronetworks:
+        target: python
+        source: Zero Networks
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/zeronetworks/zeronetworks/zero-networks-python-code-samples
+            labelOverride:
+                fixedValue: Python (SDK)
+            blocking: false

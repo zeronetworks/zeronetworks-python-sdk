@@ -1,0 +1,9 @@
+# RPCRuleUpdateRequest
+
+
+## Fields
+
+| Field                                          | Type                                           | Required                                       | Description                                    | Example                                        |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| `id`                                           | *str*                                          | :heavy_check_mark:                             | The id of the rule                             | d37077dc-0660-454d-81a0-f52f491fd5b8           |
+| `body`                                         | [models.RPCRuleBody](../models/rpcrulebody.md) | :heavy_check_mark:                             | Rule properties                                |                                                |

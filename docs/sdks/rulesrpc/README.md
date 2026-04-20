@@ -1,0 +1,234 @@
+# RulesRPC
+
+## Overview
+
+API calls related to RPC Rules
+
+### Available Operations
+
+* [rpc_rules_create](#rpc_rules_create) - Create RPC Rule
+* [rpc_rule_get](#rpc_rule_get) - Get RPC Rule
+* [rpc_rule_update](#rpc_rule_update) - Update RPC Rule
+* [rpc_rule_delete](#rpc_rule_delete) - Remove RPC Rule
+
+## rpc_rules_create
+
+Returns the properties of the create RPC rule.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="RPCRules_Create" method="post" path="/protection/rpc-rules" -->
+```python
+import os
+from zeronetworks import Zeronetworks
+
+
+with Zeronetworks(
+    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+) as z_client:
+
+    res = z_client.rules_rpc.rpc_rules_create(action=1, description="woot twine after aboard accurate", excluded_asset_ids_list=[
+        "<value 1>",
+        "<value 2>",
+        "<value 3>",
+    ], interface_uuids_list=[
+        "<value 1>",
+    ], local_asset_id="<id>", op_numbers_list=[
+        852678,
+        936689,
+        948247,
+    ], protocols_list=[
+        258306,
+        709844,
+    ], remote_asset_ids_list=[
+        "<value 1>",
+    ], state=1, user_ids_list=[
+        "<value 1>",
+        "<value 2>",
+        "<value 3>",
+    ])
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                      | Type                                                                                                                                                           | Required                                                                                                                                                       | Description                                                                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action`                                                                                                                                                       | [models.RuleAction](../../models/ruleaction.md)                                                                                                                | :heavy_check_mark:                                                                                                                                             | * 1 - Allow<br/>* 2 - Block<br/>* 3 - Force Block<br/>                                                                                                         |
+| `description`                                                                                                                                                  | *str*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                             | N/A                                                                                                                                                            |
+| `excluded_asset_ids_list`                                                                                                                                      | List[*str*]                                                                                                                                                    | :heavy_check_mark:                                                                                                                                             | N/A                                                                                                                                                            |
+| `interface_uuids_list`                                                                                                                                         | List[*str*]                                                                                                                                                    | :heavy_check_mark:                                                                                                                                             | one of the following: <br/>* "rpcAnyInterface" for any interface <br/>* List of interface uuids for explicit interfaces<br/>                                   |
+| `local_asset_id`                                                                                                                                               | *str*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                             | N/A                                                                                                                                                            |
+| `op_numbers_list`                                                                                                                                              | List[*int*]                                                                                                                                                    | :heavy_check_mark:                                                                                                                                             | N/A                                                                                                                                                            |
+| `protocols_list`                                                                                                                                               | List[*int*]                                                                                                                                                    | :heavy_check_mark:                                                                                                                                             | * NULL - Any<br/>* '1' - Rules RPC over SMB<br/>* '2' - Rules RPC over TCP<br/>                                                                                |
+| `remote_asset_ids_list`                                                                                                                                        | List[*str*]                                                                                                                                                    | :heavy_check_mark:                                                                                                                                             | N/A                                                                                                                                                            |
+| `state`                                                                                                                                                        | [models.RuleState](../../models/rulestate.md)                                                                                                                  | :heavy_check_mark:                                                                                                                                             | * '1' - Enabled<br/>* '2' - Disabled<br/>* '3' - Deleted By User<br/>* '4' - Pending Review<br/>* '5' - Pending Review Auto<br/>* '6' - Rejected by User<br/>* '7' - Excluded by User<br/> |
+| `user_ids_list`                                                                                                                                                | List[*str*]                                                                                                                                                    | :heavy_check_mark:                                                                                                                                             | N/A                                                                                                                                                            |
+| `change_ticket`                                                                                                                                                | *Optional[str]*                                                                                                                                                | :heavy_minus_sign:                                                                                                                                             | N/A                                                                                                                                                            |
+| `expires_at`                                                                                                                                                   | *Optional[int]*                                                                                                                                                | :heavy_minus_sign:                                                                                                                                             | Epoch Millis                                                                                                                                                   |
+| `name`                                                                                                                                                         | *Optional[str]*                                                                                                                                                | :heavy_minus_sign:                                                                                                                                             | N/A                                                                                                                                                            |
+| `retries`                                                                                                                                                      | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                               | :heavy_minus_sign:                                                                                                                                             | Configuration to override the default retry behavior of the client.                                                                                            |
+
+### Response
+
+**[models.RPCRuleResponse](../../models/rpcruleresponse.md)**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.Error                    | 400, 401, 403, 409              | application/json                |
+| errors.Error                    | 500                             | application/json                |
+| errors.ZeronetworksDefaultError | 4XX, 5XX                        | \*/\*                           |
+
+## rpc_rule_get
+
+Returns the properties of an RPC rule.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="RPCRule_Get" method="get" path="/protection/rpc-rules/{ruleId}" -->
+```python
+import os
+from zeronetworks import Zeronetworks
+
+
+with Zeronetworks(
+    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+) as z_client:
+
+    res = z_client.rules_rpc.rpc_rule_get(id="d37077dc-0660-454d-81a0-f52f491fd5b8")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `id`                                                                | *str*                                                               | :heavy_check_mark:                                                  | The id of the rule                                                  | d37077dc-0660-454d-81a0-f52f491fd5b8                                |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.RPCRuleResponse](../../models/rpcruleresponse.md)**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.Error                    | 400, 401, 403, 404              | application/json                |
+| errors.Error                    | 500                             | application/json                |
+| errors.ZeronetworksDefaultError | 4XX, 5XX                        | \*/\*                           |
+
+## rpc_rule_update
+
+Returns the properties of the update RPC rule.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="RPCRule_Update" method="put" path="/protection/rpc-rules/{ruleId}" -->
+```python
+import os
+from zeronetworks import Zeronetworks
+
+
+with Zeronetworks(
+    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+) as z_client:
+
+    res = z_client.rules_rpc.rpc_rule_update(id="d37077dc-0660-454d-81a0-f52f491fd5b8", action=2, description="given before than specific", excluded_asset_ids_list=[
+        "<value 1>",
+        "<value 2>",
+    ], interface_uuids_list=[
+        "<value 1>",
+        "<value 2>",
+        "<value 3>",
+    ], local_asset_id="<id>", op_numbers_list=[
+        571916,
+    ], protocols_list=[
+        115119,
+    ], remote_asset_ids_list=[], state=6, user_ids_list=[
+        "<value 1>",
+        "<value 2>",
+        "<value 3>",
+    ])
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                      | Type                                                                                                                                                           | Required                                                                                                                                                       | Description                                                                                                                                                    | Example                                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                                                                           | *str*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                             | The id of the rule                                                                                                                                             | d37077dc-0660-454d-81a0-f52f491fd5b8                                                                                                                           |
+| `action`                                                                                                                                                       | [models.RuleAction](../../models/ruleaction.md)                                                                                                                | :heavy_check_mark:                                                                                                                                             | * 1 - Allow<br/>* 2 - Block<br/>* 3 - Force Block<br/>                                                                                                         |                                                                                                                                                                |
+| `description`                                                                                                                                                  | *str*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                             | N/A                                                                                                                                                            |                                                                                                                                                                |
+| `excluded_asset_ids_list`                                                                                                                                      | List[*str*]                                                                                                                                                    | :heavy_check_mark:                                                                                                                                             | N/A                                                                                                                                                            |                                                                                                                                                                |
+| `interface_uuids_list`                                                                                                                                         | List[*str*]                                                                                                                                                    | :heavy_check_mark:                                                                                                                                             | one of the following: <br/>* "rpcAnyInterface" for any interface <br/>* List of interface uuids for explicit interfaces<br/>                                   |                                                                                                                                                                |
+| `local_asset_id`                                                                                                                                               | *str*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                             | N/A                                                                                                                                                            |                                                                                                                                                                |
+| `op_numbers_list`                                                                                                                                              | List[*int*]                                                                                                                                                    | :heavy_check_mark:                                                                                                                                             | N/A                                                                                                                                                            |                                                                                                                                                                |
+| `protocols_list`                                                                                                                                               | List[*int*]                                                                                                                                                    | :heavy_check_mark:                                                                                                                                             | * NULL - Any<br/>* '1' - Rules RPC over SMB<br/>* '2' - Rules RPC over TCP<br/>                                                                                |                                                                                                                                                                |
+| `remote_asset_ids_list`                                                                                                                                        | List[*str*]                                                                                                                                                    | :heavy_check_mark:                                                                                                                                             | N/A                                                                                                                                                            |                                                                                                                                                                |
+| `state`                                                                                                                                                        | [models.RuleState](../../models/rulestate.md)                                                                                                                  | :heavy_check_mark:                                                                                                                                             | * '1' - Enabled<br/>* '2' - Disabled<br/>* '3' - Deleted By User<br/>* '4' - Pending Review<br/>* '5' - Pending Review Auto<br/>* '6' - Rejected by User<br/>* '7' - Excluded by User<br/> |                                                                                                                                                                |
+| `user_ids_list`                                                                                                                                                | List[*str*]                                                                                                                                                    | :heavy_check_mark:                                                                                                                                             | N/A                                                                                                                                                            |                                                                                                                                                                |
+| `change_ticket`                                                                                                                                                | *Optional[str]*                                                                                                                                                | :heavy_minus_sign:                                                                                                                                             | N/A                                                                                                                                                            |                                                                                                                                                                |
+| `expires_at`                                                                                                                                                   | *Optional[int]*                                                                                                                                                | :heavy_minus_sign:                                                                                                                                             | Epoch Millis                                                                                                                                                   |                                                                                                                                                                |
+| `name`                                                                                                                                                         | *Optional[str]*                                                                                                                                                | :heavy_minus_sign:                                                                                                                                             | N/A                                                                                                                                                            |                                                                                                                                                                |
+| `retries`                                                                                                                                                      | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                               | :heavy_minus_sign:                                                                                                                                             | Configuration to override the default retry behavior of the client.                                                                                            |                                                                                                                                                                |
+
+### Response
+
+**[models.RPCRuleResponse](../../models/rpcruleresponse.md)**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.Error                    | 400, 401, 403, 404              | application/json                |
+| errors.Error                    | 500                             | application/json                |
+| errors.ZeronetworksDefaultError | 4XX, 5XX                        | \*/\*                           |
+
+## rpc_rule_delete
+
+Returns an empty object.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="RPCRule_Delete" method="delete" path="/protection/rpc-rules/{ruleId}" -->
+```python
+import os
+from zeronetworks import Zeronetworks
+
+
+with Zeronetworks(
+    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+) as z_client:
+
+    z_client.rules_rpc.rpc_rule_delete(id="d37077dc-0660-454d-81a0-f52f491fd5b8")
+
+    # Use the SDK ...
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `id`                                                                | *str*                                                               | :heavy_check_mark:                                                  | The id of the rule                                                  | d37077dc-0660-454d-81a0-f52f491fd5b8                                |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.Error                    | 400, 401, 403, 404              | application/json                |
+| errors.Error                    | 500                             | application/json                |
+| errors.ZeronetworksDefaultError | 4XX, 5XX                        | \*/\*                           |
