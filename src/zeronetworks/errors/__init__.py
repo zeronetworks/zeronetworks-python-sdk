@@ -9,6 +9,7 @@ if TYPE_CHECKING:
     from .error import Error, ErrorData
     from .no_response_error import NoResponseError
     from .responsevalidationerror import ResponseValidationError
+    from .staleconflicterror import StaleConflictError, StaleConflictErrorData
     from .zeronetworksdefaulterror import ZeronetworksDefaultError
 
 __all__ = [
@@ -16,6 +17,8 @@ __all__ = [
     "ErrorData",
     "NoResponseError",
     "ResponseValidationError",
+    "StaleConflictError",
+    "StaleConflictErrorData",
     "ZeronetworksDefaultError",
     "ZeronetworksError",
 ]
@@ -25,6 +28,8 @@ _dynamic_imports: dict[str, str] = {
     "ErrorData": ".error",
     "NoResponseError": ".no_response_error",
     "ResponseValidationError": ".responsevalidationerror",
+    "StaleConflictError": ".staleconflicterror",
+    "StaleConflictErrorData": ".staleconflicterror",
     "ZeronetworksDefaultError": ".zeronetworksdefaulterror",
 }
 

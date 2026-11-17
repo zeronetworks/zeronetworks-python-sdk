@@ -4,6 +4,7 @@ from __future__ import annotations
 from .ipsecopt import IPSecOpt
 from .portslist import PortsList, PortsListTypedDict
 from .ruleaction import RuleAction
+from .rulecategory import RuleCategory
 from .rulereviewmode import RuleReviewMode
 from .rulestate import RuleState
 from .srcuserslist import SrcUsersList, SrcUsersListTypedDict
@@ -11,7 +12,13 @@ import pydantic
 from pydantic import model_serializer
 from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zeronetworks.types import BaseModel, UNSET_SENTINEL
+from zeronetworks.types import (
+    BaseModel,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
+from zeronetworks.types.basemodel import current_filtered_dump
 
 
 class RuleBodyTypedDict(TypedDict):
@@ -57,6 +64,15 @@ class RuleBodyTypedDict(TypedDict):
     """
     name: NotRequired[str]
     services_list: NotRequired[List[str]]
+    rule_category: NotRequired[RuleCategory]
+    r"""* '0' - Unspecified
+    * '1' - IT
+    * '2' - NSG
+    * '3' - PaaS public
+    * '4' - FQDN
+    * '5' - Service-to-service
+
+    """
     src_users_list: NotRequired[List[SrcUsersListTypedDict]]
     context: NotRequired[int]
 
@@ -128,6 +144,18 @@ class RuleBody(BaseModel):
         Optional[List[str]], pydantic.Field(alias="servicesList")
     ] = None
 
+    rule_category: Annotated[
+        Optional[RuleCategory], pydantic.Field(alias="ruleCategory")
+    ] = None
+    r"""* '0' - Unspecified
+    * '1' - IT
+    * '2' - NSG
+    * '3' - PaaS public
+    * '4' - FQDN
+    * '5' - Service-to-service
+
+    """
+
     src_users_list: Annotated[
         Optional[List[SrcUsersList]], pydantic.Field(alias="srcUsersList")
     ] = None
@@ -135,6 +163,9 @@ class RuleBody(BaseModel):
     context: Optional[int] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -146,15 +177,20 @@ class RuleBody(BaseModel):
                 "ipSecOpt",
                 "name",
                 "servicesList",
+                "ruleCategory",
                 "srcUsersList",
                 "context",
             ]
         )
+        exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and skip_filtered:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:

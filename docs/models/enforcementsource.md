@@ -12,6 +12,7 @@
 * '10' - DownloadPortal
 * '11' - ExternalAccessPortal
 * '12' - DayTwo
+* '13' - K8s Cluster
 
 
 ## Example Usage
@@ -41,3 +42,4 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `10`
 - `11`
 - `12`
+- `13`

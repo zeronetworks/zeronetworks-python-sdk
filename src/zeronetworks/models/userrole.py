@@ -22,6 +22,7 @@ UserRole = Union[
         12,
         13,
         14,
+        15,
     ],
     UnrecognizedInt,
 ]
@@ -40,5 +41,6 @@ r"""* '0' - Unspecified
 * '12' - Segment Server Provisioning
 * '13' - Connect Server Provisioning
 * '14' - Segment Connector Provisioning
+* '15' - External Sync
 
 """

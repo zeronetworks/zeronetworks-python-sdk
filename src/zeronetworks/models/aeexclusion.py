@@ -4,10 +4,12 @@ from __future__ import annotations
 from .asset import Asset, AssetTypedDict
 from .createdby import CreatedBy, CreatedByTypedDict
 from .enforcementsource import EnforcementSource
+from .groupbasicinfo import GroupBasicInfo, GroupBasicInfoTypedDict
 from .idnamepair import IDNamePair, IDNamePairTypedDict
 from .ipsecopt import IPSecOpt
 from .portslist import PortsList, PortsListTypedDict
 from .ruleaction import RuleAction
+from .rulecategory import RuleCategory
 from .ruleclass import RuleClass
 from .rulecontext import RuleContext
 from .ruledirection import RuleDirection
@@ -16,11 +18,28 @@ from .rulereviewreason import RuleReviewReason, RuleReviewReasonTypedDict
 from .rulestate import RuleState
 from .rulesuggestiontype import RuleSuggestionType
 from .srcuserslist import SrcUsersList, SrcUsersListTypedDict
+from .userbasicinfo import UserBasicInfo, UserBasicInfoTypedDict
 import pydantic
 from pydantic import model_serializer
 from typing import List, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
-from zeronetworks.types import BaseModel, UNSET_SENTINEL
+from zeronetworks.types import (
+    BaseModel,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
+from zeronetworks.types.basemodel import current_filtered_dump
+
+
+AeExclusionExcludedEntityInfoTypedDict = TypeAliasType(
+    "AeExclusionExcludedEntityInfoTypedDict", Union[IDNamePairTypedDict, AssetTypedDict]
+)
+
+
+AeExclusionExcludedEntityInfo = TypeAliasType(
+    "AeExclusionExcludedEntityInfo", Union[IDNamePair, Asset]
+)
 
 
 AeExclusionLocalEntityInfoTypedDict = TypeAliasType(
@@ -40,6 +59,17 @@ AeExclusionRemoteEntityInfoTypedDict = TypeAliasType(
 
 AeExclusionRemoteEntityInfo = TypeAliasType(
     "AeExclusionRemoteEntityInfo", Union[IDNamePair, Asset]
+)
+
+
+AeExclusionSrcUserInfoTypedDict = TypeAliasType(
+    "AeExclusionSrcUserInfoTypedDict",
+    Union[UserBasicInfoTypedDict, GroupBasicInfoTypedDict],
+)
+
+
+AeExclusionSrcUserInfo = TypeAliasType(
+    "AeExclusionSrcUserInfo", Union[UserBasicInfo, GroupBasicInfo]
 )
 
 
@@ -131,13 +161,16 @@ class AeExclusionTypedDict(TypedDict):
     * '10' - DownloadPortal
     * '11' - ExternalAccessPortal
     * '12' - DayTwo
+    * '13' - K8s Cluster
 
     """
-    excluded_entity_infos: NotRequired[List[IDNamePairTypedDict]]
+    excluded_entity_infos: NotRequired[List[AeExclusionExcludedEntityInfoTypedDict]]
     excluded_entity_successor: NotRequired[IDNamePairTypedDict]
     excluded_local_ids_list: NotRequired[List[str]]
     expires_at: NotRequired[int]
     r"""Epoch Millis"""
+    firewall: NotRequired[IDNamePairTypedDict]
+    firewall_id: NotRequired[str]
     id: NotRequired[str]
     ip_sec_opt: NotRequired[IPSecOpt]
     r"""* For allow rule only.
@@ -160,6 +193,15 @@ class AeExclusionTypedDict(TypedDict):
     parent_switch_rule_type: NotRequired[int]
     parent_type: NotRequired[int]
     ports_list: NotRequired[List[PortsListTypedDict]]
+    rule_category: NotRequired[RuleCategory]
+    r"""* '0' - Unspecified
+    * '1' - IT
+    * '2' - NSG
+    * '3' - PaaS public
+    * '4' - FQDN
+    * '5' - Service-to-service
+
+    """
     remote_entity_ids_list: NotRequired[List[str]]
     remote_entity_infos: NotRequired[List[AeExclusionRemoteEntityInfoTypedDict]]
     remote_entity_successor: NotRequired[IDNamePairTypedDict]
@@ -194,7 +236,7 @@ class AeExclusionTypedDict(TypedDict):
     """
     services_list: NotRequired[List[str]]
     skip_audit: NotRequired[bool]
-    src_users_infos: NotRequired[List[IDNamePairTypedDict]]
+    src_user_infos: NotRequired[List[AeExclusionSrcUserInfoTypedDict]]
     src_users_list: NotRequired[List[SrcUsersListTypedDict]]
     state: NotRequired[RuleState]
     r"""* '1' - Enabled
@@ -332,11 +374,13 @@ class AeExclusion(BaseModel):
     * '10' - DownloadPortal
     * '11' - ExternalAccessPortal
     * '12' - DayTwo
+    * '13' - K8s Cluster
 
     """
 
     excluded_entity_infos: Annotated[
-        Optional[List[IDNamePair]], pydantic.Field(alias="excludedEntityInfos")
+        Optional[List[AeExclusionExcludedEntityInfo]],
+        pydantic.Field(alias="excludedEntityInfos"),
     ] = None
 
     excluded_entity_successor: Annotated[
@@ -349,6 +393,10 @@ class AeExclusion(BaseModel):
 
     expires_at: Annotated[Optional[int], pydantic.Field(alias="expiresAt")] = None
     r"""Epoch Millis"""
+
+    firewall: Optional[IDNamePair] = None
+
+    firewall_id: Annotated[Optional[str], pydantic.Field(alias="firewallId")] = None
 
     id: Optional[str] = None
 
@@ -405,6 +453,18 @@ class AeExclusion(BaseModel):
         Optional[List[PortsList]], pydantic.Field(alias="portsList")
     ] = None
 
+    rule_category: Annotated[
+        Optional[RuleCategory], pydantic.Field(alias="ruleCategory")
+    ] = None
+    r"""* '0' - Unspecified
+    * '1' - IT
+    * '2' - NSG
+    * '3' - PaaS public
+    * '4' - FQDN
+    * '5' - Service-to-service
+
+    """
+
     remote_entity_ids_list: Annotated[
         Optional[List[str]], pydantic.Field(alias="remoteEntityIdsList")
     ] = None
@@ -460,8 +520,8 @@ class AeExclusion(BaseModel):
 
     skip_audit: Annotated[Optional[bool], pydantic.Field(alias="skipAudit")] = None
 
-    src_users_infos: Annotated[
-        Optional[List[IDNamePair]], pydantic.Field(alias="srcUsersInfos")
+    src_user_infos: Annotated[
+        Optional[List[AeExclusionSrcUserInfo]], pydantic.Field(alias="srcUserInfos")
     ] = None
 
     src_users_list: Annotated[
@@ -500,6 +560,9 @@ class AeExclusion(BaseModel):
     )
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -522,6 +585,8 @@ class AeExclusion(BaseModel):
                 "excludedEntitySuccessor",
                 "excludedLocalIdsList",
                 "expiresAt",
+                "firewall",
+                "firewallId",
                 "id",
                 "ipSecOpt",
                 "isRejectOnLinux",
@@ -536,6 +601,7 @@ class AeExclusion(BaseModel):
                 "parentSwitchRuleType",
                 "parentType",
                 "portsList",
+                "ruleCategory",
                 "remoteEntityIdsList",
                 "remoteEntityInfos",
                 "remoteEntitySuccessor",
@@ -544,7 +610,7 @@ class AeExclusion(BaseModel):
                 "ruleReview",
                 "servicesList",
                 "skipAudit",
-                "srcUsersInfos",
+                "srcUserInfos",
                 "srcUsersList",
                 "state",
                 "suggestionReason",
@@ -553,11 +619,15 @@ class AeExclusion(BaseModel):
                 "updatedBy",
             ]
         )
+        exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and skip_filtered:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:

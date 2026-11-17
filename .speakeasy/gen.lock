@@ -1,585 +1,1345 @@
 lockVersion: 2.0.0
 id: b1a880fc-5184-44cd-a3d7-3167f0b61c9b
 management:
-  docChecksum: f8be5cc1525e10ce34d00d14a2065c77
-  docVersion: 1.26.3
-  speakeasyVersion: 1.761.3
-  generationVersion: 2.879.11
-  releaseVersion: 0.0.5
-  configChecksum: 567e82ad8fb84e94bc9de8d34e7f718a
+  docChecksum: 4c94fc5db1f03a46998dd0bf75b46ff8
+  docVersion: 1.26.9
+  speakeasyVersion: 1.809.0
+  generationVersion: 2.961.1
+  releaseVersion: 1.1.0
+  configChecksum: ecf63ed092ce481dc5ec9e1e9dcbbb53
+persistentEdits:
+  generation_id: af1ea23a-4cae-421c-bced-075b1ad488c5
+  pristine_commit_hash: 5cf7969a7ff855db77056ba19342694cccf56da0
+  pristine_tree_hash: 5489bc479aa656784ca084471c6a6b13ee54d15b
 features:
   python:
-    additionalDependencies: 1.0.0
-    core: 6.0.21
+    additionalDependencies: 1.1.0
+    core: 6.1.15
     defaultEnabledRetries: 0.2.0
     devContainers: 3.0.0
     enumUnions: 0.1.1
-    envVarSecurityUsage: 0.3.2
+    envVarSecurityUsage: 0.3.4
     flatRequests: 1.0.1
     flattening: 3.1.1
-    globalSecurity: 3.0.7
+    globalSecurity: 3.0.8
     globalSecurityCallbacks: 1.0.0
     globalSecurityFlattening: 1.0.0
     globalServerURLs: 3.2.1
-    methodArguments: 1.0.2
+    methodArguments: 1.1.1
     nameOverrides: 3.0.3
     responseFormat: 1.1.0
-    retries: 3.0.4
-    sdkHooks: 1.2.1
-    unions: 3.1.4
+    retries: 3.1.2
+    sdkHooks: 1.3.0
+    unions: 3.1.16
 trackedFiles:
   .devcontainer/README.md:
+    id: b170c0f184ac
     last_write_checksum: sha1:3c63dfd4dcea8df0d4add09e975a6887e6da4aab
+    pristine_git_object: 396929ab2e57cf09dd25ec83bd4496f733b95701
   .devcontainer/devcontainer.json:
+    id: b34062a34eb1
     last_write_checksum: sha1:94309e8c8eab5ab063986bf625f513a59825e947
+    pristine_git_object: 75edff51e68d2934c825764459ba3071044ce2ab
   .devcontainer/setup.sh:
+    id: 5f1dfbfeb8eb
     last_write_checksum: sha1:234faaf21a8a7028346590d1eb3fac0429f4991c
+    pristine_git_object: b39c28c38cf46135982ab5576b4723ea777bf510
   .gitattributes:
+    id: 24139dae6567
     last_write_checksum: sha1:53134de3ada576f37c22276901e1b5b6d85cd2da
+    pristine_git_object: 4d75d59008e4d8609876d263419a9dc56c8d6f3a
   .vscode/settings.json:
+    id: 89aa447020cd
     last_write_checksum: sha1:f84632c81029fcdda8c3b0c768d02b836fc80526
+    pristine_git_object: 8d79f0abb72526f1fb34a4c03e5bba612c6ba2ae
   USAGE.md:
-    last_write_checksum: sha1:f9335b94c3a0f74a35a83a769f6d583c0c9dc762
+    id: 3aed33ce6e6f
+    last_write_checksum: sha1:f9f82ac165627094e43b12cfc893a7c44c529cb2
+    pristine_git_object: 8c50a0aec21d48305db793db88efbdc9f40a69ef
   docs/errors/error.md:
+    id: 098e4ba23534
     last_write_checksum: sha1:e923e37a957c7ec9396452ebffc8598256585773
+    pristine_git_object: 227f6f6f52f875b385f13b8606eab0c9ba2f8a68
+  docs/errors/staleconflicterror.md:
+    id: 17a7d2b0a073
+    last_write_checksum: sha1:8fb51b9abd32419e3945e2d33a18ee912a0a8983
+    pristine_git_object: 77a0c1ac369bf487a8a783add3c97465f3f8532d
   docs/models/actiontype.md:
+    id: 58270f8c9597
     last_write_checksum: sha1:1a9091ff8a6f4e0fd4c06b899b9cd0ac59c3883b
+    pristine_git_object: b223300c1e1e83d83518e23cbf8650b848cc8058
   docs/models/addedby.md:
+    id: 4b3c3995b239
     last_write_checksum: sha1:bd37d785880fb19cfdf5788df83a01c616166867
+    pristine_git_object: 05d47b8ebb72832dd61445b199dcae36b308a4c9
   docs/models/aeexclusion.md:
-    last_write_checksum: sha1:7ea66764ab7b38f9f7c80ed18a29dcd0853ab08c
+    id: 7a6da231d41d
+    last_write_checksum: sha1:8052bcda08ccb752a84038f6a03567229d666110
+    pristine_git_object: a2a081ebaf763d92c0c38b4c96d12c2308a31121
+  docs/models/aeexclusionexcludedentityinfo.md:
+    id: 0a35e10489a2
+    last_write_checksum: sha1:481a9ff3bf59859f003ad3900f8dea44cf4568e4
+    pristine_git_object: 166ba2622df883839f452280cbd4c50a7377483b
   docs/models/aeexclusionlocalentityinfo.md:
+    id: 4623bf565ec6
     last_write_checksum: sha1:4862dcec31fdb061023671ba846d8a1d6396b757
+    pristine_git_object: dfbdb652e60738948d023d2fe9c2b28d73736b93
   docs/models/aeexclusionremoteentityinfo.md:
+    id: 613621c52cc0
     last_write_checksum: sha1:89d7e8317c7c148992588e609ea9f94398d13fb3
+    pristine_git_object: 464571dc38909397bd3fef4804197329f9390712
   docs/models/aeexclusionrulebody.md:
+    id: 5fdc4494b8d7
     last_write_checksum: sha1:605b64c0e6a2a3116dcf3ae047f5df8c1f566399
+    pristine_git_object: a5aad76f7c1de8870635a4d7e554c7886fb03915
   docs/models/aeexclusionruleresponse.md:
+    id: adccddb433de
     last_write_checksum: sha1:d5ace2ba13e1d64f1e2f984c169330deea805e45
+    pristine_git_object: 5d31be4b1e8e26b0d487e20c82d0df1807053577
   docs/models/aeexclusionsinbounddeleterequest.md:
-    last_write_checksum: sha1:5dbf4b10edf928601c80e371d7bfb28652ed7fed
+    id: 0ccaaf71b99c
+    last_write_checksum: sha1:411ea0ba873382bb836f346da2ecf3ca65cf67ad
+    pristine_git_object: f0090d723f054fcbce5604ee7d126413d868cb49
   docs/models/aeexclusionsinboundgetrequest.md:
+    id: a90c1fddf944
     last_write_checksum: sha1:344a006e48101f16f51dab1f1346b4cf60278396
+    pristine_git_object: 400de2296545685b0731c5bec4efbcbf2e6209af
   docs/models/aeexclusionsinboundupdaterequest.md:
-    last_write_checksum: sha1:9d04d8b07dc675762383d7138a06001fcf16adfe
+    id: 6fa2b5be024a
+    last_write_checksum: sha1:d640728778cf9610360f6f19630efa96005da51f
+    pristine_git_object: 05c46b47001a83029e86f3280b139550dcb8a6e6
   docs/models/aeexclusionsoutbounddeleterequest.md:
-    last_write_checksum: sha1:ee6641cd9dee1765abc156360aa7de1d086afac9
+    id: ec04ca1e7da3
+    last_write_checksum: sha1:70835371fb48db4c88e64f73a7c19bebf22e504b
+    pristine_git_object: 66bc8e6183dd27f08148d6a9c79363dfbab5da4d
   docs/models/aeexclusionsoutboundgetrequest.md:
+    id: f70fd3f106c2
     last_write_checksum: sha1:2c09ae01e828c3a66d3bba15d705a43204bf5636
+    pristine_git_object: b701d017a2b3744bc9b32c4d7c6576ed2656213c
   docs/models/aeexclusionsoutboundupdaterequest.md:
-    last_write_checksum: sha1:21d13752dd70df2e0657cdcf21c988ba1fa2db74
+    id: 7529e5400d2b
+    last_write_checksum: sha1:e9cb9061525e0d5e878e4398d7f28683e362ef5d
+    pristine_git_object: c77e32683b6698bba0414eb33db09ca34dda4c8c
+  docs/models/aeexclusionsrcuserinfo.md:
+    id: e96a8d64e75d
+    last_write_checksum: sha1:05d569fe6cfeaaf533a8401dcbc98332da2d0d07
+    pristine_git_object: 0b6880ce4624169a8cbf3c869899916cef322345
   docs/models/asset.md:
-    last_write_checksum: sha1:6523231879b3c8a64d1c41edb405964e100f199d
+    id: 929d8bd2027d
+    last_write_checksum: sha1:46e17c0ae195a04bd214e7067a58254d5dcf6851
+    pristine_git_object: 858fd222746e016477b152deb0adaec82ab4b653
+  docs/models/assetbasicinfo.md:
+    id: e77b17433bed
+    last_write_checksum: sha1:e21efaa78133a6b68690baf8575bc5eb992fb735
+    pristine_git_object: 5e50731a1a18b11450afc93743103d7897ed3c41
   docs/models/assetidsearch.md:
+    id: ea7272b626fc
     last_write_checksum: sha1:5c0a4fb8682d8a3ffe98c0f98e97aa3fa30d1da0
+    pristine_git_object: ab68b0041dc2d2a030726e0dee5b40260b333300
   docs/models/assetssearchrequest.md:
+    id: 2c4ca8b72433
     last_write_checksum: sha1:6b5161a5d2710138cd1aed60b5f8815be4d50049
+    pristine_git_object: d9bd74db6338b1faf1e87dd223d7936426571518
   docs/models/assetstatus.md:
+    id: 30283dea2dec
     last_write_checksum: sha1:9c55d764dac86a2707fc55447f0155c19b5ca642
+    pristine_git_object: f1f666e1ac225dc217b962b5de626a2d798074e8
   docs/models/assettype.md:
-    last_write_checksum: sha1:f5ed1809fa8a375538f560538f085733f6a7c0e7
+    id: 36bf347e5822
+    last_write_checksum: sha1:b911d6c4142d34b81c2ea5b5d4552dbe8d6bf5ad
+    pristine_git_object: cd20c6cc6a39ec3dd5db6bf083730b39a9a68117
+  docs/models/awsresourceinfo.md:
+    id: ca2d41260163
+    last_write_checksum: sha1:3b59005946bad9a33a0092036f51b5f381442fac
+    pristine_git_object: 9a922b36550ca2f256027db40d598dfe8b739651
+  docs/models/azureresourceinfo.md:
+    id: 7dcc09a0092a
+    last_write_checksum: sha1:05a6574ec3aade8149394204323fd4999e45c206
+    pristine_git_object: 3be9614eda5ec94f90721bed3b1968fa4b10ac25
+  docs/models/code.md:
+    id: 2fcb3964c9c0
+    last_write_checksum: sha1:4436754bcdd7c79c3957d5fcc461bdb04e228d05
+    pristine_git_object: 4b182f7ca275a909b224a3ce7bf68ddce67c8f53
+  docs/models/condition.md:
+    id: b8def926cb9f
+    last_write_checksum: sha1:347f1f67e397db806039c8e5d871d93ff51241fc
+    pristine_git_object: 1c5d01f23e3f1c516a8b51b60c453923cadc8e42
   docs/models/createdby.md:
-    last_write_checksum: sha1:c8a9076da73911a75eb5e7a378a5a48b65164fed
+    id: b91b3dc147d4
+    last_write_checksum: sha1:f1198aaa62f5acde13fcd247b7fc6657e5f035f9
+    pristine_git_object: 65ddeb8e737494f8d2b905e10d37cd6884c13b71
   docs/models/customgroup.md:
-    last_write_checksum: sha1:b01e6a03cca6dbe44d3038b6a579f714e6a423e5
+    id: e30c02794ac6
+    last_write_checksum: sha1:1bac0983de28682b46bc303b3942dba9df599abf
+    pristine_git_object: 40ecf87a4c9dd80923a61d78b7020ab98cc2a85b
   docs/models/customgroupbody.md:
+    id: 9f3467aa45b0
     last_write_checksum: sha1:585da04d1a433947933f3d4b5d257189960202b6
+    pristine_git_object: 40307aee207aecd9b5f18b557385c9bf5196596d
   docs/models/customgroupmembersbody.md:
+    id: c9a3f8ef47fb
     last_write_checksum: sha1:042ea68c78f5b3400d50079416e44e6721e7d51d
+    pristine_git_object: 19237512ad13773a20c80c9562c448aeefc25b30
   docs/models/customgroupmemberslistrequest.md:
+    id: 1e9796470f72
     last_write_checksum: sha1:30feba3949939aa8ec8f9a78caf100e33eab7ed6
+    pristine_git_object: 225b243c2cf817948d535b9d52dcaa8e489fffbc
   docs/models/customgroupresponse.md:
+    id: 1d983ffc6bbc
     last_write_checksum: sha1:a3f0cb12b7d19dec6144c2fd89db5c5a01798ba2
+    pristine_git_object: 6881c615d565102ccf5cca3b949580bf10ba141a
   docs/models/customgroupsdeleterequest.md:
+    id: 10fc21fba2ce
     last_write_checksum: sha1:03e9f6c16eb5ec7867b0bc0a6808b3cef9609091
+    pristine_git_object: 7ab25f5c1b628bc6f6e0bfbc670dd5285089631e
   docs/models/customgroupsgetrequest.md:
+    id: dd42502189ed
     last_write_checksum: sha1:2ad542959306c1b8b43e020afeb8e78b3c4fddc9
+    pristine_git_object: 2ebc765741165a34556a7651d5b6c376b2a69ac4
   docs/models/customgroupsmembersaddrequest.md:
+    id: 136f303c20e6
     last_write_checksum: sha1:d6627f2b956158bc60a6b2a32021ea5a11fe9aab
+    pristine_git_object: ee1952057db290b695b911849d5f723339f5f367
   docs/models/customgroupsmembersdeleterequest.md:
+    id: 7593ace03d70
     last_write_checksum: sha1:235c1c440256762130d4b21df718ceb6cec7ada9
+    pristine_git_object: 8ab77a33f19cd6bcde5cc1a0bf767ea5176fde7c
   docs/models/customgroupsupdaterequest.md:
+    id: 83656aa6f417
     last_write_checksum: sha1:4d280120c6d30035f1aac5298e377ef09deb33c0
+    pristine_git_object: 238d2e3c3920546d18d2274bb394ebfde38a97c5
   docs/models/deploymentsclustersource.md:
+    id: 530cb66669bf
     last_write_checksum: sha1:05c0803395cbc20c236a5596769d5be1c828e679
+    pristine_git_object: aace39aa3d12a40315448767b8cd0d1aa2c6141a
   docs/models/emptyresponse.md:
+    id: f674d0787a16
     last_write_checksum: sha1:24e09cef784e8b94c87b322744536b4e4465f14d
+    pristine_git_object: cd135fbce494121b1b1c5c512ba93d26e07e25b5
   docs/models/enforcementmethod.md:
-    last_write_checksum: sha1:7dcd79cef5382ef0bb5a7c2c4aa33931a60861f6
+    id: f493be70a0cc
+    last_write_checksum: sha1:b299b05683267069b3be674b476e39205dcd0c28
+    pristine_git_object: 441eb0f8c1b4196aef144cb11eda14c264517b6a
   docs/models/enforcementsource.md:
-    last_write_checksum: sha1:9ae6c25113d2650b1235af0da78907e5066152c3
+    id: b3608f036a7e
+    last_write_checksum: sha1:409d577632b18f5fd3c748a44bdf9905abb87930
+    pristine_git_object: 021e8be874926004a13cb6678871bbb6b680a381
+  docs/models/expression.md:
+    id: 84d49a7056b1
+    last_write_checksum: sha1:5bf7f3e903bca73bb6ca9a377d679354b823b381
+    pristine_git_object: 376c69803d67f3a39d23f241a8fe610c0f54b051
+  docs/models/expressionoperator.md:
+    id: 5d8158ecd5c5
+    last_write_checksum: sha1:2786e5eeece5813f91ed364d413b3fcc002d5bc9
+    pristine_git_object: 717681ed1cbb9f63c783ec61aee869873f83f8c7
+  docs/models/group.md:
+    id: 565e059670b0
+    last_write_checksum: sha1:eb3f436f1b0ed38047b4fae2061e7ce52b73521c
+    pristine_git_object: dfd3a0214db32f54202650e0b973c17ba98b9c81
+  docs/models/groupbasicinfo.md:
+    id: f347457fbe7e
+    last_write_checksum: sha1:0885ca503cbf93013c37b7242d12f12ed75a7d16
+    pristine_git_object: 7415854c3eb4d138f245081deb7ead2b5e571871
   docs/models/groupconditions.md:
-    last_write_checksum: sha1:f7a5bdcffbe5ec8c29c0421e4e16ab0e66f39adb
+    id: 9a8c822e67dd
+    last_write_checksum: sha1:3b3b7d5443ea463d77abe1a5b77a38ca4799b6e9
+    pristine_git_object: 9c7f00fa67308947e1b5d08abeaa8a716e9eb33c
+  docs/models/groupentity.md:
+    id: 5aeba13ffea0
+    last_write_checksum: sha1:dc9be184268bd58ae5ffe7f42aa4f77fbfd8930f
+    pristine_git_object: e94203805b12437ee627be78dc30c223a126c071
   docs/models/groupmemberslist.md:
+    id: 04d243e825dd
     last_write_checksum: sha1:70f38a5f8b2f6b3a0330b42c2a831248b135bf03
+    pristine_git_object: 36146ea1f23a9e8ae942f825057e71e90d66ef4b
   docs/models/healthissue.md:
-    last_write_checksum: sha1:76d193482df78921dd84ae4244b5f576463ba9cd
+    id: 11e68a016df7
+    last_write_checksum: sha1:fd0838df448bd66d331f1080bc653a9a6dd3c647
+    pristine_git_object: 887d36bcce14255626b73366c663761f4f704560
   docs/models/healthstate.md:
+    id: 4aeb97a1ff73
     last_write_checksum: sha1:da2d8fe8c941df431f3e44ee49c5e845b290f984
+    pristine_git_object: a008af95310b0f5f39284f65af1dc5e4af703f1b
   docs/models/healthstatus.md:
+    id: 568a185627e9
     last_write_checksum: sha1:d3798f7a8307f159b39f284aca0427b2eef579e2
+    pristine_git_object: fd7a145d00ae837668fda3429d81d3f3aa9107b8
   docs/models/identityprotectioncategory.md:
+    id: 8f53c51f3bde
     last_write_checksum: sha1:49a81467777dfcf3683461bc4c2cd34735584f45
+    pristine_git_object: 51c7d4d8ee085be930554c21ee4c1383388fee28
   docs/models/identityprotectionstate.md:
+    id: e7df4a7cdb6e
     last_write_checksum: sha1:baf7205afc0a6b3f3a750ebfc2a50e821b25dabe
+    pristine_git_object: 61f1860f47d362e8a4c2f8f3ba56bdbcb3e9a37e
   docs/models/idnamepair.md:
+    id: 255d9a686c38
     last_write_checksum: sha1:8277217ddd7c0460bbaee38a31effa898a1df81a
+    pristine_git_object: 7d16098717f0e8ad7f176c69c5d49733cae7a17b
   docs/models/inactivereason.md:
-    last_write_checksum: sha1:5dc75052cc630a1cac2d454031cf5a4b4e1f4fd9
+    id: be116f60eac3
+    last_write_checksum: sha1:9f0a87e1189f55f2bda0e156705b22c61e94d15b
+    pristine_git_object: 58ad36182f6f38ff4394d83a1a93290348ad9aa6
   docs/models/inboundruledeleterequest.md:
-    last_write_checksum: sha1:989d5153a87fe58cf83b8efcd9a475195baa6f75
+    id: 4bbe38e59094
+    last_write_checksum: sha1:d191696e613cab296e1859af36ea516541fc7bd6
+    pristine_git_object: 21d6606c96e18de8a83fe46423b621b3731f93ea
   docs/models/inboundrulegetrequest.md:
+    id: 78c5266fadec
     last_write_checksum: sha1:5bdf5f4f4c31882645f50cd2899c7a1e9de2b858
+    pristine_git_object: 213928d5a1b53c9f938eec5a158733c2539450f4
   docs/models/inboundruleupdaterequest.md:
-    last_write_checksum: sha1:ce92fb5eb8c1bda82c2a01a454850a035aa18416
+    id: 4805359e5835
+    last_write_checksum: sha1:dddebdf1ffb2c854d1c5957ee18d8bbe0a8ceb4d
+    pristine_git_object: b8b5685951b4607c0e2bba087946970b1c78178b
   docs/models/internalaccesspolicy.md:
+    id: f540a1c6442c
     last_write_checksum: sha1:e3b34f791cfeeb88c04cab46acf98826e9e87c83
+    pristine_git_object: 7507c41fab6c5ce38604ae3765f1431b83c67fd6
   docs/models/internalaccesspolicybody.md:
+    id: 5f34454b04b1
     last_write_checksum: sha1:21f34f62e891b8281dd2b29c5095910be1397ebf
+    pristine_git_object: c292bd4e0ebf05dd7402d34c92bceff213d5da55
   docs/models/internalaccesspolicydeleterequest.md:
-    last_write_checksum: sha1:7f56f453d9ed37ad958d529a218be5f4b75f7352
+    id: 572f03b28823
+    last_write_checksum: sha1:7fa933f309f79c032758f79d63e41a6a4d847193
+    pristine_git_object: 842d167b59e1194a4f12c41d543fc0f477fd8d77
   docs/models/internalaccesspolicygetrequest.md:
+    id: 723ad02c3bdd
     last_write_checksum: sha1:4c756231612eb18c2c952c501caa139440703f20
+    pristine_git_object: c2a18259d932b601e5c0087a7fc8bc3e724c55f5
   docs/models/internalaccesspolicyitem.md:
+    id: 1535a31d0272
     last_write_checksum: sha1:15af8ba25bb52693459bebde2f1ea736eefb74e6
+    pristine_git_object: 2fa4290ed6801f3d26d476588634f2603390ff10
   docs/models/internalaccesspolicyupdaterequest.md:
-    last_write_checksum: sha1:74564d217210789968ca1e2ef01c451c1c9a67fd
+    id: 13a9bc2b04ad
+    last_write_checksum: sha1:0bf0fee77c8c668f82ed2b250c3044fb96f1df53
+    pristine_git_object: 7897e57c8f6e39d3436e6c1822497c2d401b3c2b
   docs/models/ipsecopt.md:
+    id: bbe36184ed15
     last_write_checksum: sha1:89b48c587a9b0cd0373814a0d5ac18beee06ea23
+    pristine_git_object: 7d12fa58e6ef9f9258c4ea039492879d27370138
   docs/models/issuecode.md:
-    last_write_checksum: sha1:5a7a24ead0037adeb2521165f2540fd5a93fcfe1
+    id: a15459534970
+    last_write_checksum: sha1:d60de0054d3526ea47ebbe9aecd17dcd8ecac29e
+    pristine_git_object: fcea59ecc02bfec6eb57ca4b3b0253b57a5ef29b
+  docs/models/label.md:
+    id: 7f6bc0636741
+    last_write_checksum: sha1:0b5355e2e953cbf576603508271ae35cd9aba778
+    pristine_git_object: 3dfa3cdd9f4817e30a96f1d4f95d3b648b76966a
+  docs/models/linuxfirewalllogger.md:
+    id: 264ca3876e8c
+    last_write_checksum: sha1:7adf8b1f28ce1f6eede12d38609cb0e17e607539
+    pristine_git_object: 4546545d299b03d8cfb0242627e17ee879922180
   docs/models/mfainboundpoliciesdeleterequest.md:
-    last_write_checksum: sha1:851eedcf134b4ec930621cb353cb943906c5f51e
+    id: efedb98ef532
+    last_write_checksum: sha1:29cadaf76f6108b1f0fbb368eb854bee028e760f
+    pristine_git_object: 1106cdb9641dc212709858c49ff83acc8b35facc
   docs/models/mfainboundpoliciesgetrequest.md:
+    id: 58785058dc8f
     last_write_checksum: sha1:45dfe60525fd171216e8f0686f0eb7f65106949c
+    pristine_git_object: c2e21bdeaf845cca7aadcfb3ed1a22436a76ae3c
   docs/models/mfainboundpoliciesupdaterequest.md:
-    last_write_checksum: sha1:694efeb5013227066bc888b5712ed9ff79b4fd09
+    id: 3fa98d5883d1
+    last_write_checksum: sha1:5b1a62c49b3d2735e2aa8e4667ccda705fdd3b10
+    pristine_git_object: 98c81bb740e977cdd7eabcd6c28bb71ed6938677
   docs/models/mfamethods.md:
-    last_write_checksum: sha1:590d6e1f100f12ace135824689dd94d5e380b238
+    id: cc4f0761dd68
+    last_write_checksum: sha1:c1204b05207510ccf6126976e543ca9cf65ed750
+    pristine_git_object: 9f7e1ef3b10471c25ec7088eb2484a3667a05892
   docs/models/mfaoutboundpoliciesdeleterequest.md:
-    last_write_checksum: sha1:bdf4635aa30dcccf4e7fef3243d099d09f5b1409
+    id: 670f2e160c6c
+    last_write_checksum: sha1:4b67c725908798c78beb08f54af2620726393bfb
+    pristine_git_object: 8c370280fdfb20d61cb9bab0b0a8de7c0d20cc8d
   docs/models/mfaoutboundpoliciesgetrequest.md:
+    id: 608b44b29b93
     last_write_checksum: sha1:22c4f75850574c50f74759fd47fbf6caa6b719ac
+    pristine_git_object: 22682539e0d0c2bca373036e6e82a62df1413990
   docs/models/mfaoutboundpoliciesupdaterequest.md:
-    last_write_checksum: sha1:8596198b97b4c2088453b4c622ac70a3e8aa02e3
+    id: fd92630f0f61
+    last_write_checksum: sha1:6dfd1e9bde42f54e737643b5e13a518046ce59bb
+    pristine_git_object: a31dbded2c049c987d6ba09afe59710c5659b854
+  docs/models/monitoringstatus.md:
+    id: fdeb6496ef81
+    last_write_checksum: sha1:786e046d0a50beb0dcb89b939ebbdc5e75d190a0
+    pristine_git_object: 24ab56877d468bfb758fdeb7dd339bec0a3cc0cf
   docs/models/ostype.md:
+    id: a18d80f1c42f
     last_write_checksum: sha1:e861e0340e5fec9c438f706bef04164999af33f5
+    pristine_git_object: caad52a80715a7757a73956bc9143474d388f5a9
   docs/models/otlocation.md:
+    id: f41d7aca4f03
     last_write_checksum: sha1:784150385a65c5fa61530e8970707f63a337293d
+    pristine_git_object: b01294162b851933613739cefae62d35a154fb66
+  docs/models/outbounddirectionstate.md:
+    id: 66b4d1d55130
+    last_write_checksum: sha1:e1ac2ffe8189dfc9d6e228077360b7439f547b79
+    pristine_git_object: a2ff86b5684d1a3720685550bd4e3dd19b9a697a
   docs/models/outboundrestrictionmode.md:
+    id: 7b16a5c3c1cc
     last_write_checksum: sha1:9188b193ba80e5735c557156d7041d6af66435ca
+    pristine_git_object: 2e9d039ceadc22ce88f394933530793f5d55f7c2
+  docs/models/outboundrestrictionstate.md:
+    id: c35b620dd6ea
+    last_write_checksum: sha1:0bb42d3fea892544f4d8547e763c19400058d0b2
+    pristine_git_object: 8f38f0db500ba4a89912098466709ce3eaa82ca1
   docs/models/outboundruledeleterequest.md:
-    last_write_checksum: sha1:8cf5bdaa58b2615c14e7988435f37a0b5e8e31ca
+    id: 36ee8ffa743c
+    last_write_checksum: sha1:f329385fafd62b92cac76939362389bb9435cf47
+    pristine_git_object: f322b60a81abaab5ec5410f2f68143ca241f446d
   docs/models/outboundrulegetrequest.md:
+    id: 4d41e70ca042
     last_write_checksum: sha1:3ed27842949ca43445b45eb6e69bca32dd905393
+    pristine_git_object: 3377d42acb3e2c0b3467a860691c848866253eda
   docs/models/outboundruleupdaterequest.md:
-    last_write_checksum: sha1:695da2b070b9c38e800995836b4950c3a2a6372c
+    id: ad4551c62046
+    last_write_checksum: sha1:45bba37b68cd1e717e62d73befbe67f5699bb0f2
+    pristine_git_object: b25211116e1344f853c0603ca9bacef411b674cb
+  docs/models/portexposure.md:
+    id: 77ff216eb7a7
+    last_write_checksum: sha1:efc03aca3d26e55ec25fcdd31c479c43b4fb5811
+    pristine_git_object: 534a134d175708e9e02f5dc1f2ff22115a0a951b
+  docs/models/portrange.md:
+    id: a65d4bd591b8
+    last_write_checksum: sha1:ef6e5cdd2588bea70e6bbefc3f0b6fdae8cd540a
+    pristine_git_object: 483d3a1d87bb8ac0c545fc10601d3632f242f957
   docs/models/portslist.md:
+    id: 4cd0b4e5b6a7
     last_write_checksum: sha1:006c9349f8dc45c0b76c52b3f8f3598e7e4464c3
+    pristine_git_object: dacd40309d5480c9f643f3c1c645ebbd7f744452
   docs/models/protectionstate.md:
+    id: "223922898964"
     last_write_checksum: sha1:2a6c5a63a61945bf002bd1997fe901eba415b5fc
+    pristine_git_object: 040fb872ea9235953cc992712facfab56d6e2027
   docs/models/protocol.md:
+    id: 8174c2e84624
     last_write_checksum: sha1:3b906ee7cb02c6cf06845ba147255a67538597db
+    pristine_git_object: 5465cdec508822b40707ea1f9296447d2e13cc5a
+  docs/models/protocolportrange.md:
+    id: c111b28cfcb0
+    last_write_checksum: sha1:a4e889a2305e05032c3b0bcf6bfe4a01f4e8805a
+    pristine_git_object: 974f8bfc795979b33a24c5f47364e34ae1376e6f
   docs/models/protocoltypemfa.md:
+    id: 0f5d64502de8
     last_write_checksum: sha1:ed6db77bfbf7cc0c1c5e20014c5f9412073606eb
+    pristine_git_object: 0eab77c838e05140ba4d690dc6e69fb5045938d5
   docs/models/purduelevel.md:
+    id: a208cacf001f
     last_write_checksum: sha1:7656b6a04144a3b3beeb5c06838782b9b1761b5b
+    pristine_git_object: 2570355edb1b4b711f192cd29141a84b0610b38d
   docs/models/reactivepolicy.md:
-    last_write_checksum: sha1:84498769ff140444c44a5b2bac36c459660e79cd
+    id: 34df5d95cfe0
+    last_write_checksum: sha1:a768bb4f45438799bfa0a526d02006703cf18ac7
+    pristine_git_object: f99fb5a39526fe45eec646a84b53f3f9ed8d6ea8
   docs/models/reactivepolicycontext.md:
+    id: 12d6fdc6ff2f
     last_write_checksum: sha1:ecefbfd39c41b2f47222c4cb47ea60c73027ad1e
+    pristine_git_object: 1fefd3c14d3a9f8284c17a79d8ca7292acb8b955
   docs/models/reactivepolicyinboundbody.md:
+    id: 523a8abea098
     last_write_checksum: sha1:743f30146d755470809b6889a6265bc8f512e25d
+    pristine_git_object: 4b60b53385ca8e5f9fa4f08e41016fd648acf596
   docs/models/reactivepolicyinboundbodydstentityinfo.md:
+    id: 4caf5a038ff8
     last_write_checksum: sha1:c876a204bd8a2b673ed7e3ed47edba41fb57afae
+    pristine_git_object: 28aa0288b981435d931dcfabef4f19799068cafc
   docs/models/reactivepolicyinboundbodyexcludedsrcentityinfo.md:
+    id: da541cc469e0
     last_write_checksum: sha1:3f5809623f6ac98ba1a2de06e2487fc118e87143
+    pristine_git_object: 8990366c6f95ae153c365d07dc04e49a453cc93c
   docs/models/reactivepolicyinboundbodysrcentityinfo.md:
+    id: 9d47e7e75d80
     last_write_checksum: sha1:60e04506fd8df46741a5bbe742842591bf76c27e
+    pristine_git_object: 7540c9e265236be6483b33ad10a83d916624c928
   docs/models/reactivepolicyinboundbodysrcuserinfo.md:
+    id: aedd8d3245e5
     last_write_checksum: sha1:b3b29fb233ce606662fb45474a7c3b5b7be65106
+    pristine_git_object: 1a97ce5119cd244b4aad35b3d955a678ea40ee18
   docs/models/reactivepolicyitem.md:
+    id: a152b45ad3be
     last_write_checksum: sha1:f12f807664451baa6ce7a112796199793b74ee49
+    pristine_git_object: ff6fe4718ccbe68a20fd131d3bf4af8ed41cf5db
   docs/models/reactivepolicyoutboundbody.md:
+    id: 1f2ab4758b92
     last_write_checksum: sha1:bbcca184e353116c673c31b4edeeda31d7ffe5e4
+    pristine_git_object: 2d6d777747e16222dd11631b19c3bd90d1e70698
   docs/models/reactivepolicyoutboundbodydstentityinfo.md:
+    id: 3db5d225e1be
     last_write_checksum: sha1:ea54e8111a1ea768bf931e98aec20b22980fb7a3
+    pristine_git_object: 2096fb29d9c548db779d2d3300f95bf2f1c858d6
   docs/models/reactivepolicyoutboundbodyexcludedsrcentityinfo.md:
+    id: c2dcbcafe91b
     last_write_checksum: sha1:9316167362b89b40288483831dca1c0d5bb16c6d
+    pristine_git_object: 2779c811053b76c4afb23c1f2579563792a8db6a
   docs/models/reactivepolicyoutboundbodysrcentityinfo.md:
+    id: 4ea2418cdc70
     last_write_checksum: sha1:81dab43802807abf64d11e6417aef1d8e606d386
+    pristine_git_object: cce4b6435b9c6519467571ad3e06e550c4a03586
   docs/models/reactivepolicyoutboundbodysrcuserinfo.md:
+    id: 9518c6098a29
     last_write_checksum: sha1:4687c4faad12c9e8d7129b60fc1380ab6b06564f
+    pristine_git_object: adc78b73dca0b780b54823f3b1465c120e57ead0
   docs/models/reactivepolicyresponse.md:
+    id: 511331495e8a
     last_write_checksum: sha1:cc09c2d02a5a43bc54bf79eede7da734a6d33fbc
+    pristine_git_object: a0ccb487517e399faaf6567a56e49d94728984a5
+  docs/models/reactivepolicysrcuserinfo.md:
+    id: 6aff9d96ec5e
+    last_write_checksum: sha1:5713526fc4d34e9d023f468fb052234e045329d3
+    pristine_git_object: cdd47bf2baccad6612f90d3d86d27919074e1f6e
   docs/models/reactivepolicystate.md:
+    id: 3b9eebe7f33c
     last_write_checksum: sha1:80dbd0bafc6fce7b40a39b0cd3e937e600d1fa20
+    pristine_git_object: 9136f843b8fe5303bd19c5f7848ac89581e7872d
+  docs/models/remoteassetinfo.md:
+    id: 1b1b6956b543
+    last_write_checksum: sha1:cafe8b4437422046de1d1d09c891fb1f09263af3
+    pristine_git_object: 8ed0b2eb5e38bbb1270676dcfa605a8cb6a43524
   docs/models/rpcrule.md:
-    last_write_checksum: sha1:10677f680c5016bbf90617774bc614998e0337b6
+    id: 84c6778c0c78
+    last_write_checksum: sha1:5ba57e7c527d49784db1d6a877f92a6148fd4d80
+    pristine_git_object: 95707cb099afae4f3c39abfb46d37be80e7a9c90
   docs/models/rpcrulebody.md:
-    last_write_checksum: sha1:0ba3c20df71616dc7b8fba0549756adefc2a89fb
+    id: f32562913dd5
+    last_write_checksum: sha1:d4126ff94374c8be43ccf8a16ae4ec0f422d00e9
+    pristine_git_object: 1a01a48e2b2f85b97d37bb66605b7f9516e57d72
   docs/models/rpcruledeleterequest.md:
-    last_write_checksum: sha1:087f535ddb34e0cecb4e32d1ae84be869befb7e3
+    id: 7bdd11f0c4fa
+    last_write_checksum: sha1:c1e4b7388b893c5370ffdc33b859ee04e3bbeb27
+    pristine_git_object: 0f6533a3a7e3ac5d784ea3a010bfc44da6ba90c2
   docs/models/rpcrulegetrequest.md:
+    id: d00af10a8333
     last_write_checksum: sha1:010bcc708662e24da05c8cf855825628a4fa8236
+    pristine_git_object: f67746a4611a104d3de793ab8b10c20ab32089a4
   docs/models/rpcruleresponse.md:
+    id: 60254b9c3644
     last_write_checksum: sha1:5871cffe4d42624465d27a521401eaf9f545222a
+    pristine_git_object: 3997ec9edf780becdbc7ac310065124f1146b61e
   docs/models/rpcruleupdaterequest.md:
-    last_write_checksum: sha1:963886b09cdc147c8441958ce62307d0c15008a2
+    id: 2c7e78d5fcd4
+    last_write_checksum: sha1:6fe2741671953a245eb0454b0b246c856046435f
+    pristine_git_object: 38226c5710d2be293a02554aa367b494098fff03
   docs/models/rule.md:
-    last_write_checksum: sha1:fc50ea18b554e080559963734de4d6882aea496e
+    id: be98fe6aadca
+    last_write_checksum: sha1:71a3800a606cc678ccaf383c792bf8d27c0b5db3
+    pristine_git_object: b4a445bf3c3009d0a6c3c148bf3f5a5a59c536c8
   docs/models/ruleaction.md:
+    id: ba54d9ec37d9
     last_write_checksum: sha1:1b7d11295e50709ec8f17f5678d97f5f8e548e0d
+    pristine_git_object: 4d9ca759c77bab9685a076b11c6f4894cc192a2c
   docs/models/rulebody.md:
-    last_write_checksum: sha1:e96b963b76330753f3dc14306a62415e61e8ab4d
+    id: 5d8da03ae4fc
+    last_write_checksum: sha1:5717ccc0709bcee0de31e7e3f76db058dce408f8
+    pristine_git_object: c406f1179e184aa80be8c96cc5f81add463e9086
+  docs/models/rulecategory.md:
+    id: 8d1e0cf4dd40
+    last_write_checksum: sha1:1432efdc544287161c3ca34d71e1e5369af84faf
+    pristine_git_object: cdd5e132717315afa4d2e352c6cd9d84c81c2ddf
   docs/models/ruleclass.md:
+    id: 8b63be15544c
     last_write_checksum: sha1:7b789abc0df3d854f9561f6b164c2f55b3bab066
+    pristine_git_object: ae1a798b5bf2bb9a15d74adc992395a964362ef7
   docs/models/rulecontext.md:
+    id: 4111150f7a3c
     last_write_checksum: sha1:48be9295d7ac66fde037c8be9dc3dab0924945aa
+    pristine_git_object: e40f8906709b683be4ee955d2af251ba07302193
   docs/models/ruledirection.md:
+    id: 1ddeb4fcaa0c
     last_write_checksum: sha1:33d33bcedb4124705957232fc8cdc85261f57f52
+    pristine_git_object: 09c043ce830280bd2a3375b9eb0af17b2cd5933d
   docs/models/ruleduration.md:
+    id: ca2e2ee30909
     last_write_checksum: sha1:dfd85bac37f7f91a336162bbb4c9cc5e407bb062
+    pristine_git_object: 3c078110581d8f7a63b0c90670a3516d132efb21
+  docs/models/ruleexcludedentityinfo.md:
+    id: b09927923e09
+    last_write_checksum: sha1:23b4d5cb7737886d8a0adf820ad5b61a1e05f67b
+    pristine_git_object: 78a25c566c0f9f760f5d3932947f75e39f04f7ed
   docs/models/ruleitem.md:
+    id: 9e09212adc3a
     last_write_checksum: sha1:8294ad0bb3604b6d2ff5ccc1b19c1143b4f94d92
+    pristine_git_object: 3c1b822d5118c8a779879519b3db3e54269d322b
   docs/models/rulelocalentityinfo.md:
+    id: 7b67b5bebce5
     last_write_checksum: sha1:1bd7e90bb90bce811f193227d311a13592e0befb
+    pristine_git_object: 7575b51700e74747c15157d2e9ca7e375a6075e4
   docs/models/ruleremoteentityinfo.md:
+    id: 2c34e1b8932c
     last_write_checksum: sha1:01270c2fde3074df870874bdaa7f2bd87feea5e3
+    pristine_git_object: b66da84a1077105ae5a7757d3e603b259270f0b6
   docs/models/ruleresponse.md:
+    id: 074a59d87d26
     last_write_checksum: sha1:6ec58cd93a9b9ed64676db0afaa05614f73d9a51
+    pristine_git_object: 7c0caba1c85a161a936459fed55f78c56e3a0ef1
   docs/models/rulereviewmode.md:
+    id: 400ad3995580
     last_write_checksum: sha1:1bd164e58e5d567ca406e65b1648f00d6af82019
+    pristine_git_object: 7ceeaaacf0c289cfcd8a4be81e28a1740162bf84
   docs/models/rulereviewreason.md:
+    id: 682be43b5c99
     last_write_checksum: sha1:bdad9d76d7ea6c70b5cb0350b9d83573d5e2cc9c
+    pristine_git_object: 9dea5807d8f5d57303c9af78130de4ff7f076d85
+  docs/models/rulesrcuserinfo.md:
+    id: 53e8eb866301
+    last_write_checksum: sha1:2f8120c834dc594051b1b81a7263050374473441
+    pristine_git_object: b5397554607ab21362d4c33214f210cd25f122c4
   docs/models/rulestate.md:
+    id: 903c57d78092
     last_write_checksum: sha1:9a769cbe91f97c11b371725c3e9ec93ad07f7b85
+    pristine_git_object: c59f1e30f8171092f02f2c9f25a05506c3d1aa4c
   docs/models/rulesuggestiontype.md:
+    id: a760d3da3a82
     last_write_checksum: sha1:495229d092bbe8b63774a96cb6031802ac66d756
+    pristine_git_object: 9f3e47ca61c46e56f378dc0001d65f31accad544
+  docs/models/scope.md:
+    id: c7d8338540ba
+    last_write_checksum: sha1:48b9f04b6bfbc8aa6933671eeb1488ef2ce71c16
+    pristine_git_object: 47572c8d31c24cbb46d033beaf87d77779dba5a2
   docs/models/security.md:
+    id: 452e4d4eb67a
     last_write_checksum: sha1:45b7b8881a6560a468153662d61b99605a492edf
+    pristine_git_object: 2e0839d06f821dd97780dc22f202dedf23e4efe1
   docs/models/source.md:
+    id: 6541ef7b41e7
     last_write_checksum: sha1:cc8959307fc65c60cdd8133c6750efcd712ca7b9
+    pristine_git_object: baaab3ef0b3672b019dd73220d2149b7680abb77
   docs/models/srcuserslist.md:
+    id: d38219048de6
     last_write_checksum: sha1:3688da4d53dbc6e4a2dd4aeae575d975168af265
+    pristine_git_object: 941281298e7bc4d8d4a0531871ff6bf69a7ee2b4
   docs/models/state.md:
+    id: e560b4e72643
     last_write_checksum: sha1:55eee28993e45f76e5a8d409a1fcf51319a1299d
+    pristine_git_object: f9b4f89f26fafb39895409a3021ee8c2f81e379f
+  docs/models/userbasicinfo.md:
+    id: 91125d628cfa
+    last_write_checksum: sha1:c32903938ff4b9a5cf57b8dbb82dd63dbac19045
+    pristine_git_object: 5c43b29d300fd5dd9e11043f12998bdcfc8f77b5
   docs/models/userrole.md:
-    last_write_checksum: sha1:7f7b63c198ea2b12f1bd40f885bb0b18c2b2e4d4
+    id: 63aa1e945a21
+    last_write_checksum: sha1:fd215a9bf4304e01a5dd510481b6923b7fe3505c
+    pristine_git_object: da80a4c626ff3a2064d60a39b82502ed2eca2f05
+  docs/models/usertype.md:
+    id: caefb3a3f739
+    last_write_checksum: sha1:512d6a0d550cf115a77580ff82445ccf5b78e97d
+    pristine_git_object: bbf8350b8daa656461e189c9db6248ff9d553c55
   docs/models/utils/retryconfig.md:
+    id: 4343ac43161c
     last_write_checksum: sha1:562c0f21e308ad10c27f85f75704c15592c6929d
+    pristine_git_object: 69dd549ec7f5f885101d08dd502e25748183aebf
   docs/sdks/aeexclusions/README.md:
-    last_write_checksum: sha1:f64c3964cc0eec7f8d5a02143c07a00a73ae3317
+    id: d7b2cf0a6bd2
+    last_write_checksum: sha1:04a55c92e04151d46c410ec329122837231070fc
+    pristine_git_object: cc4820ba6659f5c8298980aaea4b0c7af6861298
   docs/sdks/assets/README.md:
-    last_write_checksum: sha1:a9c7c68d5499c90770a9e22e26d0c4f8d4f5095e
+    id: c072a8a1f5c5
+    last_write_checksum: sha1:d215b5a816825ca611f1d8572568951ba2b45ca6
+    pristine_git_object: 14d1e3d6ff3acc94fc3d93f4d30e7b31f740342d
   docs/sdks/groupscustom/README.md:
-    last_write_checksum: sha1:ea8e63c77f15037323152d06b92d177e9d615a3c
+    id: 3df32c7233cf
+    last_write_checksum: sha1:ee4b4cafd74292e2a5b8c897e4518c545f93d14a
+    pristine_git_object: 5836235078f761950a50468bcb3bc620f18b840c
   docs/sdks/internalaccesspolicysdk/README.md:
-    last_write_checksum: sha1:4e5957751098ffcec2a80022a000097c5b491e57
+    id: bc24f56970ff
+    last_write_checksum: sha1:d39d79e31b1ffb9e33aeb1765f5bd41adf434f25
+    pristine_git_object: 1e59b022bb0eae453128fd6e004a0cc3beb3b6fe
   docs/sdks/mfainbound/README.md:
-    last_write_checksum: sha1:c8c3512ea0fcd096b1f454f79451ac9eca92b565
+    id: c71ced9e1b4d
+    last_write_checksum: sha1:3ba62c64cfd4fc1dd6952355a2ef7308e44baff5
+    pristine_git_object: 7dfb6d406df7444e672064f10db3362d47f5299b
   docs/sdks/mfaoutbound/README.md:
-    last_write_checksum: sha1:2ae2592b14f9e2df6cfedd5c2af6eec375f7ad0a
+    id: 18b84dac5b8c
+    last_write_checksum: sha1:6737165593a879063121cf8757ffcae56b8f85e1
+    pristine_git_object: 5d4cb316c0b6f02ad2144f4ea0e6d31fef15197b
   docs/sdks/rulesinbound/README.md:
-    last_write_checksum: sha1:94fecd35ce8b8f896971fa2746e28968ac3ef2c4
+    id: 68b63f22d25d
+    last_write_checksum: sha1:06bc8ca3f882f9712be560908f85f04ddfb5dff0
+    pristine_git_object: 3233d8b85b640439d12fbc82ba0c2f30f960a8a7
   docs/sdks/rulesoutbound/README.md:
-    last_write_checksum: sha1:2882411316ad3e02e1ba8f159d586d26bc174b29
+    id: 50901cb7acc8
+    last_write_checksum: sha1:1d4cec6ff5ab649c1308ac6e4e472c9cab7cfc80
+    pristine_git_object: 64f9dfb1c8d3b318fb01793708fd9ba60a213a69
   docs/sdks/rulesrpc/README.md:
-    last_write_checksum: sha1:a3213ea86583d504660dacc0b9f127e01d79d3ea
+    id: 3dcf9bac9e87
+    last_write_checksum: sha1:f5cc9edb004b05aded6ad5067e4beb7b6326ccc0
+    pristine_git_object: d87f018019234fb9ba756f33a6847509eec21181
   py.typed:
+    id: 258c3ed47ae4
     last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
+    pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
   pylintrc:
+    id: 7ce8b9f946e6
     last_write_checksum: sha1:b08ef8689f6474e400ebbe9c8baf7d7b9fae3a73
+    pristine_git_object: f456032107a9387ba6c98afd1c981df2f4b3d636
   pyproject.toml:
-    last_write_checksum: sha1:055fb72e4e56742d748fce1cd75e48567cc44120
+    id: 5d07e7d72637
+    last_write_checksum: sha1:7207e838b8c0774593c3f96aa2f68d030ba0a205
+    pristine_git_object: 2513d5b2920a1b3842f0a99ab4f5a3930f04e15a
   scripts/publish.sh:
+    id: fe273b08f514
     last_write_checksum: sha1:adc9b741c12ad1591ab4870eabe20f0d0a86cd1a
+    pristine_git_object: ef28dc10c60d7d6a4bac0c6a1e9caba36b471861
   src/zeronetworks/__init__.py:
+    id: c0e866613ac6
     last_write_checksum: sha1:da077c0bdfcef64a4a5aea91a17292f72fa2b088
+    pristine_git_object: 833c68cd526fe34aab2b7e7c45f974f7f4b9e120
   src/zeronetworks/_hooks/__init__.py:
+    id: 347b9958d095
     last_write_checksum: sha1:e3111289afd28ad557c21d9e2f918caabfb7037d
+    pristine_git_object: 2ee66cdd592fe41731c24ddd407c8ca31c50aec1
   src/zeronetworks/_hooks/sdkhooks.py:
+    id: 166bb787a8fb
     last_write_checksum: sha1:2f2005132573dd8cd06d7a0d84659b2f491bfe8b
+    pristine_git_object: f71af36acebb50c47135aeb9c2c88f7ab6fd25ce
   src/zeronetworks/_hooks/types.py:
-    last_write_checksum: sha1:98717a3bad303206bf961162e939656c06409400
+    id: 24ff8c306add
+    last_write_checksum: sha1:d4af2f3f754d82bf50d3f8eba9248e0c1b15f8dc
+    pristine_git_object: 5e4f3baaca6b982ec2aba27859cf77304bf52aaa
   src/zeronetworks/_version.py:
-    last_write_checksum: sha1:344ea2ca9c015f73492a550a8ff14f58b8a04c7d
+    id: d730bf880ca3
+    last_write_checksum: sha1:1646326e78b4c1ab29ee054bd26dd80a1a577d6f
+    pristine_git_object: 588ff8088ee77adece7a92ed2530f42bbeac2846
   src/zeronetworks/ae_exclusions.py:
-    last_write_checksum: sha1:32d7785150ff038f5e484b921c62ac8fe25f379d
+    id: 3d478e3b8251
+    last_write_checksum: sha1:f8aae371c9f57f7a10e34fe5d06ef307aec1b0d2
+    pristine_git_object: a75459db24b23dec34f68a2ddd31868886e275e8
   src/zeronetworks/assets.py:
-    last_write_checksum: sha1:27b08a92af85725b5b534e57b0fd5e3f2d4a2f92
+    id: 3f6e0ffc5a42
+    last_write_checksum: sha1:c82c1aaffac154c7c67cdb09b84fed6e68c40ce8
+    pristine_git_object: ff74e8574af1e366e25c4861734b697900b71498
   src/zeronetworks/basesdk.py:
-    last_write_checksum: sha1:ba37543b9e826c946f249a2c3fd65b5318af80fd
+    id: dc44e1c8e2bf
+    last_write_checksum: sha1:983b2a58bf3d59c80668f120939267425c7f7985
+    pristine_git_object: efe8ebc6291396e50c0935ef659a11f8f5a7af5d
   src/zeronetworks/errors/__init__.py:
-    last_write_checksum: sha1:0f20d4243a417169ff8ddb65a2321c4e230952ac
+    id: 916cb896bd35
+    last_write_checksum: sha1:0f50db349ec06a3a55496ce7af7fedb9eaca4f87
+    pristine_git_object: d6664f4ab8ddc25fabcbb2d62bd92aa565238a5e
   src/zeronetworks/errors/error.py:
+    id: 1b922786a5d8
     last_write_checksum: sha1:d6068726aa5019f5594de3824f0c61fe7af35538
+    pristine_git_object: a2d70fea1e17f4b2257f117556b31dbf85164eb2
   src/zeronetworks/errors/no_response_error.py:
+    id: 7eca929fe9f6
     last_write_checksum: sha1:7f326424a7d5ae1bcd5c89a0d6b3dbda9138942f
+    pristine_git_object: 1deab64bc43e1e65bf3c412d326a4032ce342366
   src/zeronetworks/errors/responsevalidationerror.py:
+    id: 94d454841bf8
     last_write_checksum: sha1:0f127cbcd838703ccdbb4a20ce18ccf2e6f903fd
+    pristine_git_object: b3fa22ad153ac74b2a7c8ae1b6ec6fc92aecb81e
+  src/zeronetworks/errors/staleconflicterror.py:
+    id: 58ef0478b189
+    last_write_checksum: sha1:1f5f99ca338e5f73d0dfb6d675af4f76f36e6225
+    pristine_git_object: 5ba3d352e82f8c78d1e808f03e2e9f57bc1ecf66
   src/zeronetworks/errors/zeronetworksdefaulterror.py:
+    id: e3693695c09e
     last_write_checksum: sha1:e6bc7a1802ccfa87b36e78c94570c5f8585d0d6c
+    pristine_git_object: 063b27441f731034117a064a95240459bafe278d
   src/zeronetworks/errors/zeronetworkserror.py:
+    id: 7b075f8a378f
     last_write_checksum: sha1:0fcf5d56c07e133ead5909522a348da4dec5c02b
+    pristine_git_object: 16f4605ba8ea855d4647eda4701a6229678f78f4
   src/zeronetworks/groups_custom.py:
-    last_write_checksum: sha1:2af7149b561976e265d1bd9e5ad054a9d6de9ad6
+    id: f34dc94ee3c8
+    last_write_checksum: sha1:effa216a2f400cd2483a246778a7b92ed3a2d6ed
+    pristine_git_object: 07104a7685b7ba39248851c181ab0d29a3202aca
   src/zeronetworks/httpclient.py:
+    id: eb3404b73ed5
     last_write_checksum: sha1:5e55338d6ee9f01ab648cad4380201a8a3da7dd7
+    pristine_git_object: 89560b566073785535643e694c112bedbd3db13d
   src/zeronetworks/internal_access_policy_sdk.py:
-    last_write_checksum: sha1:f00ed28e7fa0efe25506530289ea3f4380e46929
+    id: 3ed65740afe5
+    last_write_checksum: sha1:4846b731da532b1fb4d546cf64387249c743ef70
+    pristine_git_object: b1df465ef01f48801a8006ad4c44a0293e19d7f2
   src/zeronetworks/mfa_inbound.py:
-    last_write_checksum: sha1:81c8e96b7027befba574ea655739299834bff64b
+    id: 31cf012b65d0
+    last_write_checksum: sha1:438b4da34d07bb45a038e1839b2d11250713249a
+    pristine_git_object: 233c933bfc72d95a79e02da465481f55ed524411
   src/zeronetworks/mfa_outbound.py:
-    last_write_checksum: sha1:3f23ee9fb51402ae06156b1b2abcc484880e77fe
+    id: 5084acb6c34d
+    last_write_checksum: sha1:f9335a6a99d675a49201bc3db2c325563bef1849
+    pristine_git_object: 6f6585abc751a690537f0dc3e8ab10aa069000a5
   src/zeronetworks/models/__init__.py:
-    last_write_checksum: sha1:e55272ad0ab9464aad615e8341d9e3402c408c5f
+    id: d49e375d677a
+    last_write_checksum: sha1:5783e92fb45bbfe2aa46f8a2740cc77fd2223fba
+    pristine_git_object: 4ab1832dec8ac8bf7c083ccc9a8b955907bca651
   src/zeronetworks/models/actiontype.py:
+    id: 50453be644d9
     last_write_checksum: sha1:229354586c7dda4fed2f1229f5ee79b9f09022c3
+    pristine_git_object: e048a12958d2715261a222a598d737231fc9d6ba
   src/zeronetworks/models/aeexclusion.py:
-    last_write_checksum: sha1:fc143ee3306e1f0342f7c63bf928cd4167aa8877
+    id: 5ceabf73033b
+    last_write_checksum: sha1:c8a531906d7880753046a51587387d5ddf06e19c
+    pristine_git_object: 70c90a1fcde529d5560906098467e341566a476f
   src/zeronetworks/models/aeexclusionrulebody.py:
-    last_write_checksum: sha1:000764d218c28342c01979e36500b5fcb9b92d4c
+    id: 1a54580a0cfa
+    last_write_checksum: sha1:b0aeb252cb24e5b7330c6e369d4e1fc74407b8d3
+    pristine_git_object: d355c21aeadbd585903c12b03dc2ea96c9c03467
   src/zeronetworks/models/aeexclusionruleresponse.py:
-    last_write_checksum: sha1:565f702d52ee0bd88d87f980b62f162caa144f41
+    id: 2eb9a36f1f33
+    last_write_checksum: sha1:715bb2a42a34bedc292cd7f945a294618e5c226d
+    pristine_git_object: aba8177fc5e65e687e2507e0762589b6a75421c0
   src/zeronetworks/models/aeexclusionsinbound_deleteop.py:
-    last_write_checksum: sha1:400252da7dfa60c228b1b0d8178a0839c1284f28
+    id: 8b8fd33f1a20
+    last_write_checksum: sha1:c8538250843a52bfec6f34d39639f7a142da6c2b
+    pristine_git_object: f5e72374877d1c8f3fd0653fe655b648b9e9a1da
   src/zeronetworks/models/aeexclusionsinbound_getop.py:
+    id: d746eabe62ea
     last_write_checksum: sha1:14f63048c117a3ca12950cba11efa449cb3de431
+    pristine_git_object: aa3482f417a9c221ca757a762b6b66dc4083b211
   src/zeronetworks/models/aeexclusionsinbound_updateop.py:
-    last_write_checksum: sha1:07bf2c57b650115f43ee36c519b00549b4238b1b
+    id: 3cc766333efa
+    last_write_checksum: sha1:0ac17933bf3f8e1f34465c72797aa7303cb6cc73
+    pristine_git_object: f9f13d0fc760df20811fad107e3f6ea8e7c0d25e
   src/zeronetworks/models/aeexclusionsoutbound_deleteop.py:
-    last_write_checksum: sha1:344edb2c9a4bfe66fdbbb5098c2fdcb8624fa660
+    id: 8f588d9d9f8c
+    last_write_checksum: sha1:5c73c3c82c2cbfbe6cb4d4c551da31faa24ddb57
+    pristine_git_object: 497b1cc698e08554b5a6eba3452a3edb19a2a1d0
   src/zeronetworks/models/aeexclusionsoutbound_getop.py:
+    id: 8e4de89e7acf
     last_write_checksum: sha1:88d079f13d03e178fa321528cafda5a2fd4b5420
+    pristine_git_object: 176e45f13a3fb8db3bc99c4086027c1e37c22351
   src/zeronetworks/models/aeexclusionsoutbound_updateop.py:
-    last_write_checksum: sha1:14e19e1ddee1d2c294ea7d402f96a147b84bf416
+    id: 6561ee5b6d99
+    last_write_checksum: sha1:6f4371561dfe7563d5a91fa2506e18d7f43a93d8
+    pristine_git_object: 3729f3548d8068cbfb6ee7ca01e125e2d6b8d983
   src/zeronetworks/models/asset.py:
-    last_write_checksum: sha1:22c736f383f1cc97adb56dab36af2ecfe400ee8f
+    id: dcd90a96dcbb
+    last_write_checksum: sha1:286c53d2cb35d5080e3adcff522ec4a1bd66b45f
+    pristine_git_object: 3d913cf877053f99f783bab6dd16c9706476e113
+  src/zeronetworks/models/assetbasicinfo.py:
+    id: bb76c021ab9f
+    last_write_checksum: sha1:42fdf0098d8c9075a1c12855861f4da8f9c40d11
+    pristine_git_object: c0bf9b979b0df3df28b27bcdfae7fc9bcfb01f94
   src/zeronetworks/models/assetidsearch.py:
-    last_write_checksum: sha1:2c37e5be0d2d049501551b904eebe359bf169d16
+    id: f75b5259c32d
+    last_write_checksum: sha1:7aa13414d264e30b52475e4f051b59124141d01c
+    pristine_git_object: 90ec7adea0ae154dd12c134d7ed1671d6d875088
   src/zeronetworks/models/assets_searchop.py:
-    last_write_checksum: sha1:73e8a6b5a187e890626a6088013db9cab76642c8
+    id: 3bb9f6d282a1
+    last_write_checksum: sha1:1ffae4b90b01b2714471bf9e9083739993e1e743
+    pristine_git_object: a8591a0b1d476bc84512e469c58b287646172112
   src/zeronetworks/models/assetstatus.py:
+    id: 9443c1355fbc
     last_write_checksum: sha1:48236d2dc992dcba17a4ff226b7bca883aa7467d
+    pristine_git_object: 01bb62fc9d7137d9d2e7886348bc16fd751a87f8
   src/zeronetworks/models/assettype.py:
-    last_write_checksum: sha1:a18e2ac4651c06aedb558443c359362a00ef475d
+    id: 1a479b9b108a
+    last_write_checksum: sha1:5a86f7a6b49f170c930df109f65133192e09bfb2
+    pristine_git_object: 5cbf7e979ad2e451fd662f8a32c4ed84ca417edb
+  src/zeronetworks/models/awsresourceinfo.py:
+    id: 596f5791ba2b
+    last_write_checksum: sha1:899cbf3f73979fce1fd2b92ca169c7cf4e1dffeb
+    pristine_git_object: e37f75430640713634f38c1c7960bf8b6ae9109d
+  src/zeronetworks/models/azureresourceinfo.py:
+    id: 5c072dc710c3
+    last_write_checksum: sha1:528ce756c1fbc82bf092b2b4711ea4ea350474de
+    pristine_git_object: 01851dc083a9e22c81da7d5f7cdb4506144b657a
+  src/zeronetworks/models/condition.py:
+    id: d14be049b57b
+    last_write_checksum: sha1:81767c02476b59ca4d624eadd87a3151e62e737e
+    pristine_git_object: 2bfeba7fbf829812389f84785bb0ea95827b4dce
   src/zeronetworks/models/createdby.py:
-    last_write_checksum: sha1:a3ed1f06a7452fee973d0c5a4b901f23bd63206f
+    id: 6f2af3d84f14
+    last_write_checksum: sha1:35c71121fea19e4b0889a49d5cdeb28de1eeaff8
+    pristine_git_object: e5d8f2e49d3d2044242596187062dbf00b0ac1c8
   src/zeronetworks/models/customgroup.py:
-    last_write_checksum: sha1:36fba9f987f0b4b9bbdecc649255d21eb713afde
+    id: 318bc1bbf978
+    last_write_checksum: sha1:daf5bb02ed9102149dfde5d0786caf020e250013
+    pristine_git_object: 59a46354fa690b45b3f43864f2e7837bff187b63
   src/zeronetworks/models/customgroupbody.py:
-    last_write_checksum: sha1:b3aedeae1a6895906da4c2d901f48f158c0f240e
+    id: 03d09b4d0e63
+    last_write_checksum: sha1:25861a1cff94fbf596e570ed89daa753afd9c335
+    pristine_git_object: 20d42df15630537dda9429018b43bdbb99c9079c
   src/zeronetworks/models/customgroupmembers_listop.py:
+    id: 665fc775ee6f
     last_write_checksum: sha1:ac3896a5cf055d3907795d45674fe4369f9891a6
+    pristine_git_object: 679f70207fab6690b5bce4a4bef132349007a437
   src/zeronetworks/models/customgroupmembersbody.py:
+    id: f07ad346d4b1
     last_write_checksum: sha1:aefdcd6d6a3f7a58ae460274afc58a19b4736f99
+    pristine_git_object: d6eb708e757aeaa68b98fa48293d05a58b5ddae6
   src/zeronetworks/models/customgroupresponse.py:
-    last_write_checksum: sha1:0492f3805993bc0d4ec0b8477888d2f19bfd17cf
+    id: e31aa1e61728
+    last_write_checksum: sha1:9f342ccdf07fb873c5cf86b24187a776c75f3a06
+    pristine_git_object: 6c4085a45c799878fdb689d3839a65a774c337dd
   src/zeronetworks/models/customgroups_deleteop.py:
+    id: 9b65dd82c934
     last_write_checksum: sha1:62c565bf3cc231f08d63125d1e5ecec34f34b264
+    pristine_git_object: 74485d116007a100e98e141a7193b035156b65f8
   src/zeronetworks/models/customgroups_getop.py:
+    id: c1877ea1ad9a
     last_write_checksum: sha1:4db50527a070070b5f313ba8936c76dfb1b54bd2
+    pristine_git_object: eedcdf01f6a62f0f1141b965377a0cb63b078eb0
   src/zeronetworks/models/customgroups_updateop.py:
+    id: c082079f8476
     last_write_checksum: sha1:33784b94ace01a1fd15cf04f1177c6b6fc2b2ad1
+    pristine_git_object: 95c3adfe1dea9674b101948e46029c5990901191
   src/zeronetworks/models/customgroupsmembers_addop.py:
+    id: 14c72c3b1c61
     last_write_checksum: sha1:e2cd5446d8517afd9d27b6039ee8b65adcbe38de
+    pristine_git_object: be5922bc69ccbd8beb4b6d8ee0feb7b9673212c9
   src/zeronetworks/models/customgroupsmembers_deleteop.py:
+    id: 781a93721653
     last_write_checksum: sha1:71e26adadcb04664b58a2334b361a55b1be300f6
+    pristine_git_object: 7cbcca97f8cefaaedd7299601acdf58985200230
   src/zeronetworks/models/deploymentsclustersource.py:
+    id: 1b41d42e24a2
     last_write_checksum: sha1:551c186bfed5b279a9fa65b663bce4b3c10bd345
+    pristine_git_object: 8cd1fb1ea966fd5714a7d3422c67fb2214c97153
   src/zeronetworks/models/emptyresponse.py:
+    id: 208e783211aa
     last_write_checksum: sha1:3ee5da5cac76b2a6b92064e24d3b007d854bf78e
+    pristine_git_object: c197cfe53daee269522ceaae05aef34ef2bc2d16
   src/zeronetworks/models/enforcementmethod.py:
-    last_write_checksum: sha1:bcba192c53730b1b16819876b886893d0dee1545
+    id: 118a3eb5586c
+    last_write_checksum: sha1:970e5870b9ceed137431a9eda4003e8f7cc378bc
+    pristine_git_object: 8f235bd7c9255bf0bb8a283f68a3b86d2ac365d4
   src/zeronetworks/models/enforcementsource.py:
-    last_write_checksum: sha1:d9c4f693dcf8f9b2d4f542880724d55fde3e7eb2
+    id: 4595f87864b1
+    last_write_checksum: sha1:32257367c431d1020a9e56aab7db9f6a8f3a6ac1
+    pristine_git_object: 075f710a9e35b811c49f37f0f9f368112827b6cd
+  src/zeronetworks/models/expression.py:
+    id: 618c2cc60926
+    last_write_checksum: sha1:ea12d63552058c6dbd1f0e02242e9df77be089d0
+    pristine_git_object: c786e3dcecfcc604c352a20ecdddd186049126ca
+  src/zeronetworks/models/expressionoperator.py:
+    id: cb47d18c02f6
+    last_write_checksum: sha1:9d29739f97acd62097b5a081f8a6dfcc2a24f55a
+    pristine_git_object: a0fc16728d44ced8fbec46afc332af6c9c12c329
+  src/zeronetworks/models/group.py:
+    id: 7c6d5a16f011
+    last_write_checksum: sha1:f18e72729772b1d505d5ad9fd4e93e0281963ead
+    pristine_git_object: 75e3599e7ad3baced641e97ef3096f1aef64bf49
+  src/zeronetworks/models/groupbasicinfo.py:
+    id: e1bcf8f9f7f9
+    last_write_checksum: sha1:b546ea19c1ea289dbe4b93ea523715ab504e9d23
+    pristine_git_object: e3f730cd71d1992848ac39c3d2bdeb95edb96f89
   src/zeronetworks/models/groupconditions.py:
-    last_write_checksum: sha1:7c114f619078019314ee2adf7cbf0d72a7f07de1
+    id: a6a56a28220f
+    last_write_checksum: sha1:10cd23f7318d147b1bb2ada5f2df03b473eca1e4
+    pristine_git_object: 5340e04e246788138ff13ca59e6f799d56ad1c8e
+  src/zeronetworks/models/groupentity.py:
+    id: 4039c7301d57
+    last_write_checksum: sha1:ec4e072b766cecd9690bc7ae55bad119da0ecfe4
+    pristine_git_object: 13dba56a0f348cfd64647cd359dac000cc236cdc
   src/zeronetworks/models/groupmemberslist.py:
-    last_write_checksum: sha1:a3572c30f9f867cc8ac90e027b04b984b61021db
+    id: 8e312e1e6e79
+    last_write_checksum: sha1:37a1632a0782e4ea1204e909d47ad9cedacc0b30
+    pristine_git_object: 89049f95c39e49931563e9aaf0170c5918ba89a9
   src/zeronetworks/models/healthissue.py:
-    last_write_checksum: sha1:f84b76910cfb609818f4185b07a4ebd46a8f7d42
+    id: be54f42ce68f
+    last_write_checksum: sha1:4b3b0cf20aab9320c4eadd6c104baa50aa9880e4
+    pristine_git_object: 43c9bd448f917cffe275e41d6fe149bbafc1873b
   src/zeronetworks/models/healthstate.py:
-    last_write_checksum: sha1:a65587b73696baa36537deabaedc3d587da3dbdd
+    id: 7d560d57c20c
+    last_write_checksum: sha1:9ee9cb1669c16a49a278002cddf75eebe4cd1360
+    pristine_git_object: bb82a0ce7188f3925a06c6cba363cdab4c1472f6
   src/zeronetworks/models/identityprotectioncategory.py:
+    id: af27e0518cde
     last_write_checksum: sha1:b467cb04d7db620f5d066b458011c1e84893ba8b
+    pristine_git_object: 805c22cbdb582756bfb33b8ded28656036d89198
   src/zeronetworks/models/identityprotectionstate.py:
+    id: 8b0a5f0af6dc
     last_write_checksum: sha1:0974136a06ac5d9e688ffae540988025ca356f3c
+    pristine_git_object: 29c61f30372770db2251dec6fd7f8effc6ec625d
   src/zeronetworks/models/idnamepair.py:
-    last_write_checksum: sha1:c3ea195e8a7a7bda89691eebf879b3d72bab3577
+    id: f75f1e02b55e
+    last_write_checksum: sha1:eed7341c03e2682372b61db7a00b92a4c89c91bd
+    pristine_git_object: ef4de62f52a7ee5549b644bd15419017d30cc277
   src/zeronetworks/models/inactivereason.py:
-    last_write_checksum: sha1:cb073f4e4891c418cd78e961df6336a409c888ef
+    id: bd2743f3a151
+    last_write_checksum: sha1:6b01bea712812226891563d1265c7abef502ad11
+    pristine_git_object: bc1ca5838d0cab045bb41395e174f0549c0eec34
   src/zeronetworks/models/inboundrule_deleteop.py:
-    last_write_checksum: sha1:433a59d3f001429193090581af5cc501ac40d8b9
+    id: c9557fac245a
+    last_write_checksum: sha1:c5e0e0d1e1ff3a403703db03083e16e5818c281f
+    pristine_git_object: 19b7b2d42cb3f148477b7036c18d757bccd113fc
   src/zeronetworks/models/inboundrule_getop.py:
+    id: 7804a7d2e531
     last_write_checksum: sha1:03abbdef894dd1a94aff847d9467a3034361c515
+    pristine_git_object: 79c2a7fada0a2afe3b9db35c72e5eb58e2f918ef
   src/zeronetworks/models/inboundrule_updateop.py:
-    last_write_checksum: sha1:505ad8275284b0f1bdb84e96ca87b36730904aa0
+    id: 852e7f8eddf9
+    last_write_checksum: sha1:c676f41c9f4cfeb83a55c2a30f5c9a917c630d0c
+    pristine_git_object: bce75aa70464d1e8d93291ecfb9f67826d7bc67b
   src/zeronetworks/models/internalaccesspolicy.py:
-    last_write_checksum: sha1:a17e07761627e449055cf5cb1ff449080514ef18
+    id: 48b4137d1819
+    last_write_checksum: sha1:0486bb6bb80daf783e2694963e92b78787493988
+    pristine_git_object: 2a283c01b3c59d0c45840bad779014bd10b27f55
   src/zeronetworks/models/internalaccesspolicy_deleteop.py:
-    last_write_checksum: sha1:93f85dacc0f6bd411087b5faa91d0d0f42874f64
+    id: 5c22ad296521
+    last_write_checksum: sha1:8cb515282a28f64740ddda76fe092668124de4c7
+    pristine_git_object: f843917e40bb2abf19be84971b064575f04b7c53
   src/zeronetworks/models/internalaccesspolicy_getop.py:
+    id: 911df00c5c0c
     last_write_checksum: sha1:a348b11334340c7fdeb7a11930d34b2a73e2f8e6
+    pristine_git_object: 272a2df7b23782af7bc8d8e917d3e0382f831652
   src/zeronetworks/models/internalaccesspolicy_updateop.py:
-    last_write_checksum: sha1:5d4dec7df0b4e1c3e544aa5bb1f694195569bc21
+    id: e24425a1da8b
+    last_write_checksum: sha1:34231c2a5e5c3159def2296baf72188bbed2750c
+    pristine_git_object: a76a864f0f2b80cfe5e19e387535230ed46075b3
   src/zeronetworks/models/internalaccesspolicybody.py:
-    last_write_checksum: sha1:f40ac421f59fbb48f9fd006c70b551b47f005e57
+    id: 7b882ca48078
+    last_write_checksum: sha1:fbe6107e69359eadd99f2dad4b08e8822dedf53b
+    pristine_git_object: 143b97bc63e99247dad6175726c1acd429e9a2bf
   src/zeronetworks/models/internalaccesspolicyitem.py:
-    last_write_checksum: sha1:21a60b57522dc9a09c87a03d107e4f0b407fc559
+    id: "678134326707"
+    last_write_checksum: sha1:64817022c87e86010e3e44ece81e1596bf59e623
+    pristine_git_object: 94b73f24972bc80b35090c36f0455d6a715a6f2e
   src/zeronetworks/models/ipsecopt.py:
+    id: 578b4020ed7e
     last_write_checksum: sha1:8e3686aa440370e2c0715daa5dc14acff2194e70
+    pristine_git_object: a70e3211056537807359ba85fa14ea54580c79b3
+  src/zeronetworks/models/label.py:
+    id: b5b43a5b6fd1
+    last_write_checksum: sha1:d8daeabf37c2fe8a3c4191200da53272e8b62001
+    pristine_git_object: 37894b01f2aa92da035300594518c6b2cd6e7007
+  src/zeronetworks/models/linuxfirewalllogger.py:
+    id: 08dbd4119056
+    last_write_checksum: sha1:c3541f84721d6ae55b3125012c737591c4cb781c
+    pristine_git_object: 26b377043a3742bde9785dbaf82c1c85b9d2db62
   src/zeronetworks/models/mfainboundpolicies_deleteop.py:
-    last_write_checksum: sha1:e13b19130861d456867776aa5df80f8d6c3f3144
+    id: 2237e38ec00d
+    last_write_checksum: sha1:a20795394401c0d1c32b63ce7ebfa14820915f4b
+    pristine_git_object: f01f32f6b022413fbb5b21090a9c9d455030671f
   src/zeronetworks/models/mfainboundpolicies_getop.py:
+    id: ed91e249ebf6
     last_write_checksum: sha1:6bce443e2a6f06ef03a882507423f7ba3ff5f355
+    pristine_git_object: 73e334dd4de19d31105bea914ceef68ca70469fc
   src/zeronetworks/models/mfainboundpolicies_updateop.py:
-    last_write_checksum: sha1:74911334a65c1fcd1536a5b110a84c1fe2351401
+    id: 196fe74c1571
+    last_write_checksum: sha1:2990878c6f3ee4998ac131e65f72ab571ce0ecdd
+    pristine_git_object: ebf4b4912976d22d6d24cc20deec16f12a77af26
   src/zeronetworks/models/mfamethods.py:
-    last_write_checksum: sha1:1e5c69155d5f5668656fdc086f50c8747946f105
+    id: c4e21c2966d7
+    last_write_checksum: sha1:eee941833b9a7134ecc438571e5c6e452f906656
+    pristine_git_object: a61fbf34eb180b8193c3c3d768773790066f5be2
   src/zeronetworks/models/mfaoutboundpolicies_deleteop.py:
-    last_write_checksum: sha1:1608651a072b081a14417f589bd191fe7bcc3b8d
+    id: 4785d1bd3906
+    last_write_checksum: sha1:3609fc565be937431bd085552e748ea2deee981a
+    pristine_git_object: e7d861d6c42e72c08c3344adfec152b416d78c4e
   src/zeronetworks/models/mfaoutboundpolicies_getop.py:
+    id: 7875dad4fd67
     last_write_checksum: sha1:d9386a54191221c74f9c1a98efeaf775ef388a68
+    pristine_git_object: ddf418d7d017efbb5f3d247cb0db5d4021d67e4a
   src/zeronetworks/models/mfaoutboundpolicies_updateop.py:
-    last_write_checksum: sha1:361db6186fb5387bff4d98e18658460a2aded69a
+    id: 4ee3ae60a5bf
+    last_write_checksum: sha1:8009ab91d2088fdc2d9359d0cd8e9722f5b30bb1
+    pristine_git_object: 48971070c3ed30c4dafa5d8716654d8c2070d7f5
+  src/zeronetworks/models/monitoringstatus.py:
+    id: 7527efb72bca
+    last_write_checksum: sha1:b6a29542a11e564af28877081d749797d1af63d3
+    pristine_git_object: a96fc0330612141c570f1daea37fc5bb0057aa1b
   src/zeronetworks/models/ostype.py:
+    id: 5e907666a4cd
     last_write_checksum: sha1:adbcc612db4bf1f7abd216c9bc9898d6c3ad0f8b
+    pristine_git_object: c095d09f7301241a502edfc502214112c31a6fd7
   src/zeronetworks/models/otlocation.py:
-    last_write_checksum: sha1:91086b6fe9b6978290a851ab8dca2f2bd886920d
+    id: cf8b5b67b9ef
+    last_write_checksum: sha1:f796e88366b2a9b9fdb4adbc729531c6f305905d
+    pristine_git_object: 0a5fcc4feada20470ed695478e5fcd95cc66ebe5
+  src/zeronetworks/models/outbounddirectionstate.py:
+    id: 910aed5659ef
+    last_write_checksum: sha1:9ae563db0adfa4c561413c7699c45a1f5d300014
+    pristine_git_object: bfecc11cbc04a83fc0396372dd22671ac94f70cd
   src/zeronetworks/models/outboundrestrictionmode.py:
+    id: 153a20ff5835
     last_write_checksum: sha1:ff26e6c4f6e69e86b9712b6049723aa657c0374b
+    pristine_git_object: c20e05cfaac79c27d2ce354a9272d5937350e972
+  src/zeronetworks/models/outboundrestrictionstate.py:
+    id: 26bd82ccb4dd
+    last_write_checksum: sha1:1ef870426569ad9f36964ef8e04558d7dd7be1ad
+    pristine_git_object: 4821c09094ffe646de87f27b56c9c53082f71038
   src/zeronetworks/models/outboundrule_deleteop.py:
-    last_write_checksum: sha1:6136b32f30cbc45a1816f666ae7f4614838d1644
+    id: 624b7b7134d1
+    last_write_checksum: sha1:720e72467cd06d5f26fa8a41976acb95536569b6
+    pristine_git_object: 58ccef523ee988a7e77afd2799e0e5b576497c2e
   src/zeronetworks/models/outboundrule_getop.py:
+    id: ff66c62252a9
     last_write_checksum: sha1:1af759794dfb8ca1c4acc9c86016fdfca577c1c6
+    pristine_git_object: 59b73cec270b40fcdfffcb6e5ea7f026ed4874c3
   src/zeronetworks/models/outboundrule_updateop.py:
-    last_write_checksum: sha1:ae6584f35123dfc6350752c7a1cae96f21ab0e02
+    id: a7de18e245c5
+    last_write_checksum: sha1:f372fb039c86673ca89ad28e07205ce34050d7ac
+    pristine_git_object: 8ff8eeb5091a14283c7317288a9f75c6171af068
+  src/zeronetworks/models/portexposure.py:
+    id: 8591c1801462
+    last_write_checksum: sha1:9db579cde0ba8388b6273d1273ff1e83be515ff2
+    pristine_git_object: 5c896c19517f4765d0af5e6be8a091cb901424f0
   src/zeronetworks/models/portslist.py:
-    last_write_checksum: sha1:6fd398f223a367f73f9b6bde0d4bb0c1ee25f2f7
+    id: 6a66a72f2d6b
+    last_write_checksum: sha1:d4f00a74b47378860022855f7b595a439c2d046d
+    pristine_git_object: 6eb176952551a68b5ce1610589846cc5aa39dcd4
   src/zeronetworks/models/protectionstate.py:
+    id: c269a2f78e08
     last_write_checksum: sha1:8c36b06d9546ab5a76d01dedc5237048b09a2a61
+    pristine_git_object: d76c5615353ece8aa0f1cfeccd8d99ba04d3f888
   src/zeronetworks/models/protocol.py:
+    id: ac0f12668e94
     last_write_checksum: sha1:ceda1c9c880af18a52fbf074d82befada64062de
+    pristine_git_object: cfd5d217d3ee228f5a41993155302a0fbd9d5b69
+  src/zeronetworks/models/protocolportrange.py:
+    id: 6808126b2702
+    last_write_checksum: sha1:d2cd4640de9951cf345ec7e0b266f8a66525c45e
+    pristine_git_object: 02f0c83a50390867454473a9692824b75e807425
   src/zeronetworks/models/protocoltypemfa.py:
+    id: f0580d952cac
     last_write_checksum: sha1:75efa6cdee109de5cb8c028f2157663ce1864026
+    pristine_git_object: f2baca969f5af35912821cffee99765c7a6a6056
   src/zeronetworks/models/purduelevel.py:
+    id: 5c817eac6296
     last_write_checksum: sha1:f752ccc3252a46ce802468afae0dfabcd8e93a18
+    pristine_git_object: 356a3b85460127bd069320e8632439d1ddf326bb
   src/zeronetworks/models/reactivepolicy.py:
-    last_write_checksum: sha1:b2bae6b5d1a0e6108dcbd4a9f3f9c00abf33ee59
+    id: 845b2c0a0a4b
+    last_write_checksum: sha1:3e99a20cf613fd6183634ba637a6683f0701e224
+    pristine_git_object: d6b70d5cd9bb2b74c9a297f80beb5086a83cef38
   src/zeronetworks/models/reactivepolicycontext.py:
+    id: 59f77d0038cf
     last_write_checksum: sha1:011428bff5714fd2d40424922150e4914cd1203e
+    pristine_git_object: 8ca8a710bebe69fb041df1315753edfac05da8d2
   src/zeronetworks/models/reactivepolicyinboundbody.py:
-    last_write_checksum: sha1:64d81c82fc1ff183b5daea089f61dd8859afbb4a
+    id: 49c197a03e6a
+    last_write_checksum: sha1:c93753a6abdddf35ab6172e4a9edc7aafec80be6
+    pristine_git_object: 1cd751f41790742b6d51c91c6c58a6ba1cb08ab3
   src/zeronetworks/models/reactivepolicyitem.py:
-    last_write_checksum: sha1:28201c26a231a50f7149fe3a357a531252fc0092
+    id: 4eedc86d448a
+    last_write_checksum: sha1:5837fe3507f4c681c6047f3de08765fc043985d6
+    pristine_git_object: 5086fc6dba79271c69f005a0abbed6e4d8180c1d
   src/zeronetworks/models/reactivepolicyoutboundbody.py:
-    last_write_checksum: sha1:d1d7b6c2d29408d4575f7753a3cfc54bd94fc676
+    id: 3956779f6ad1
+    last_write_checksum: sha1:d2962038d226a9f2695c49c74543e1ba25ef0341
+    pristine_git_object: 8731c688b88af91e3665381adad4145ee49e319e
   src/zeronetworks/models/reactivepolicyresponse.py:
-    last_write_checksum: sha1:bcf5f60c4e4956b76fe0285576c7c5bbec14489b
+    id: c6f6c8266753
+    last_write_checksum: sha1:a7616a16074506ddc7f2c54112ad2ea48989da71
+    pristine_git_object: 56f4c5f84e8788b9145ae75a805366d7c7f61e63
   src/zeronetworks/models/reactivepolicystate.py:
+    id: ef0ab28f0947
     last_write_checksum: sha1:4e95f2c50754a74fd2d0b1697c846e1cb8154862
+    pristine_git_object: 1a1ea4267d8857a7d4b848eb447b60297efa149d
   src/zeronetworks/models/rpcrule.py:
-    last_write_checksum: sha1:ebb6552fdd70f9684022340dc89b49668f1f9d29
+    id: cf4e466acb3a
+    last_write_checksum: sha1:a3d4e30439d210bfe88582c0c38c9d60d1c24d99
+    pristine_git_object: 6e078aba099a1626c0e383dd77e2fb210c531f9e
   src/zeronetworks/models/rpcrule_deleteop.py:
-    last_write_checksum: sha1:c56d859ac65daa7dd38b41464cda3bffe5ba843d
+    id: d6ad173d166e
+    last_write_checksum: sha1:9c8cb268f7b1f57f95742d5c84ddd0a18f9daa0e
+    pristine_git_object: 73bbb0c5574029bfdbfca727e50cc6b4f1d498f9
   src/zeronetworks/models/rpcrule_getop.py:
+    id: 195e927c58ef
     last_write_checksum: sha1:b50a7e3129b73c695d271275fdec07676bb911ca
+    pristine_git_object: 9061102fd4fa7f98c9b9aad837764f64aa931a7c
   src/zeronetworks/models/rpcrule_updateop.py:
-    last_write_checksum: sha1:ce6099427b0fc41aa350520fae3e992e9869a859
+    id: ba7ba7432d5b
+    last_write_checksum: sha1:1274079a60992ced18cbd762f49dda4793e0811f
+    pristine_git_object: 75a4869a03ef96bf7b59370dfd0880e41ffefc77
   src/zeronetworks/models/rpcrulebody.py:
-    last_write_checksum: sha1:a6c67a1937bd7155823b0351d57dbc66681be38e
+    id: fc279a89a784
+    last_write_checksum: sha1:19d3118aaade9c18a510908c17d9ca418e3e118f
+    pristine_git_object: 49fd70ad04a5b86af27cee308296bf582eca74e4
   src/zeronetworks/models/rpcruleresponse.py:
-    last_write_checksum: sha1:a4a2baaaace2c1f9bf6190fec8718b80db5f41c6
+    id: 46a6bbb805b7
+    last_write_checksum: sha1:ae9e723112f039df3a4dad171df2ff26d0f21362
+    pristine_git_object: 5bbb3ca673f65add40a5db08258aabb9f6413462
   src/zeronetworks/models/rule.py:
-    last_write_checksum: sha1:1b2502ae9089a824041695189cc05204d72b3820
+    id: d76790fe3651
+    last_write_checksum: sha1:52f5fc71f127c172dfa59ee9674dc1c551b2239a
+    pristine_git_object: 4294d5d4e8576c26888af2d25f51a4e8d86490a8
   src/zeronetworks/models/ruleaction.py:
+    id: 23d22edb3b6c
     last_write_checksum: sha1:05552667183e3fec7fedefd763366bbd8b27ec81
+    pristine_git_object: 6e2970c984e101c8c6ebd76f40a8e79e68bca05f
   src/zeronetworks/models/rulebody.py:
-    last_write_checksum: sha1:872c4920aa5e0ec81791b8edfa74997f1f5c0191
+    id: ee0289ad254d
+    last_write_checksum: sha1:fd6a32646b5e21be04a4ac83324dc091a7db51aa
+    pristine_git_object: fa01125f5981667658d7af830489876b175d669b
+  src/zeronetworks/models/rulecategory.py:
+    id: a50523d50f52
+    last_write_checksum: sha1:53b5b2f6af8a6f32fb85bf3fdb86f1da8f007bc0
+    pristine_git_object: 6cdb61bd290a7625dd951c3daa2bc4cb5aceadba
   src/zeronetworks/models/ruleclass.py:
+    id: a2022881ccc4
     last_write_checksum: sha1:7859e9c4c435e297e94e2b2797c763b0d15a567e
+    pristine_git_object: aa95aa535b0cf84d14e76650bdb111455152d79e
   src/zeronetworks/models/rulecontext.py:
+    id: 8b21335cf225
     last_write_checksum: sha1:371234f54d14c6f3b0aca86fd9e5a429349a21fe
+    pristine_git_object: f7f296c83c4ef81acc82db042fe314334f71d1cd
   src/zeronetworks/models/ruledirection.py:
+    id: 8bb6d4fd8ae5
     last_write_checksum: sha1:befa591715dba90bb791edcb9e647038b47ba163
+    pristine_git_object: 2217fd1381c6dd82a01a8079a5c852721cdf3e87
   src/zeronetworks/models/ruleduration.py:
+    id: 9d41ebf272aa
     last_write_checksum: sha1:5ea6e035db1929f14c902e8e82b980edcef21cac
+    pristine_git_object: c130bb0f0ffabf90ea1e2bb73a9c80a4b999ffaf
   src/zeronetworks/models/ruleitem.py:
-    last_write_checksum: sha1:5cb48250259761c74bc49b4c0a9b1df5d17b1d94
+    id: 12c1b449dc1b
+    last_write_checksum: sha1:a715c1692db8fd6ead600c8fe744eeca6d30525b
+    pristine_git_object: a93ca8ad10d4ee7967c98806f1acc84194d02d36
   src/zeronetworks/models/ruleresponse.py:
-    last_write_checksum: sha1:5da8dffa422ec62847d45abb6843dd2de56f5bd7
+    id: 4782d94f9256
+    last_write_checksum: sha1:d4980a66a57f3b18ccc20413d5dc8df0b12ca998
+    pristine_git_object: 5cb655a182b2c83caf08cf86bf3c712df45826ab
   src/zeronetworks/models/rulereviewmode.py:
+    id: 452c96b66c21
     last_write_checksum: sha1:2ee43258ea05d4578ab6cc896ab9231e5beba922
+    pristine_git_object: bcb9a2e5708776e75537b8c198bcc80d58760390
   src/zeronetworks/models/rulereviewreason.py:
-    last_write_checksum: sha1:3716d461856ebcbc89b4651d523fa2fffc76661a
+    id: b017558ac24b
+    last_write_checksum: sha1:05aafc3e84d83c585b21aa48cbe77e45db245a91
+    pristine_git_object: cf6cd2ea216862e0722c1349e6e02de4ff8d799c
   src/zeronetworks/models/rulestate.py:
+    id: 971e9aea3f8b
     last_write_checksum: sha1:d5ddf08e4780f9ec2023de79ae27069615539945
+    pristine_git_object: 4103dc3911e3c7c77970325fc8ba84d745b3e3b9
   src/zeronetworks/models/rulesuggestiontype.py:
+    id: faa89d0e57f6
     last_write_checksum: sha1:2a6af3ae10f925cefcc9c10d33af390f1de61866
+    pristine_git_object: 74e14cd307e23655a5617b0507e14a23a9292bb7
   src/zeronetworks/models/security.py:
-    last_write_checksum: sha1:e941ba66e5d84bf57f8166c41968e5b226eb9803
+    id: d6c1650a33f4
+    last_write_checksum: sha1:97e6d54db3ba26d677a36e2925bc941506909ac1
+    pristine_git_object: 70f50a11075746bd7c9bbf323e1b003d1e8035db
   src/zeronetworks/models/source.py:
+    id: fe5e0dea1957
     last_write_checksum: sha1:b8267fef97aba4fb68b3d589e3d8ef52ba8aee37
+    pristine_git_object: ca94c338fa12534db4ad865a426eadc5b52557b0
   src/zeronetworks/models/srcuserslist.py:
-    last_write_checksum: sha1:b0d5a9a1e24ec112434b594982f4e1b56a28fc9b
+    id: 9d8c4a9fd664
+    last_write_checksum: sha1:9048afb903ec0bc473d0e2fedda4069ec9a9faf6
+    pristine_git_object: 11d03624b636eb8ab160ef9c0f70dd75e1c7bc82
+  src/zeronetworks/models/staleconflicterror.py:
+    id: 6b8ca20c1e52
+    last_write_checksum: sha1:3c66b30496a09e3f4d5e2abc24f38e55e0326db5
+    pristine_git_object: a93131543334c192525abcba501a30ff7b26e11d
   src/zeronetworks/models/state.py:
-    last_write_checksum: sha1:66897e49815221071726248044799303bac5b93f
+    id: 24a015687d4a
+    last_write_checksum: sha1:1d9dcbb0c442294777046fc919ae85c817395daf
+    pristine_git_object: ac2a3c38a1b33a82f1d26fbd6bb0dbf755561325
+  src/zeronetworks/models/userbasicinfo.py:
+    id: 8762ee75d41a
+    last_write_checksum: sha1:736273bedf75996171c702e1d721f9424e37084e
+    pristine_git_object: 8d6ad0824d93fd1efa738609d9b61fa0f25febf0
   src/zeronetworks/models/userrole.py:
-    last_write_checksum: sha1:ec3aba6b74ff94c64af1a522167a0f1fbdadcf18
+    id: dbae726da7ff
+    last_write_checksum: sha1:a7de7cee88e9b96f4983d71353c47ffd093cc4ef
+    pristine_git_object: 0120f32505cf1fdf271bd6d6659e91c2f8f4aa81
+  src/zeronetworks/models/usertype.py:
+    id: 96f8e4041f56
+    last_write_checksum: sha1:584ff1045f336fd24fd97099c94ab87eb20908ef
+    pristine_git_object: 1f464e4fffc6c943707a2c8cf4565a788092815e
   src/zeronetworks/py.typed:
+    id: 5b4e036e01e9
     last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
+    pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
   src/zeronetworks/rules_inbound.py:
-    last_write_checksum: sha1:d0da233be3fac0c7929d0e82b6e2d9321523aa5b
+    id: 26a6612de7b3
+    last_write_checksum: sha1:7f61124b03b896b43d920b256353cbbddbc9aa9e
+    pristine_git_object: 21411c46d47690253e0894cd8fd9035f815871b6
   src/zeronetworks/rules_outbound.py:
-    last_write_checksum: sha1:62f6b27dce6783c916503389fb4d9685d405d0d7
+    id: 955967333bb3
+    last_write_checksum: sha1:f6eeac18dc6fcdd899e153e72cd94362a5488249
+    pristine_git_object: b575b9731f3027f3b746fc58d5fbc19632135ce9
   src/zeronetworks/rules_rpc.py:
-    last_write_checksum: sha1:a40a3b76dbc23798c620893787ce49963ecea54d
+    id: e11de82f497d
+    last_write_checksum: sha1:4281aa7451e0a2984b98a0a5e36c3714282e44f6
+    pristine_git_object: 86ec49d3c4437000cb3975cabb1da8931abfb3f8
   src/zeronetworks/sdk.py:
-    last_write_checksum: sha1:8376eabb71eed4ddb70438896f9bd132928a8fe3
+    id: b8ed315ca023
+    last_write_checksum: sha1:5f97f48ee7f3d6c43ec4fac81881985da6666d5b
+    pristine_git_object: db0cdb216de6b90dcf58e5d3853a43e8f9d518f5
   src/zeronetworks/sdkconfiguration.py:
+    id: 91a826a60932
     last_write_checksum: sha1:7f647f9f7d75737d3ca42d01b627999e53e9df47
+    pristine_git_object: f8c11efe431c5eb5a52343c935d0641213f94b86
   src/zeronetworks/types/__init__.py:
-    last_write_checksum: sha1:140ebdd01a46f92ffc710c52c958c4eba3cf68ed
+    id: e4aa40a261af
+    last_write_checksum: sha1:166eb50af851c4200ed67fe47c64b1d58b99ed72
+    pristine_git_object: 3a43a78ab719ec504ec95c050c984c843407d366
+  src/zeronetworks/types/base64fileinput.py:
+    id: e00ea06d3116
+    last_write_checksum: sha1:94a99b9b1b7ab6d3fd8fb2e52385a50b4a2ff333
+    pristine_git_object: de42346d429a62ce8d39b04be6ee568c9d37e619
   src/zeronetworks/types/basemodel.py:
-    last_write_checksum: sha1:10d84aedeb9d35edfdadf2c3020caa1d24d8b584
+    id: eacab8d234b5
+    last_write_checksum: sha1:99c644208e340c4974b94bbe6d52019c80fedb97
+    pristine_git_object: 5ca5fdd558ea6d8d8d39cb9ff7877984fd7d63da
   src/zeronetworks/utils/__init__.py:
-    last_write_checksum: sha1:0f93d821f9cb3e061ea125d881bb6f61166738dd
+    id: cb01dcfda216
+    last_write_checksum: sha1:e6fb1146e02dbccdc147eb3724b57e71568b8391
+    pristine_git_object: e115709b0c3b707de93b00ecf707f85fb1abf1d1
   src/zeronetworks/utils/annotations.py:
-    last_write_checksum: sha1:a4824ad65f730303e4e1e3ec1febf87b4eb46dbc
+    id: 1898778c43df
+    last_write_checksum: sha1:2dd01678125b08184a96e28bb4f3692381bf04cc
+    pristine_git_object: 3af322f22ea3253fd1b6cdbb889af11c8b20dc3f
   src/zeronetworks/utils/datetimes.py:
-    last_write_checksum: sha1:c721e4123000e7dc61ec52b28a739439d9e17341
+    id: 369cd3971e97
+    last_write_checksum: sha1:8d08dfebf00458efa19e0c19455eddcc9f14b8ca
+    pristine_git_object: ad634bfe1b612415e92f188544da27a92b20a90c
   src/zeronetworks/utils/dynamic_imports.py:
+    id: 38c079f180de
     last_write_checksum: sha1:a1940c63feb8eddfd8026de53384baf5056d5dcc
+    pristine_git_object: 673edf82a97d0fea7295625d3e092ea369a36b79
   src/zeronetworks/utils/enums.py:
+    id: "269050265081"
     last_write_checksum: sha1:bc8c3c1285ae09ba8a094ee5c3d9c7f41fa1284d
+    pristine_git_object: 3324e1bc2668c54c4d5f5a1a845675319757a828
   src/zeronetworks/utils/eventstreaming.py:
-    last_write_checksum: sha1:620d78a8b4e3b854e08d136e02e40a01a786bd70
+    id: 6f687ec121e4
+    last_write_checksum: sha1:7d1dc68f8b48486ab646653aa05cc38752e1f912
+    pristine_git_object: a8d4fe5cc88d3c7337339e1b36a61bbf7ca8c4eb
   src/zeronetworks/utils/forms.py:
-    last_write_checksum: sha1:0ca31459b99f761fcc6d0557a0a38daac4ad50f4
+    id: 7e224cbd4912
+    last_write_checksum: sha1:dcf527960992b8baef3b21937c7e6c4e652630c0
+    pristine_git_object: 193f264960f3014c81d41543b9023c14c44c12e6
   src/zeronetworks/utils/headers.py:
+    id: 9b8b59cef321
     last_write_checksum: sha1:7c6df233ee006332b566a8afa9ce9a245941d935
+    pristine_git_object: 37864cbbbc40d1a47112bbfdd3ba79568fc8818a
   src/zeronetworks/utils/logger.py:
-    last_write_checksum: sha1:3fcd394bb400490a0746fbf5a8567ff6b72f295f
+    id: 32d1c772ee0a
+    last_write_checksum: sha1:d1d0f83403af6b25faa88b65a5ae00c9f5eaee51
+    pristine_git_object: 67c0f00941c0c1f7e45d4684004394567d82e424
   src/zeronetworks/utils/metadata.py:
+    id: 5b129da141ed
     last_write_checksum: sha1:e703e5cbb5255144aacf86898d1420529afaaff8
+    pristine_git_object: 5abddd588837ac297050ca3b543627faadb350a9
   src/zeronetworks/utils/queryparams.py:
+    id: f504f6c68f76
     last_write_checksum: sha1:b94c3f314fd3da0d1d215afc2731f48748e2aa59
+    pristine_git_object: c04e0db82b68eca041f2cb2614d748fbac80fd41
   src/zeronetworks/utils/requestbodies.py:
-    last_write_checksum: sha1:41e2d2d2d3ecc394c8122ca4d4b85e1c3e03f054
+    id: 109f075965c9
+    last_write_checksum: sha1:e1fef575283b7fe7fe2ad392dbbb3fb105309124
+    pristine_git_object: 591415af8e64baa410627b507d2740afb5387d13
   src/zeronetworks/utils/retries.py:
-    last_write_checksum: sha1:471372f5c5d1dd5583239c9cf3c75f1b636e5d87
+    id: e5054864ae12
+    last_write_checksum: sha1:251e4dd969bb6c06025afe1bad1b5035e94c2060
+    pristine_git_object: 406c1e7c36c7a4fa4fb48bb567d254e2803e1792
   src/zeronetworks/utils/security.py:
-    last_write_checksum: sha1:ae2e81b320454497e2198416d51660e1ad8853f3
+    id: 8574f96b9076
+    last_write_checksum: sha1:06a7bedace6e1d862006fcbf6790dd7e9575d70d
+    pristine_git_object: 5d57dcb6625b78086b91517c4fb799e0ee1767dd
   src/zeronetworks/utils/serializers.py:
-    last_write_checksum: sha1:61009f2e4ef6613a1a5af813fe020373dae5a492
+    id: 814b3581d329
+    last_write_checksum: sha1:2fb543339b424a0818b126e69695df5c91cd4d7b
+    pristine_git_object: 5e57d36e8883501df8f6293e4c76ac337c4987eb
   src/zeronetworks/utils/unmarshal_json_response.py:
+    id: 1597e2f686fe
     last_write_checksum: sha1:40bad56c04fa5990feb96b56504deb4287262699
+    pristine_git_object: 5fb12ebdb7714454a44a841afa8b24a1b89d9b8e
   src/zeronetworks/utils/url.py:
-    last_write_checksum: sha1:6479961baa90432ca25626f8e40a7bbc32e73b41
+    id: 3fe67600b55f
+    last_write_checksum: sha1:0269c7e27f701e0c72d44bc2a36ac4d44ef2108c
+    pristine_git_object: 8eeaa7b0cc48e5e528afc0527da8b76ef46308d4
   src/zeronetworks/utils/values.py:
-    last_write_checksum: sha1:acaa178a7c41ddd000f58cc691e4632d925b2553
+    id: b3fa6419e97e
+    last_write_checksum: sha1:c0eaaf8779a4ba3ae068579a57182667efef0cb7
+    pristine_git_object: 094755b73f7f9382d8df997602080c82a55896fd
 examples:
   Assets_Search:
     speakeasy-default-assets-search:
@@ -673,7 +1433,7 @@ examples:
           groupId: "g:t:01445453"
       responses:
         "200":
-          application/json: {"entity": {"addedBy": {"name": "User Name"}}}
+          application/json: {}
         "400":
           application/json: {}
         "500":
@@ -684,7 +1444,7 @@ examples:
         application/json: {"localEntityId": "<id>", "localProcessesList": ["<value 1>", "<value 2>"], "portsList": [{}], "remoteEntityIdsList": []}
       responses:
         "200":
-          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
+          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUserInfos": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
         "400":
           application/json: {}
         "500":
@@ -696,7 +1456,7 @@ examples:
           ruleId: "d37077dc-0660-454d-81a0-f52f491fd5b8"
       responses:
         "200":
-          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
+          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUserInfos": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
         "400":
           application/json: {}
         "500":
@@ -711,6 +1471,8 @@ examples:
           application/json: {}
         "500":
           application/json: {}
+        "409":
+          application/json: {}
   AEExclusionsInbound_Update:
     speakeasy-default-AE-exclusions-inbound-update:
       parameters:
@@ -720,10 +1482,12 @@ examples:
         application/json: {"localEntityId": "<id>", "localProcessesList": [], "portsList": [{}], "remoteEntityIdsList": []}
       responses:
         "200":
-          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{"fqdn": "laptoppc.domain.local", "ipV4Addresses": ["1.1.1.1"], "operatingSystem": "Windows 10 Pro"}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
+          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{"fqdn": "laptoppc.domain.local", "ipV4Addresses": ["1.1.1.1"], "operatingSystem": "Windows 10 Pro"}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUserInfos": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
         "400":
           application/json: {}
         "500":
+          application/json: {}
+        "409":
           application/json: {}
   AEExclusionsOutbound_Create:
     speakeasy-default-AE-exclusions-outbound-create:
@@ -731,7 +1495,7 @@ examples:
         application/json: {"localEntityId": "<id>", "localProcessesList": ["<value 1>", "<value 2>"], "portsList": [], "remoteEntityIdsList": ["<value 1>", "<value 2>", "<value 3>"]}
       responses:
         "200":
-          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{"fqdn": "laptoppc.domain.local", "ipV4Addresses": ["1.1.1.1"], "operatingSystem": "Windows 10 Pro"}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
+          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{"fqdn": "laptoppc.domain.local", "ipV4Addresses": ["1.1.1.1"], "operatingSystem": "Windows 10 Pro"}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUserInfos": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
         "400":
           application/json: {}
         "500":
@@ -743,7 +1507,7 @@ examples:
           ruleId: "d37077dc-0660-454d-81a0-f52f491fd5b8"
       responses:
         "200":
-          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
+          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUserInfos": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
         "400":
           application/json: {}
         "500":
@@ -758,6 +1522,8 @@ examples:
           application/json: {}
         "500":
           application/json: {}
+        "409":
+          application/json: {}
   AEExclusionsOutbound_Update:
     speakeasy-default-AE-exclusions-outbound-update:
       parameters:
@@ -767,10 +1533,12 @@ examples:
         application/json: {"localEntityId": "<id>", "localProcessesList": ["<value 1>", "<value 2>"], "portsList": [], "remoteEntityIdsList": ["<value 1>"]}
       responses:
         "200":
-          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{"fqdn": "laptoppc.domain.local", "ipV4Addresses": ["1.1.1.1"], "operatingSystem": "Windows 10 Pro"}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
+          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{"fqdn": "laptoppc.domain.local", "ipV4Addresses": ["1.1.1.1"], "operatingSystem": "Windows 10 Pro"}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUserInfos": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
         "400":
           application/json: {}
         "500":
+          application/json: {}
+        "409":
           application/json: {}
   InternalAccessPolicy_Create:
     speakeasy-default-internal-access-policy-create:
@@ -809,6 +1577,8 @@ examples:
           application/json: {}
         "500":
           application/json: {}
+        "409":
+          application/json: {}
   InternalAccessPolicy_Delete:
     speakeasy-default-internal-access-policy-delete:
       parameters:
@@ -818,6 +1588,8 @@ examples:
         "400":
           application/json: {}
         "500":
+          application/json: {}
+        "409":
           application/json: {}
   MFAInboundPolicies_Create:
     speakeasy-default-MFA-inbound-policies-create:
@@ -856,6 +1628,8 @@ examples:
           application/json: {}
         "500":
           application/json: {}
+        "409":
+          application/json: {}
   MFAInboundPolicies_Delete:
     speakeasy-default-MFA-inbound-policies-delete:
       parameters:
@@ -865,6 +1639,8 @@ examples:
         "400":
           application/json: {}
         "500":
+          application/json: {}
+        "409":
           application/json: {}
   MFAOutboundPolicies_Create:
     speakeasy-default-MFA-outbound-policies-create:
@@ -903,6 +1679,8 @@ examples:
           application/json: {}
         "500":
           application/json: {}
+        "409":
+          application/json: {}
   MFAOutboundPolicies_Delete:
     speakeasy-default-MFA-outbound-policies-delete:
       parameters:
@@ -912,6 +1690,8 @@ examples:
         "400":
           application/json: {}
         "500":
+          application/json: {}
+        "409":
           application/json: {}
   RPCRules_Create:
     speakeasy-default-RPC-rules-create:
@@ -950,6 +1730,8 @@ examples:
           application/json: {}
         "500":
           application/json: {}
+        "409":
+          application/json: {}
   RPCRule_Delete:
     speakeasy-default-RPC-rule-delete:
       parameters:
@@ -960,13 +1742,15 @@ examples:
           application/json: {}
         "500":
           application/json: {}
+        "409":
+          application/json: {}
   InboundRules_Create:
     speakeasy-default-inbound-rules-create:
       requestBody:
         application/json: {"action": 1, "changeTicket": "", "description": "", "excludedLocalIdsList": [], "ipSecOpt": 1, "name": "", "localEntityId": "a:a:rHXNGBbN", "localProcessesList": ["*"], "servicesList": [], "portsList": [{"ports": "67", "protocolType": 6}], "remoteEntityIdsList": ["g:s:14085899"], "srcUsersList": [], "state": 1}
       responses:
         "200":
-          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{"fqdn": "laptoppc.domain.local", "ipV4Addresses": ["1.1.1.1"], "operatingSystem": "Windows 10 Pro"}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
+          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{"fqdn": "laptoppc.domain.local", "ipV4Addresses": ["1.1.1.1"], "operatingSystem": "Windows 10 Pro"}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUserInfos": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
         "400":
           application/json: {}
         "500":
@@ -978,7 +1762,7 @@ examples:
           ruleId: "d37077dc-0660-454d-81a0-f52f491fd5b8"
       responses:
         "200":
-          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
+          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUserInfos": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
         "400":
           application/json: {}
         "500":
@@ -992,10 +1776,12 @@ examples:
         application/json: {"action": 1, "changeTicket": "", "description": "", "excludedLocalIdsList": [], "ipSecOpt": 1, "name": "", "localEntityId": "a:a:rHXNGBbN", "localProcessesList": ["*"], "servicesList": [], "portsList": [{"ports": "67", "protocolType": 6}], "remoteEntityIdsList": ["g:s:14085899"], "srcUsersList": [], "state": 1}
       responses:
         "200":
-          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{"fqdn": "laptoppc.domain.local", "ipV4Addresses": ["1.1.1.1"], "operatingSystem": "Windows 10 Pro"}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
+          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{"fqdn": "laptoppc.domain.local", "ipV4Addresses": ["1.1.1.1"], "operatingSystem": "Windows 10 Pro"}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUserInfos": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
         "400":
           application/json: {}
         "500":
+          application/json: {}
+        "409":
           application/json: {}
   InboundRule_Delete:
     speakeasy-default-inbound-rule-delete:
@@ -1007,13 +1793,15 @@ examples:
           application/json: {}
         "500":
           application/json: {}
+        "409":
+          application/json: {}
   OutboundRules_Create:
     speakeasy-default-outbound-rules-create:
       requestBody:
         application/json: {"action": 1, "changeTicket": "", "description": "", "excludedLocalIdsList": [], "ipSecOpt": 1, "name": "", "localEntityId": "a:a:rHXNGBbN", "localProcessesList": ["*"], "servicesList": [], "portsList": [{"ports": "67", "protocolType": 6}], "remoteEntityIdsList": ["g:s:14085899"], "srcUsersList": [], "state": 1}
       responses:
         "200":
-          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
+          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUserInfos": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
         "400":
           application/json: {}
         "500":
@@ -1025,7 +1813,7 @@ examples:
           ruleId: "d37077dc-0660-454d-81a0-f52f491fd5b8"
       responses:
         "200":
-          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
+          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUserInfos": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
         "400":
           application/json: {}
         "500":
@@ -1039,10 +1827,12 @@ examples:
         application/json: {"action": 1, "changeTicket": "", "description": "", "excludedLocalIdsList": [], "ipSecOpt": 1, "name": "", "localEntityId": "a:a:rHXNGBbN", "localProcessesList": ["*"], "servicesList": [], "portsList": [{"ports": "67", "protocolType": 6}], "remoteEntityIdsList": ["g:s:14085899"], "srcUsersList": [], "state": 1}
       responses:
         "200":
-          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
+          application/json: {"item": {"action": 1, "activitiesCount": 498871, "aeOverridden": false, "approvedBy": {"id": "", "name": ""}, "changeTicket": "", "context": 0, "createdAt": 1661349648315, "createdBy": {"createdBy": {"id": "u:a:2IzNIRlf", "name": "nicholas"}, "enforcementSource": 4, "userRole": 1}, "description": "DCs", "direction": 1, "excludedEntityInfos": [], "excludedLocalIdsList": [], "id": "6a4a42aa-c207-4860-8b32-a8e186f8af80", "ipSecOpt": 1, "localEntityId": "g:t:01085899", "localEntityInfos": [{}], "localProcessesList": ["*"], "multipleLocalEntityIdsList": [], "name": "", "parentId": "", "parentSwitchRuleId": "", "parentSwitchRuleType": 0, "parentType": 0, "portsList": [{"ports": "53,88,135,389,445,464,636,3268-3269,49152-65535", "protocolType": 6}, {"ports": "53,67,88,123,138,389,464", "protocolType": 17}], "remoteEntityIdsList": ["b:110001"], "remoteEntityInfos": [{"id": "b:110001", "name": "Any asset"}], "ruleClass": 3, "servicesList": [], "srcUserInfos": [], "srcUsersList": [], "state": 1, "updatedAt": 1684409059065, "updatedBy": {"id": "", "name": ""}}}
         "400":
           application/json: {}
         "500":
+          application/json: {}
+        "409":
           application/json: {}
   OutboundRule_Delete:
     speakeasy-default-outbound-rule-delete:
@@ -1054,6 +1844,8 @@ examples:
           application/json: {}
         "500":
           application/json: {}
+        "409":
+          application/json: {}
   CustomGroups_Get:
     speakeasy-default-custom-groups-get:
       parameters:
@@ -1061,7 +1853,7 @@ examples:
           groupId: "g:t:01445453"
       responses:
         "200":
-          application/json: {"entity": {"addedBy": {"name": "User Name"}}}
+          application/json: {}
         "400":
           application/json: {}
         "500":

@@ -27,7 +27,7 @@ from zeronetworks import Zeronetworks
 
 
 with Zeronetworks(
-    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+    api_key=os.getenv("ZERONETWORKS_API_KEY"),
 ) as z_client:
 
     res = z_client.groups_custom.custom_groups_create(name="<value>", members_id=[
@@ -74,7 +74,7 @@ from zeronetworks import Zeronetworks
 
 
 with Zeronetworks(
-    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+    api_key=os.getenv("ZERONETWORKS_API_KEY"),
 ) as z_client:
 
     res = z_client.groups_custom.custom_groups_get(id="g:t:01445453")
@@ -93,7 +93,7 @@ with Zeronetworks(
 
 ### Response
 
-**[models.CustomGroupResponse](../../models/customgroupresponse.md)**
+**[models.GroupEntity](../../models/groupentity.md)**
 
 ### Errors
 
@@ -116,7 +116,7 @@ from zeronetworks import Zeronetworks
 
 
 with Zeronetworks(
-    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+    api_key=os.getenv("ZERONETWORKS_API_KEY"),
 ) as z_client:
 
     res = z_client.groups_custom.custom_groups_update(id="g:t:01445453", name="<value>", members_id=[
@@ -147,7 +147,7 @@ with Zeronetworks(
 
 | Error Type                      | Status Code                     | Content Type                    |
 | ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.Error                    | 400, 401, 403                   | application/json                |
+| errors.Error                    | 400, 401, 403, 409              | application/json                |
 | errors.Error                    | 500                             | application/json                |
 | errors.ZeronetworksDefaultError | 4XX, 5XX                        | \*/\*                           |
 
@@ -164,7 +164,7 @@ from zeronetworks import Zeronetworks
 
 
 with Zeronetworks(
-    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+    api_key=os.getenv("ZERONETWORKS_API_KEY"),
 ) as z_client:
 
     z_client.groups_custom.custom_groups_delete(id="g:t:01445453")
@@ -201,7 +201,7 @@ from zeronetworks import Zeronetworks
 
 
 with Zeronetworks(
-    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+    api_key=os.getenv("ZERONETWORKS_API_KEY"),
 ) as z_client:
 
     res = z_client.groups_custom.custom_group_members_list(id="g:t:01445453")
@@ -243,7 +243,7 @@ from zeronetworks import Zeronetworks
 
 
 with Zeronetworks(
-    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+    api_key=os.getenv("ZERONETWORKS_API_KEY"),
 ) as z_client:
 
     res = z_client.groups_custom.custom_groups_members_add(id="g:t:01445453", members_id=[
@@ -288,7 +288,7 @@ from zeronetworks import Zeronetworks
 
 
 with Zeronetworks(
-    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+    api_key=os.getenv("ZERONETWORKS_API_KEY"),
 ) as z_client:
 
     z_client.groups_custom.custom_groups_members_delete(id="g:t:01445453", members_id=[

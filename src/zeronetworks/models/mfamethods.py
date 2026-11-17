@@ -14,6 +14,7 @@ MfaMethods = Union[
         5,
         6,
         7,
+        8,
     ],
     UnrecognizedInt,
 ]
@@ -24,5 +25,6 @@ r"""* '1' - SMS
 * '5' - No MFA
 * '6' - MicrosoftAuthenticator
 * '7' - Okta
+* '8' - Silverfort
 
 """

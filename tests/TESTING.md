@@ -26,7 +26,7 @@ pip install -e .          # install the SDK itself
 python -m pytest tests/ -v
 ```
 
-This runs all 134 tests against local mock transports. No API key or network
+This runs all 147 mock tests against local mock transports. No API key or network
 access is required.
 
 To run a single module:
@@ -62,6 +62,7 @@ Each test cleans up after itself even on failure.
 | `ZN_ASSET_FQDN_1` | FQDN of a first test asset | *(required for most live tests)* |
 | `ZN_ASSET_FQDN_2` | FQDN of a second test asset | *(required for most live tests)* |
 | `ZN_USER_ID` | Entity ID of a user for policy tests | `u:a:anyUser` |
+| `ZN_MFA_OUTBOUND_DST_ID` | Destination entity ID valid for outbound MFA policies | *(outbound MFA test skips if the asset is rejected)* |
 
 **Example — target a dev environment:**
 
@@ -132,6 +133,29 @@ def live_custom_group(live_client):
 
 All resources created by live tests are named with the `[pytest]` prefix so
 they are easy to identify and manually clean up if a test run is interrupted.
+Resources are created **disabled** (`state=2`) wherever the API allows it.
+
+#### 1.1.0 coverage
+
+The bottom of `test_live.py` covers features added with spec 1.26.9:
+
+| Class | What it checks |
+|---|---|
+| `TestLiveStaleConflict` | `zn_expected_updated_at` with a current value succeeds; with a stale value, update/delete raise `errors.StaleConflictError` (409) and leave the object untouched (inbound rules, internal access policy) |
+| `TestLiveRuleFields` | `rule_category` round-trips; `src_user_infos` is populated (regression for the 1.0.x `srcUsersInfos` field name) |
+| `TestLiveCustomGroupEntity` | `custom_groups_get` returns `GroupEntity` / `Group` |
+| `TestLiveMFAPolicies` | Inbound and outbound MFA policy create → get → delete |
+| `TestLiveRPCRules` | RPC rule create → get → delete |
+
+Run just these:
+
+```bash
+python -m pytest tests/test_live.py -v -k "StaleConflict or RuleFields or CustomGroupEntity or MFAPolicies or RPCRules"
+```
+
+`TestLiveRuleFields::test_src_user_infos_populated` and the MFA tests use
+`ZN_USER_ID`; set it to a real user ID in your tenant for meaningful results.
+An exported-but-empty `ZN_USER_ID` falls back to `u:a:anyUser`.
 
 ---
 
@@ -152,6 +176,7 @@ tests/
 ├── test_mfa_inbound.py             ← Inbound MFA Policies module
 ├── test_mfa_outbound.py            ← Outbound MFA Policies module
 ├── test_internal_access_policy.py  ← Internal Access Policy module
+├── test_v1_1_features.py           ← 1.1.0 features (stale-conflict 409, new fields)
 └── test_live.py                    ← Live integration tests (skipped by default)
 ```
 
@@ -171,6 +196,9 @@ Each SDK module's tests cover:
 - **Optional fields** — optional parameters are omitted when not provided;
   present when supplied
 - **Per-request overrides** — `server_url` and `http_headers` overrides work
+- **Optimistic concurrency** — `zn_expected_updated_at` is sent as the
+  `zn-expected-updated-at` header, and a 409 raises `errors.StaleConflictError`
+  with `updated_at` / `updated_by` / `is_deleted` populated
 
 ### SDK type notes
 

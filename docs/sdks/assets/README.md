@@ -21,7 +21,7 @@ from zeronetworks import Zeronetworks
 
 
 with Zeronetworks(
-    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+    api_key=os.getenv("ZERONETWORKS_API_KEY"),
 ) as z_client:
 
     res = z_client.assets.assets_search(fqdn="server.domain.local")

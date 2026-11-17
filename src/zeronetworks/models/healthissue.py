@@ -5,7 +5,14 @@ import pydantic
 from pydantic import model_serializer
 from typing import Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zeronetworks.types import BaseModel, UNSET_SENTINEL, UnrecognizedInt
+from zeronetworks.types import (
+    BaseModel,
+    UNSET_SENTINEL,
+    UnrecognizedInt,
+    current_exclude_none,
+    serialize_with_info,
+)
+from zeronetworks.types.basemodel import current_filtered_dump
 
 
 IssueCode = Union[
@@ -50,6 +57,13 @@ IssueCode = Union[
         1000,
         1001,
         1002,
+        1003,
+        1004,
+        10000,
+        10001,
+        10002,
+        10003,
+        10004,
     ],
     UnrecognizedInt,
 ]
@@ -93,6 +107,13 @@ r"""* '0' - Unspecified
 * '1000' - First blocker issue code
 * '1001' - Cluster node ipv6 disabled
 * '1002' - Local rules merge disallowed
+* '1003' - Learning no activities
+* '1004' - Azure delegated subnet shared
+* '10000' - First cloud issue code
+* '10001' - Azure asset configuration error
+* '10002' - Azure private endpoint subnet not synced
+* '10003' - Azure subnet delegation not found
+* '10004' - Azure subnet network policies disabled
 
 """
 
@@ -139,6 +160,13 @@ class HealthIssueTypedDict(TypedDict):
     * '1000' - First blocker issue code
     * '1001' - Cluster node ipv6 disabled
     * '1002' - Local rules merge disallowed
+    * '1003' - Learning no activities
+    * '1004' - Azure delegated subnet shared
+    * '10000' - First cloud issue code
+    * '10001' - Azure asset configuration error
+    * '10002' - Azure private endpoint subnet not synced
+    * '10003' - Azure subnet delegation not found
+    * '10004' - Azure subnet network policies disabled
 
     """
     details: NotRequired[str]
@@ -186,19 +214,33 @@ class HealthIssue(BaseModel):
     * '1000' - First blocker issue code
     * '1001' - Cluster node ipv6 disabled
     * '1002' - Local rules merge disallowed
+    * '1003' - Learning no activities
+    * '1004' - Azure delegated subnet shared
+    * '10000' - First cloud issue code
+    * '10001' - Azure asset configuration error
+    * '10002' - Azure private endpoint subnet not synced
+    * '10003' - Azure subnet delegation not found
+    * '10004' - Azure subnet network policies disabled
 
     """
 
     details: Optional[str] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["issueCode", "details"])
+        exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and skip_filtered:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:

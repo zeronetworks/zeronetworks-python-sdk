@@ -2,25 +2,45 @@
 
 from __future__ import annotations
 from .assettype import AssetType
+from .condition import Condition, ConditionTypedDict
 from .ostype import OsType
 import pydantic
 from pydantic import model_serializer
 from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zeronetworks.types import BaseModel, UNSET_SENTINEL
+from zeronetworks.types import (
+    BaseModel,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
+from zeronetworks.types.basemodel import current_filtered_dump
 
 
 class GroupConditionsTypedDict(TypedDict):
+    asset_types: NotRequired[List[AssetType]]
     domains: NotRequired[List[str]]
+    ip_builtins: NotRequired[List[str]]
+    label_conditions_list: NotRequired[List[ConditionTypedDict]]
     name_patterns: NotRequired[List[str]]
     os_name_patterns: NotRequired[List[str]]
     os_types: NotRequired[List[OsType]]
-    asset_types: NotRequired[List[AssetType]]
-    ip_builtins: NotRequired[List[str]]
 
 
 class GroupConditions(BaseModel):
+    asset_types: Annotated[
+        Optional[List[AssetType]], pydantic.Field(alias="assetTypes")
+    ] = None
+
     domains: Optional[List[str]] = None
+
+    ip_builtins: Annotated[Optional[List[str]], pydantic.Field(alias="ipBuiltins")] = (
+        None
+    )
+
+    label_conditions_list: Annotated[
+        Optional[List[Condition]], pydantic.Field(alias="labelConditionsList")
+    ] = None
 
     name_patterns: Annotated[
         Optional[List[str]], pydantic.Field(alias="namePatterns")
@@ -32,31 +52,31 @@ class GroupConditions(BaseModel):
 
     os_types: Annotated[Optional[List[OsType]], pydantic.Field(alias="osTypes")] = None
 
-    asset_types: Annotated[
-        Optional[List[AssetType]], pydantic.Field(alias="assetTypes")
-    ] = None
-
-    ip_builtins: Annotated[Optional[List[str]], pydantic.Field(alias="ipBuiltins")] = (
-        None
-    )
-
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
+                "assetTypes",
                 "domains",
+                "ipBuiltins",
+                "labelConditionsList",
                 "namePatterns",
                 "osNamePatterns",
                 "osTypes",
-                "assetTypes",
-                "ipBuiltins",
             ]
         )
+        exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and skip_filtered:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:

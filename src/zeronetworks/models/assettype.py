@@ -186,6 +186,8 @@ AssetType = Union[
         177,
         178,
         1001,
+        2001,
+        2002,
     ],
     UnrecognizedInt,
 ]
@@ -370,5 +372,7 @@ r"""Possible asset status:
 * '177' - WIRELESS PHONE
 * '178' - WIRELESS PHONE GATEWAY
 * '1001' - OTHER OT
+* '2001' - PAAS
+* '2002' - IAAS
 
 """

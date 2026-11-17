@@ -3,6 +3,7 @@
 from __future__ import annotations
 from .asset import Asset, AssetTypedDict
 from .enforcementsource import EnforcementSource
+from .groupbasicinfo import GroupBasicInfo, GroupBasicInfoTypedDict
 from .identityprotectioncategory import IdentityProtectionCategory
 from .idnamepair import IDNamePair, IDNamePairTypedDict
 from .mfamethods import MfaMethods
@@ -11,11 +12,29 @@ from .protocoltypemfa import ProtocolTypeMFA
 from .reactivepolicycontext import ReactivePolicyContext
 from .reactivepolicystate import ReactivePolicyState
 from .ruleduration import RuleDuration
+from .userbasicinfo import UserBasicInfo, UserBasicInfoTypedDict
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
-from typing_extensions import Annotated, NotRequired, TypedDict
-from zeronetworks.types import BaseModel, UNSET_SENTINEL
+from typing import List, Optional, Union
+from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
+from zeronetworks.types import (
+    BaseModel,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
+from zeronetworks.types.basemodel import current_filtered_dump
+
+
+ReactivePolicySrcUserInfoTypedDict = TypeAliasType(
+    "ReactivePolicySrcUserInfoTypedDict",
+    Union[IDNamePairTypedDict, UserBasicInfoTypedDict, GroupBasicInfoTypedDict],
+)
+
+
+ReactivePolicySrcUserInfo = TypeAliasType(
+    "ReactivePolicySrcUserInfo", Union[IDNamePair, UserBasicInfo, GroupBasicInfo]
+)
 
 
 class ReactivePolicyTypedDict(TypedDict):
@@ -49,6 +68,7 @@ class ReactivePolicyTypedDict(TypedDict):
     * '10' - DownloadPortal
     * '11' - ExternalAccessPortal
     * '12' - DayTwo
+    * '13' - K8s Cluster
 
     """
     excluded_src_entity_infos: NotRequired[List[IDNamePairTypedDict]]
@@ -76,7 +96,7 @@ class ReactivePolicyTypedDict(TypedDict):
     """
     src_entity_infos: NotRequired[List[AssetTypedDict]]
     src_process_names: NotRequired[List[str]]
-    src_user_infos: NotRequired[List[IDNamePairTypedDict]]
+    src_user_infos: NotRequired[List[ReactivePolicySrcUserInfoTypedDict]]
     state: NotRequired[ReactivePolicyState]
     r"""* '1' - Enabled
     * '2' - Disabled
@@ -141,6 +161,7 @@ class ReactivePolicy(BaseModel):
     * '10' - DownloadPortal
     * '11' - ExternalAccessPortal
     * '12' - DayTwo
+    * '13' - K8s Cluster
 
     """
 
@@ -209,7 +230,7 @@ class ReactivePolicy(BaseModel):
     ] = None
 
     src_user_infos: Annotated[
-        Optional[List[IDNamePair]], pydantic.Field(alias="srcUserInfos")
+        Optional[List[ReactivePolicySrcUserInfo]], pydantic.Field(alias="srcUserInfos")
     ] = None
 
     state: Optional[ReactivePolicyState] = None
@@ -236,6 +257,9 @@ class ReactivePolicy(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -273,11 +297,15 @@ class ReactivePolicy(BaseModel):
                 "useOccasionalMfa",
             ]
         )
+        exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and skip_filtered:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:

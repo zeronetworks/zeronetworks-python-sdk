@@ -12,6 +12,7 @@ EnforcementMethod = Union[
         2,
         3,
         4,
+        5,
     ],
     UnrecognizedInt,
 ]
@@ -20,5 +21,6 @@ r"""Possible values:
 * '2' - Linux NF Tables
 * '3' - Windows Firewall
 * '4' - Windows WFP
+* '5' - NE Filter
 
 """
