@@ -15,6 +15,7 @@
 * '12' - Segment Server Provisioning
 * '13' - Connect Server Provisioning
 * '14' - Segment Connector Provisioning 
+* '15' - External Sync
 
 
 ## Example Usage
@@ -46,3 +47,4 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `12`
 - `13`
 - `14`
+- `15`

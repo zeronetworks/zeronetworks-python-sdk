@@ -1,4 +1,4 @@
-speakeasyVersion: 1.761.3
+speakeasyVersion: 1.809.0
 sources:
     Zero Networks:
         sourceNamespace: zero-networks
@@ -14,7 +14,7 @@ targets:
         sourceRevisionDigest: sha256:4a8b501b0236c6e1952d3836ba177cad1e257e180941248928e492bcd7f7f710
         sourceBlobDigest: sha256:e694fc28494c044112d469786001cfed310e13c6cc041d8f13297eeaf7021f2c
         codeSamplesNamespace: zero-networks-python-code-samples
-        codeSamplesRevisionDigest: sha256:aecda252845ed35eb8a99c3d2a1e03b3a29a9bfb900458745c6efc119e9abccd
+        codeSamplesRevisionDigest: sha256:acd724baa35f42201a84952e01dd3796aa261897fa978cfb6e31efeab4e7d36e
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

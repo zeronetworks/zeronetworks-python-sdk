@@ -6,6 +6,8 @@
 * '4' - Disabled in asset repository
 * '5' - Inactive in asset repository
 * '6' - Deleted in asset repository
+* '7' - Sync disabled
+* '8' - Resource group inactive
 
 
 ## Example Usage
@@ -28,3 +30,5 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `4`
 - `5`
 - `6`
+- `7`
+- `8`

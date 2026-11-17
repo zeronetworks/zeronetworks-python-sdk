@@ -7,6 +7,7 @@
 * '5' - No MFA
 * '6' - MicrosoftAuthenticator
 * '7' - Okta
+* '8' - Silverfort
 
 
 ## Example Usage
@@ -30,3 +31,4 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `5`
 - `6`
 - `7`
+- `8`

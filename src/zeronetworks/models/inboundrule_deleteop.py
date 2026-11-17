@@ -2,14 +2,24 @@
 
 from __future__ import annotations
 import pydantic
-from typing_extensions import Annotated, TypedDict
-from zeronetworks.types import BaseModel
-from zeronetworks.utils import FieldMetadata, PathParamMetadata
+from pydantic import model_serializer
+from typing import Optional
+from typing_extensions import Annotated, NotRequired, TypedDict
+from zeronetworks.types import (
+    BaseModel,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
+from zeronetworks.types.basemodel import current_filtered_dump
+from zeronetworks.utils import FieldMetadata, HeaderMetadata, PathParamMetadata
 
 
 class InboundRuleDeleteRequestTypedDict(TypedDict):
     id: str
     r"""The id of the rule"""
+    zn_expected_updated_at: NotRequired[int]
+    r"""Optional optimistic-concurrency guard. Set it to the updatedAt value (epoch milliseconds) of the object as last read. The request is rejected with 409 and a stale conflict body when the object was modified or deleted since; when the header is absent no check is performed."""
 
 
 class InboundRuleDeleteRequest(BaseModel):
@@ -19,3 +29,33 @@ class InboundRuleDeleteRequest(BaseModel):
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
     r"""The id of the rule"""
+
+    zn_expected_updated_at: Annotated[
+        Optional[int],
+        pydantic.Field(alias="zn-expected-updated-at"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+    r"""Optional optimistic-concurrency guard. Set it to the updatedAt value (epoch milliseconds) of the object as last read. The request is rejected with 409 and a stale conflict body when the object was modified or deleted since; when the header is absent no check is performed."""
+
+    @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
+    def serialize_model(self, handler):
+        optional_fields = set(["zn-expected-updated-at"])
+        exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and skip_filtered:
+                continue
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

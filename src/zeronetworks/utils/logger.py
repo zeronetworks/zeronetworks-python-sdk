@@ -21,7 +21,12 @@ def get_body_content(req: httpx.Request) -> str:
 
 
 def get_default_logger() -> Logger:
-    if os.getenv("ZERONETWORKS_DEBUG"):
+    if os.getenv("ZERONETWORKS_DEBUG", "").strip().lower() in (
+        "true",
+        "1",
+        "yes",
+        "on",
+    ):
         logging.basicConfig(level=logging.DEBUG)
         return logging.getLogger("zeronetworks")
     return NoOpLogger()

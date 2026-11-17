@@ -3,14 +3,24 @@
 from __future__ import annotations
 from .assetstatus import AssetStatus
 from .assettype import AssetType
+from .awsresourceinfo import AwsResourceInfo, AwsResourceInfoTypedDict
+from .azureresourceinfo import AzureResourceInfo, AzureResourceInfoTypedDict
 from .deploymentsclustersource import DeploymentsClusterSource
 from .enforcementmethod import EnforcementMethod
 from .healthstate import HealthState, HealthStateTypedDict
 from .idnamepair import IDNamePair, IDNamePairTypedDict
 from .inactivereason import InactiveReason
+from .label import Label, LabelTypedDict
+from .linuxfirewalllogger import LinuxFirewallLogger
+from .monitoringstatus import MonitoringStatus
 from .ostype import OsType
 from .otlocation import OtLocation, OtLocationTypedDict
 from .outboundrestrictionmode import OutboundRestrictionMode
+from .outboundrestrictionstate import (
+    OutboundRestrictionState,
+    OutboundRestrictionStateTypedDict,
+)
+from .portexposure import PortExposure, PortExposureTypedDict
 from .protectionstate import ProtectionState
 from .purduelevel import PurdueLevel
 from .source import Source
@@ -19,7 +29,13 @@ import pydantic
 from pydantic import model_serializer
 from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zeronetworks.types import BaseModel, UNSET_SENTINEL
+from zeronetworks.types import (
+    BaseModel,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
+from zeronetworks.types.basemodel import current_filtered_dump
 
 
 class AssetTypedDict(TypedDict):
@@ -223,6 +239,8 @@ class AssetTypedDict(TypedDict):
     * '177' - WIRELESS PHONE
     * '178' - WIRELESS PHONE GATEWAY
     * '1001' - OTHER OT
+    * '2001' - PAAS
+    * '2002' - IAAS
 
     """
     break_glass_activated: NotRequired[bool]
@@ -297,6 +315,8 @@ class AssetTypedDict(TypedDict):
     """
     assigned_deployment_id: NotRequired[str]
     assigned_deployment: NotRequired[IDNamePairTypedDict]
+    aws_resource_info: NotRequired[AwsResourceInfoTypedDict]
+    azure_resource_info: NotRequired[AzureResourceInfoTypedDict]
     cloud_connector_version: NotRequired[str]
     deploymenta_cluster_id: NotRequired[str]
     deployments_cluster_source: NotRequired[DeploymentsClusterSource]
@@ -315,12 +335,20 @@ class AssetTypedDict(TypedDict):
     * '2' - Linux NF Tables
     * '3' - Windows Firewall
     * '4' - Windows WFP
+    * '5' - NE Filter
+
+    """
+    linux_firewall_logger: NotRequired[LinuxFirewallLogger]
+    r"""Possible values:
+    * '1' - Rsyslog
+    * '2' - Ulogd2
 
     """
     environment_group: NotRequired[IDNamePairTypedDict]
     external_device_id: NotRequired[str]
     fqdn: NotRequired[str]
     has_dns: NotRequired[bool]
+    has_running_perf_sensitive_process: NotRequired[bool]
     health_state: NotRequired[HealthStateTypedDict]
     identity_protect_at: NotRequired[int]
     r"""Epoch Millis"""
@@ -333,6 +361,8 @@ class AssetTypedDict(TypedDict):
     * '4' - Disabled in asset repository
     * '5' - Inactive in asset repository
     * '6' - Deleted in asset repository
+    * '7' - Sync disabled
+    * '8' - Resource group inactive
 
     """
     inactive_since: NotRequired[int]
@@ -341,9 +371,21 @@ class AssetTypedDict(TypedDict):
     ip_v6_addresses: NotRequired[List[str]]
     ip_space: NotRequired[int]
     is_ip_sec_configured: NotRequired[bool]
+    labels: NotRequired[List[LabelTypedDict]]
     last_logon: NotRequired[int]
     r"""Epoch Millis"""
+    linux_profile_id: NotRequired[str]
     manufacturer: NotRequired[str]
+    monitoring_status: NotRequired[MonitoringStatus]
+    r"""Monitoring status:
+    * '1' - Fully monitored
+    * '2' - Partially monitored
+
+    """
+    network_queue_done_at: NotRequired[int]
+    r"""Epoch Millis"""
+    network_queued_at: NotRequired[int]
+    r"""Epoch Millis"""
     operating_system: NotRequired[str]
     os_type: NotRequired[OsType]
     r"""Possible osType:
@@ -361,8 +403,10 @@ class AssetTypedDict(TypedDict):
     * '5' - No applicable
 
     """
+    outbound_restriction_state: NotRequired[OutboundRestrictionStateTypedDict]
     password_update_time: NotRequired[int]
     r"""Epoch Millis"""
+    ports_exposure: NotRequired[List[PortExposureTypedDict]]
     preferred_deployment_id: NotRequired[str]
     preferred_deployment: NotRequired[IDNamePairTypedDict]
     principal_name: NotRequired[str]
@@ -380,6 +424,7 @@ class AssetTypedDict(TypedDict):
     * '5' - Level 4
 
     """
+    risk_score: NotRequired[int]
     rpc_monitored: NotRequired[bool]
     rpc_protect_at: NotRequired[int]
     r"""Epoch Millis"""
@@ -630,6 +675,8 @@ class Asset(BaseModel):
     * '177' - WIRELESS PHONE
     * '178' - WIRELESS PHONE GATEWAY
     * '1001' - OTHER OT
+    * '2001' - PAAS
+    * '2002' - IAAS
 
     """
 
@@ -730,6 +777,14 @@ class Asset(BaseModel):
         Optional[IDNamePair], pydantic.Field(alias="assignedDeployment")
     ] = None
 
+    aws_resource_info: Annotated[
+        Optional[AwsResourceInfo], pydantic.Field(alias="awsResourceInfo")
+    ] = None
+
+    azure_resource_info: Annotated[
+        Optional[AzureResourceInfo], pydantic.Field(alias="azureResourceInfo")
+    ] = None
+
     cloud_connector_version: Annotated[
         Optional[str], pydantic.Field(alias="cloudConnectorVersion")
     ] = None
@@ -763,6 +818,16 @@ class Asset(BaseModel):
     * '2' - Linux NF Tables
     * '3' - Windows Firewall
     * '4' - Windows WFP
+    * '5' - NE Filter
+
+    """
+
+    linux_firewall_logger: Annotated[
+        Optional[LinuxFirewallLogger], pydantic.Field(alias="linuxFirewallLogger")
+    ] = None
+    r"""Possible values:
+    * '1' - Rsyslog
+    * '2' - Ulogd2
 
     """
 
@@ -777,6 +842,10 @@ class Asset(BaseModel):
     fqdn: Optional[str] = None
 
     has_dns: Annotated[Optional[bool], pydantic.Field(alias="hasDns")] = None
+
+    has_running_perf_sensitive_process: Annotated[
+        Optional[bool], pydantic.Field(alias="hasRunningPerfSensitiveProcess")
+    ] = None
 
     health_state: Annotated[
         Optional[HealthState], pydantic.Field(alias="healthState")
@@ -801,6 +870,8 @@ class Asset(BaseModel):
     * '4' - Disabled in asset repository
     * '5' - Inactive in asset repository
     * '6' - Deleted in asset repository
+    * '7' - Sync disabled
+    * '8' - Resource group inactive
 
     """
 
@@ -823,10 +894,35 @@ class Asset(BaseModel):
         Optional[bool], pydantic.Field(alias="isIpSecConfigured")
     ] = None
 
+    labels: Optional[List[Label]] = None
+
     last_logon: Annotated[Optional[int], pydantic.Field(alias="lastLogon")] = None
     r"""Epoch Millis"""
 
+    linux_profile_id: Annotated[
+        Optional[str], pydantic.Field(alias="linuxProfileId")
+    ] = None
+
     manufacturer: Optional[str] = None
+
+    monitoring_status: Annotated[
+        Optional[MonitoringStatus], pydantic.Field(alias="monitoringStatus")
+    ] = None
+    r"""Monitoring status:
+    * '1' - Fully monitored
+    * '2' - Partially monitored
+
+    """
+
+    network_queue_done_at: Annotated[
+        Optional[int], pydantic.Field(alias="networkQueueDoneAt")
+    ] = None
+    r"""Epoch Millis"""
+
+    network_queued_at: Annotated[
+        Optional[int], pydantic.Field(alias="networkQueuedAt")
+    ] = None
+    r"""Epoch Millis"""
 
     operating_system: Annotated[
         Optional[str], pydantic.Field(alias="operatingSystem")
@@ -852,10 +948,19 @@ class Asset(BaseModel):
 
     """
 
+    outbound_restriction_state: Annotated[
+        Optional[OutboundRestrictionState],
+        pydantic.Field(alias="outboundRestrictionState"),
+    ] = None
+
     password_update_time: Annotated[
         Optional[int], pydantic.Field(alias="passwordUpdateTime")
     ] = None
     r"""Epoch Millis"""
+
+    ports_exposure: Annotated[
+        Optional[List[PortExposure]], pydantic.Field(alias="portsExposure")
+    ] = None
 
     preferred_deployment_id: Annotated[
         Optional[str], pydantic.Field(alias="preferredDeploymentId")
@@ -887,6 +992,8 @@ class Asset(BaseModel):
     * '5' - Level 4
 
     """
+
+    risk_score: Annotated[Optional[int], pydantic.Field(alias="riskScore")] = None
 
     rpc_monitored: Annotated[Optional[bool], pydantic.Field(alias="rpcMonitored")] = (
         None
@@ -945,6 +1052,9 @@ class Asset(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -961,15 +1071,19 @@ class Asset(BaseModel):
                 "rpcProtectionState",
                 "assignedDeploymentId",
                 "assignedDeployment",
+                "awsResourceInfo",
+                "azureResourceInfo",
                 "cloudConnectorVersion",
                 "deploymentaClusterId",
                 "deploymentsClusterSource",
                 "deploymentsCluster",
                 "enforcementMethod",
+                "linuxFirewallLogger",
                 "environmentGroup",
                 "externalDeviceId",
                 "fqdn",
                 "hasDns",
+                "hasRunningPerfSensitiveProcess",
                 "healthState",
                 "identityProtectAt",
                 "identityProtectedAt",
@@ -979,18 +1093,26 @@ class Asset(BaseModel):
                 "ipV6Addresses",
                 "ipSpace",
                 "isIpSecConfigured",
+                "labels",
                 "lastLogon",
+                "linuxProfileId",
                 "manufacturer",
+                "monitoringStatus",
+                "networkQueueDoneAt",
+                "networkQueuedAt",
                 "operatingSystem",
                 "osType",
                 "outboundRestriction",
+                "outboundRestrictionState",
                 "passwordUpdateTime",
+                "portsExposure",
                 "preferredDeploymentId",
                 "preferredDeployment",
                 "principalName",
                 "protectAt",
                 "protectedAt",
                 "purdueLevel",
+                "riskScore",
                 "rpcMonitored",
                 "rpcProtectAt",
                 "rpcProtectedAt",
@@ -999,11 +1121,15 @@ class Asset(BaseModel):
                 "switchLocationOverridden",
             ]
         )
+        exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and skip_filtered:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:

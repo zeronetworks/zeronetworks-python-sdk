@@ -8,10 +8,14 @@ if TYPE_CHECKING:
     from .actiontype import ActionType
     from .aeexclusion import (
         AeExclusion,
+        AeExclusionExcludedEntityInfo,
+        AeExclusionExcludedEntityInfoTypedDict,
         AeExclusionLocalEntityInfo,
         AeExclusionLocalEntityInfoTypedDict,
         AeExclusionRemoteEntityInfo,
         AeExclusionRemoteEntityInfoTypedDict,
+        AeExclusionSrcUserInfo,
+        AeExclusionSrcUserInfoTypedDict,
         AeExclusionTypedDict,
     )
     from .aeexclusionrulebody import AeExclusionRuleBody, AeExclusionRuleBodyTypedDict
@@ -44,10 +48,14 @@ if TYPE_CHECKING:
         AEExclusionsOutboundUpdateRequestTypedDict,
     )
     from .asset import Asset, AssetTypedDict
+    from .assetbasicinfo import AssetBasicInfo, AssetBasicInfoTypedDict
     from .assetidsearch import AssetIDSearch, AssetIDSearchTypedDict
     from .assets_searchop import AssetsSearchRequest, AssetsSearchRequestTypedDict
     from .assetstatus import AssetStatus
     from .assettype import AssetType
+    from .awsresourceinfo import AwsResourceInfo, AwsResourceInfoTypedDict
+    from .azureresourceinfo import AzureResourceInfo, AzureResourceInfoTypedDict
+    from .condition import Condition, ConditionTypedDict
     from .createdby import CreatedBy, CreatedByTypedDict
     from .customgroup import (
         AddedBy,
@@ -89,7 +97,12 @@ if TYPE_CHECKING:
     from .emptyresponse import EmptyResponse, EmptyResponseTypedDict
     from .enforcementmethod import EnforcementMethod
     from .enforcementsource import EnforcementSource
+    from .expression import Expression, ExpressionTypedDict
+    from .expressionoperator import ExpressionOperator
+    from .group import Group, GroupTypedDict
+    from .groupbasicinfo import GroupBasicInfo, GroupBasicInfoTypedDict
     from .groupconditions import GroupConditions, GroupConditionsTypedDict
+    from .groupentity import GroupEntity, GroupEntityTypedDict
     from .groupmemberslist import GroupMembersList, GroupMembersListTypedDict
     from .healthissue import HealthIssue, HealthIssueTypedDict, IssueCode
     from .healthstate import HealthState, HealthStateTypedDict, HealthStatus
@@ -131,6 +144,8 @@ if TYPE_CHECKING:
         InternalAccessPolicyItemTypedDict,
     )
     from .ipsecopt import IPSecOpt
+    from .label import Label, LabelTypedDict
+    from .linuxfirewalllogger import LinuxFirewallLogger
     from .mfainboundpolicies_deleteop import (
         MFAInboundPoliciesDeleteRequest,
         MFAInboundPoliciesDeleteRequestTypedDict,
@@ -156,9 +171,18 @@ if TYPE_CHECKING:
         MFAOutboundPoliciesUpdateRequest,
         MFAOutboundPoliciesUpdateRequestTypedDict,
     )
+    from .monitoringstatus import MonitoringStatus
     from .ostype import OsType
     from .otlocation import OtLocation, OtLocationTypedDict
+    from .outbounddirectionstate import (
+        OutboundDirectionState,
+        OutboundDirectionStateTypedDict,
+    )
     from .outboundrestrictionmode import OutboundRestrictionMode
+    from .outboundrestrictionstate import (
+        OutboundRestrictionState,
+        OutboundRestrictionStateTypedDict,
+    )
     from .outboundrule_deleteop import (
         OutboundRuleDeleteRequest,
         OutboundRuleDeleteRequestTypedDict,
@@ -171,12 +195,24 @@ if TYPE_CHECKING:
         OutboundRuleUpdateRequest,
         OutboundRuleUpdateRequestTypedDict,
     )
+    from .portexposure import PortExposure, PortExposureTypedDict, Scope
     from .portslist import PortsList, PortsListTypedDict
     from .protectionstate import ProtectionState
     from .protocol import Protocol
+    from .protocolportrange import (
+        PortRange,
+        PortRangeTypedDict,
+        ProtocolPortRange,
+        ProtocolPortRangeTypedDict,
+    )
     from .protocoltypemfa import ProtocolTypeMFA
     from .purduelevel import PurdueLevel
-    from .reactivepolicy import ReactivePolicy, ReactivePolicyTypedDict
+    from .reactivepolicy import (
+        ReactivePolicy,
+        ReactivePolicySrcUserInfo,
+        ReactivePolicySrcUserInfoTypedDict,
+        ReactivePolicyTypedDict,
+    )
     from .reactivepolicycontext import ReactivePolicyContext
     from .reactivepolicyinboundbody import (
         ReactivePolicyInboundBody,
@@ -208,7 +244,12 @@ if TYPE_CHECKING:
         ReactivePolicyResponseTypedDict,
     )
     from .reactivepolicystate import ReactivePolicyState
-    from .rpcrule import RPCRule, RPCRuleTypedDict
+    from .rpcrule import (
+        RPCRule,
+        RPCRuleTypedDict,
+        RemoteAssetInfo,
+        RemoteAssetInfoTypedDict,
+    )
     from .rpcrule_deleteop import RPCRuleDeleteRequest, RPCRuleDeleteRequestTypedDict
     from .rpcrule_getop import RPCRuleGetRequest, RPCRuleGetRequestTypedDict
     from .rpcrule_updateop import RPCRuleUpdateRequest, RPCRuleUpdateRequestTypedDict
@@ -216,14 +257,19 @@ if TYPE_CHECKING:
     from .rpcruleresponse import RPCRuleResponse, RPCRuleResponseTypedDict
     from .rule import (
         Rule,
+        RuleExcludedEntityInfo,
+        RuleExcludedEntityInfoTypedDict,
         RuleLocalEntityInfo,
         RuleLocalEntityInfoTypedDict,
         RuleRemoteEntityInfo,
         RuleRemoteEntityInfoTypedDict,
+        RuleSrcUserInfo,
+        RuleSrcUserInfoTypedDict,
         RuleTypedDict,
     )
     from .ruleaction import RuleAction
     from .rulebody import RuleBody, RuleBodyTypedDict
+    from .rulecategory import RuleCategory
     from .ruleclass import RuleClass
     from .rulecontext import RuleContext
     from .ruledirection import RuleDirection
@@ -237,8 +283,11 @@ if TYPE_CHECKING:
     from .security import Security, SecurityTypedDict
     from .source import Source
     from .srcuserslist import SrcUsersList, SrcUsersListTypedDict
+    from .staleconflicterror import Code
     from .state import State, StateTypedDict
+    from .userbasicinfo import UserBasicInfo, UserBasicInfoTypedDict
     from .userrole import UserRole
+    from .usertype import UserType
 
 __all__ = [
     "AEExclusionsInboundDeleteRequest",
@@ -257,6 +306,8 @@ __all__ = [
     "AddedBy",
     "AddedByTypedDict",
     "AeExclusion",
+    "AeExclusionExcludedEntityInfo",
+    "AeExclusionExcludedEntityInfoTypedDict",
     "AeExclusionLocalEntityInfo",
     "AeExclusionLocalEntityInfoTypedDict",
     "AeExclusionRemoteEntityInfo",
@@ -265,8 +316,12 @@ __all__ = [
     "AeExclusionRuleBodyTypedDict",
     "AeExclusionRuleResponse",
     "AeExclusionRuleResponseTypedDict",
+    "AeExclusionSrcUserInfo",
+    "AeExclusionSrcUserInfoTypedDict",
     "AeExclusionTypedDict",
     "Asset",
+    "AssetBasicInfo",
+    "AssetBasicInfoTypedDict",
     "AssetIDSearch",
     "AssetIDSearchTypedDict",
     "AssetStatus",
@@ -274,6 +329,13 @@ __all__ = [
     "AssetTypedDict",
     "AssetsSearchRequest",
     "AssetsSearchRequestTypedDict",
+    "AwsResourceInfo",
+    "AwsResourceInfoTypedDict",
+    "AzureResourceInfo",
+    "AzureResourceInfoTypedDict",
+    "Code",
+    "Condition",
+    "ConditionTypedDict",
     "CreatedBy",
     "CreatedByTypedDict",
     "CustomGroup",
@@ -301,10 +363,19 @@ __all__ = [
     "EmptyResponseTypedDict",
     "EnforcementMethod",
     "EnforcementSource",
+    "Expression",
+    "ExpressionOperator",
+    "ExpressionTypedDict",
+    "Group",
+    "GroupBasicInfo",
+    "GroupBasicInfoTypedDict",
     "GroupConditions",
     "GroupConditionsTypedDict",
+    "GroupEntity",
+    "GroupEntityTypedDict",
     "GroupMembersList",
     "GroupMembersListTypedDict",
+    "GroupTypedDict",
     "HealthIssue",
     "HealthIssueTypedDict",
     "HealthState",
@@ -335,6 +406,9 @@ __all__ = [
     "InternalAccessPolicyUpdateRequest",
     "InternalAccessPolicyUpdateRequestTypedDict",
     "IssueCode",
+    "Label",
+    "LabelTypedDict",
+    "LinuxFirewallLogger",
     "MFAInboundPoliciesDeleteRequest",
     "MFAInboundPoliciesDeleteRequestTypedDict",
     "MFAInboundPoliciesGetRequest",
@@ -348,20 +422,31 @@ __all__ = [
     "MFAOutboundPoliciesUpdateRequest",
     "MFAOutboundPoliciesUpdateRequestTypedDict",
     "MfaMethods",
+    "MonitoringStatus",
     "OsType",
     "OtLocation",
     "OtLocationTypedDict",
+    "OutboundDirectionState",
+    "OutboundDirectionStateTypedDict",
     "OutboundRestrictionMode",
+    "OutboundRestrictionState",
+    "OutboundRestrictionStateTypedDict",
     "OutboundRuleDeleteRequest",
     "OutboundRuleDeleteRequestTypedDict",
     "OutboundRuleGetRequest",
     "OutboundRuleGetRequestTypedDict",
     "OutboundRuleUpdateRequest",
     "OutboundRuleUpdateRequestTypedDict",
+    "PortExposure",
+    "PortExposureTypedDict",
+    "PortRange",
+    "PortRangeTypedDict",
     "PortsList",
     "PortsListTypedDict",
     "ProtectionState",
     "Protocol",
+    "ProtocolPortRange",
+    "ProtocolPortRangeTypedDict",
     "ProtocolTypeMFA",
     "PurdueLevel",
     "RPCRule",
@@ -402,16 +487,23 @@ __all__ = [
     "ReactivePolicyOutboundBodyTypedDict",
     "ReactivePolicyResponse",
     "ReactivePolicyResponseTypedDict",
+    "ReactivePolicySrcUserInfo",
+    "ReactivePolicySrcUserInfoTypedDict",
     "ReactivePolicyState",
     "ReactivePolicyTypedDict",
+    "RemoteAssetInfo",
+    "RemoteAssetInfoTypedDict",
     "Rule",
     "RuleAction",
     "RuleBody",
     "RuleBodyTypedDict",
+    "RuleCategory",
     "RuleClass",
     "RuleContext",
     "RuleDirection",
     "RuleDuration",
+    "RuleExcludedEntityInfo",
+    "RuleExcludedEntityInfoTypedDict",
     "RuleItem",
     "RuleItemTypedDict",
     "RuleLocalEntityInfo",
@@ -423,9 +515,12 @@ __all__ = [
     "RuleReviewMode",
     "RuleReviewReason",
     "RuleReviewReasonTypedDict",
+    "RuleSrcUserInfo",
+    "RuleSrcUserInfoTypedDict",
     "RuleState",
     "RuleSuggestionType",
     "RuleTypedDict",
+    "Scope",
     "Security",
     "SecurityTypedDict",
     "Source",
@@ -433,16 +528,23 @@ __all__ = [
     "SrcUsersListTypedDict",
     "State",
     "StateTypedDict",
+    "UserBasicInfo",
+    "UserBasicInfoTypedDict",
     "UserRole",
+    "UserType",
 ]
 
 _dynamic_imports: dict[str, str] = {
     "ActionType": ".actiontype",
     "AeExclusion": ".aeexclusion",
+    "AeExclusionExcludedEntityInfo": ".aeexclusion",
+    "AeExclusionExcludedEntityInfoTypedDict": ".aeexclusion",
     "AeExclusionLocalEntityInfo": ".aeexclusion",
     "AeExclusionLocalEntityInfoTypedDict": ".aeexclusion",
     "AeExclusionRemoteEntityInfo": ".aeexclusion",
     "AeExclusionRemoteEntityInfoTypedDict": ".aeexclusion",
+    "AeExclusionSrcUserInfo": ".aeexclusion",
+    "AeExclusionSrcUserInfoTypedDict": ".aeexclusion",
     "AeExclusionTypedDict": ".aeexclusion",
     "AeExclusionRuleBody": ".aeexclusionrulebody",
     "AeExclusionRuleBodyTypedDict": ".aeexclusionrulebody",
@@ -462,12 +564,20 @@ _dynamic_imports: dict[str, str] = {
     "AEExclusionsOutboundUpdateRequestTypedDict": ".aeexclusionsoutbound_updateop",
     "Asset": ".asset",
     "AssetTypedDict": ".asset",
+    "AssetBasicInfo": ".assetbasicinfo",
+    "AssetBasicInfoTypedDict": ".assetbasicinfo",
     "AssetIDSearch": ".assetidsearch",
     "AssetIDSearchTypedDict": ".assetidsearch",
     "AssetsSearchRequest": ".assets_searchop",
     "AssetsSearchRequestTypedDict": ".assets_searchop",
     "AssetStatus": ".assetstatus",
     "AssetType": ".assettype",
+    "AwsResourceInfo": ".awsresourceinfo",
+    "AwsResourceInfoTypedDict": ".awsresourceinfo",
+    "AzureResourceInfo": ".azureresourceinfo",
+    "AzureResourceInfoTypedDict": ".azureresourceinfo",
+    "Condition": ".condition",
+    "ConditionTypedDict": ".condition",
     "CreatedBy": ".createdby",
     "CreatedByTypedDict": ".createdby",
     "AddedBy": ".customgroup",
@@ -497,8 +607,17 @@ _dynamic_imports: dict[str, str] = {
     "EmptyResponseTypedDict": ".emptyresponse",
     "EnforcementMethod": ".enforcementmethod",
     "EnforcementSource": ".enforcementsource",
+    "Expression": ".expression",
+    "ExpressionTypedDict": ".expression",
+    "ExpressionOperator": ".expressionoperator",
+    "Group": ".group",
+    "GroupTypedDict": ".group",
+    "GroupBasicInfo": ".groupbasicinfo",
+    "GroupBasicInfoTypedDict": ".groupbasicinfo",
     "GroupConditions": ".groupconditions",
     "GroupConditionsTypedDict": ".groupconditions",
+    "GroupEntity": ".groupentity",
+    "GroupEntityTypedDict": ".groupentity",
     "GroupMembersList": ".groupmemberslist",
     "GroupMembersListTypedDict": ".groupmemberslist",
     "HealthIssue": ".healthissue",
@@ -531,6 +650,9 @@ _dynamic_imports: dict[str, str] = {
     "InternalAccessPolicyItem": ".internalaccesspolicyitem",
     "InternalAccessPolicyItemTypedDict": ".internalaccesspolicyitem",
     "IPSecOpt": ".ipsecopt",
+    "Label": ".label",
+    "LabelTypedDict": ".label",
+    "LinuxFirewallLogger": ".linuxfirewalllogger",
     "MFAInboundPoliciesDeleteRequest": ".mfainboundpolicies_deleteop",
     "MFAInboundPoliciesDeleteRequestTypedDict": ".mfainboundpolicies_deleteop",
     "MFAInboundPoliciesGetRequest": ".mfainboundpolicies_getop",
@@ -544,23 +666,37 @@ _dynamic_imports: dict[str, str] = {
     "MFAOutboundPoliciesGetRequestTypedDict": ".mfaoutboundpolicies_getop",
     "MFAOutboundPoliciesUpdateRequest": ".mfaoutboundpolicies_updateop",
     "MFAOutboundPoliciesUpdateRequestTypedDict": ".mfaoutboundpolicies_updateop",
+    "MonitoringStatus": ".monitoringstatus",
     "OsType": ".ostype",
     "OtLocation": ".otlocation",
     "OtLocationTypedDict": ".otlocation",
+    "OutboundDirectionState": ".outbounddirectionstate",
+    "OutboundDirectionStateTypedDict": ".outbounddirectionstate",
     "OutboundRestrictionMode": ".outboundrestrictionmode",
+    "OutboundRestrictionState": ".outboundrestrictionstate",
+    "OutboundRestrictionStateTypedDict": ".outboundrestrictionstate",
     "OutboundRuleDeleteRequest": ".outboundrule_deleteop",
     "OutboundRuleDeleteRequestTypedDict": ".outboundrule_deleteop",
     "OutboundRuleGetRequest": ".outboundrule_getop",
     "OutboundRuleGetRequestTypedDict": ".outboundrule_getop",
     "OutboundRuleUpdateRequest": ".outboundrule_updateop",
     "OutboundRuleUpdateRequestTypedDict": ".outboundrule_updateop",
+    "PortExposure": ".portexposure",
+    "PortExposureTypedDict": ".portexposure",
+    "Scope": ".portexposure",
     "PortsList": ".portslist",
     "PortsListTypedDict": ".portslist",
     "ProtectionState": ".protectionstate",
     "Protocol": ".protocol",
+    "PortRange": ".protocolportrange",
+    "PortRangeTypedDict": ".protocolportrange",
+    "ProtocolPortRange": ".protocolportrange",
+    "ProtocolPortRangeTypedDict": ".protocolportrange",
     "ProtocolTypeMFA": ".protocoltypemfa",
     "PurdueLevel": ".purduelevel",
     "ReactivePolicy": ".reactivepolicy",
+    "ReactivePolicySrcUserInfo": ".reactivepolicy",
+    "ReactivePolicySrcUserInfoTypedDict": ".reactivepolicy",
     "ReactivePolicyTypedDict": ".reactivepolicy",
     "ReactivePolicyContext": ".reactivepolicycontext",
     "ReactivePolicyInboundBody": ".reactivepolicyinboundbody",
@@ -590,6 +726,8 @@ _dynamic_imports: dict[str, str] = {
     "ReactivePolicyState": ".reactivepolicystate",
     "RPCRule": ".rpcrule",
     "RPCRuleTypedDict": ".rpcrule",
+    "RemoteAssetInfo": ".rpcrule",
+    "RemoteAssetInfoTypedDict": ".rpcrule",
     "RPCRuleDeleteRequest": ".rpcrule_deleteop",
     "RPCRuleDeleteRequestTypedDict": ".rpcrule_deleteop",
     "RPCRuleGetRequest": ".rpcrule_getop",
@@ -601,14 +739,19 @@ _dynamic_imports: dict[str, str] = {
     "RPCRuleResponse": ".rpcruleresponse",
     "RPCRuleResponseTypedDict": ".rpcruleresponse",
     "Rule": ".rule",
+    "RuleExcludedEntityInfo": ".rule",
+    "RuleExcludedEntityInfoTypedDict": ".rule",
     "RuleLocalEntityInfo": ".rule",
     "RuleLocalEntityInfoTypedDict": ".rule",
     "RuleRemoteEntityInfo": ".rule",
     "RuleRemoteEntityInfoTypedDict": ".rule",
+    "RuleSrcUserInfo": ".rule",
+    "RuleSrcUserInfoTypedDict": ".rule",
     "RuleTypedDict": ".rule",
     "RuleAction": ".ruleaction",
     "RuleBody": ".rulebody",
     "RuleBodyTypedDict": ".rulebody",
+    "RuleCategory": ".rulecategory",
     "RuleClass": ".ruleclass",
     "RuleContext": ".rulecontext",
     "RuleDirection": ".ruledirection",
@@ -627,9 +770,13 @@ _dynamic_imports: dict[str, str] = {
     "Source": ".source",
     "SrcUsersList": ".srcuserslist",
     "SrcUsersListTypedDict": ".srcuserslist",
+    "Code": ".staleconflicterror",
     "State": ".state",
     "StateTypedDict": ".state",
+    "UserBasicInfo": ".userbasicinfo",
+    "UserBasicInfoTypedDict": ".userbasicinfo",
     "UserRole": ".userrole",
+    "UserType": ".usertype",
 }
 
 

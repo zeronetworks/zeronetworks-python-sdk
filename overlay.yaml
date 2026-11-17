@@ -26,9 +26,15 @@ actions:
   - target: $["paths"]["/groups/custom"]["post"]
     update:
       x-speakeasy-entity-operation: CustomGroup#create
+  - target: $["paths"]["/groups/custom/{groupId}"]["get"]["tags"]
+    remove: true
   - target: $["paths"]["/groups/custom/{groupId}"]["get"]
     update:
       x-speakeasy-entity-operation: CustomGroup#get
+      # Upstream renamed tag/operationId (Custom Group / CustomGroup_Get); keep SDK surface as groups_custom.get
+      tags:
+        - Groups Custom
+      operationId: CustomGroups_Get
   - target: $["paths"]["/groups/custom/{groupId}"]["put"]
     update:
       x-speakeasy-entity-operation: CustomGroup#update

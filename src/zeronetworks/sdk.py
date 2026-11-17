@@ -108,7 +108,9 @@ class Zeronetworks(BaseSDK):
         ), "The provided async_client must implement the AsyncHttpClient protocol."
 
         security: Any = None
-        if callable(api_key):
+        if api_key is None:
+            security = None
+        elif callable(api_key):
             # pylint: disable=unnecessary-lambda-assignment
             security = lambda: models.Security(api_key=api_key())
         else:

@@ -5,6 +5,7 @@ Possible values:
   * '2' - Linux NF Tables
   * '3' - Windows Firewall
   * '4' - Windows WFP
+  * '5' - NE Filter
 
 
 ## Example Usage
@@ -26,3 +27,4 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `2`
 - `3`
 - `4`
+- `5`

@@ -40,6 +40,13 @@
 * '1000' - First blocker issue code
 * '1001' - Cluster node ipv6 disabled
 * '1002' - Local rules merge disallowed
+* '1003' - Learning no activities
+* '1004' - Azure delegated subnet shared
+* '10000' - First cloud issue code
+* '10001' - Azure asset configuration error
+* '10002' - Azure private endpoint subnet not synced
+* '10003' - Azure subnet delegation not found
+* '10004' - Azure subnet network policies disabled
 
 
 ## Example Usage
@@ -96,3 +103,10 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `1000`
 - `1001`
 - `1002`
+- `1003`
+- `1004`
+- `10000`
+- `10001`
+- `10002`
+- `10003`
+- `10004`

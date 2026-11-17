@@ -20,6 +20,7 @@ EnforcementSource = Union[
         10,
         11,
         12,
+        13,
     ],
     UnrecognizedInt,
 ]
@@ -35,5 +36,6 @@ r"""* '1' - ReactivePolicy
 * '10' - DownloadPortal
 * '11' - ExternalAccessPortal
 * '12' - DayTwo
+* '13' - K8s Cluster
 
 """

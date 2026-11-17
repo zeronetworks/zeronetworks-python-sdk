@@ -129,7 +129,7 @@ from zeronetworks import Zeronetworks
 
 
 with Zeronetworks(
-    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+    api_key=os.getenv("ZERONETWORKS_API_KEY"),
 ) as z_client:
 
     res = z_client.assets.assets_search(fqdn="server.domain.local")
@@ -151,7 +151,7 @@ from zeronetworks import Zeronetworks
 async def main():
 
     async with Zeronetworks(
-        api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+        api_key=os.getenv("ZERONETWORKS_API_KEY"),
     ) as z_client:
 
         res = await z_client.assets.assets_search_async(fqdn="server.domain.local")
@@ -181,7 +181,7 @@ from zeronetworks import Zeronetworks
 
 
 with Zeronetworks(
-    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+    api_key=os.getenv("ZERONETWORKS_API_KEY"),
 ) as z_client:
 
     res = z_client.assets.assets_search(fqdn="server.domain.local")
@@ -281,7 +281,7 @@ from zeronetworks.utils import BackoffStrategy, RetryConfig
 
 
 with Zeronetworks(
-    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+    api_key=os.getenv("ZERONETWORKS_API_KEY"),
 ) as z_client:
 
     res = z_client.assets.assets_search(fqdn="server.domain.local",
@@ -301,7 +301,7 @@ from zeronetworks.utils import BackoffStrategy, RetryConfig
 
 with Zeronetworks(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
-    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+    api_key=os.getenv("ZERONETWORKS_API_KEY"),
 ) as z_client:
 
     res = z_client.assets.assets_search(fqdn="server.domain.local")
@@ -333,7 +333,7 @@ from zeronetworks import Zeronetworks, errors
 
 
 with Zeronetworks(
-    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+    api_key=os.getenv("ZERONETWORKS_API_KEY"),
 ) as z_client:
     res = None
     try:
@@ -363,7 +363,7 @@ with Zeronetworks(
 * [`ZeronetworksError`](./src/zeronetworks/errors/zeronetworkserror.py): The base class for HTTP error responses.
   * [`Error`](./src/zeronetworks/errors/error.py): Bad Request.
 
-<details><summary>Less common errors (5)</summary>
+<details><summary>Less common errors (6)</summary>
 
 <br />
 
@@ -374,9 +374,12 @@ with Zeronetworks(
 
 
 **Inherit from [`ZeronetworksError`](./src/zeronetworks/errors/zeronetworkserror.py)**:
+* [`StaleConflictError`](./src/zeronetworks/errors/staleconflicterror.py): Conflict - the object was modified or deleted since the zn-expected-updated-at value. Status code `409`. Applicable to 16 of 40 methods.*
 * [`ResponseValidationError`](./src/zeronetworks/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
+
+\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -400,7 +403,7 @@ from zeronetworks import Zeronetworks
 with Zeronetworks(
     server_idx=0,
     customer_url="portal",
-    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+    api_key=os.getenv("ZERONETWORKS_API_KEY"),
 ) as z_client:
 
     res = z_client.assets.assets_search(fqdn="server.domain.local")
@@ -420,7 +423,7 @@ from zeronetworks import Zeronetworks
 
 with Zeronetworks(
     server_url="https://portal.zeronetworks.com/v1/api",
-    api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+    api_key=os.getenv("ZERONETWORKS_API_KEY"),
 ) as z_client:
 
     res = z_client.assets.assets_search(fqdn="server.domain.local")
@@ -510,6 +513,20 @@ class CustomClient(AsyncHttpClient):
 
 s = Zeronetworks(async_client=CustomClient(httpx.AsyncClient()))
 ```
+### httpx2 (Pydantic's httpx fork)
+
+[httpx2](https://httpx2.pydantic.dev/) is Pydantic's maintained fork of `httpx`. To run this SDK on httpx2, call `alias_httpx()` at your program's entry point, before importing the SDK, so every `import httpx` — including the ones inside the SDK — resolves to `httpx2`:
+```python
+import httpx2
+
+httpx2.alias_httpx()
+
+from zeronetworks import Zeronetworks
+
+s = Zeronetworks()
+```
+
+An SDK can also be generated against httpx2 directly, so it depends on the fork instead of `httpx`, by setting `python.httpClientLibrary: httpx2` in `gen.yaml`.
 <!-- End Custom HTTP Client [http-client] -->
 
 <!-- Start Resource Management [resource-management] -->
@@ -525,18 +542,20 @@ from zeronetworks import Zeronetworks
 def main():
 
     with Zeronetworks(
-        api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+        api_key=os.getenv("ZERONETWORKS_API_KEY"),
     ) as z_client:
         # Rest of application here...
+        pass
 
 
 # Or when using async:
 async def amain():
 
     async with Zeronetworks(
-        api_key=os.getenv("ZERONETWORKS_API_KEY", ""),
+        api_key=os.getenv("ZERONETWORKS_API_KEY"),
     ) as z_client:
         # Rest of application here...
+        pass
 ```
 <!-- End Resource Management [resource-management] -->
 
@@ -554,7 +573,7 @@ logging.basicConfig(level=logging.DEBUG)
 s = Zeronetworks(debug_logger=logging.getLogger("zeronetworks"))
 ```
 
-You can also enable a default debug logger by setting an environment variable `ZERONETWORKS_DEBUG` to true.
+You can also enable a default debug logger by setting an environment variable `ZERONETWORKS_DEBUG` to `true`, `1`, `yes` or `on` (case-insensitive). Any other value leaves it off.
 <!-- End Debugging [debug] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

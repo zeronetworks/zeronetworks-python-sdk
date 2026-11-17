@@ -8,7 +8,13 @@ import pydantic
 from pydantic import model_serializer
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-from zeronetworks.types import BaseModel, UNSET_SENTINEL
+from zeronetworks.types import (
+    BaseModel,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
+from zeronetworks.types.basemodel import current_filtered_dump
 
 
 class CreatedByTypedDict(TypedDict):
@@ -27,8 +33,12 @@ class CreatedByTypedDict(TypedDict):
     * '10' - DownloadPortal
     * '11' - ExternalAccessPortal
     * '12' - DayTwo
+    * '13' - K8s Cluster
 
     """
+    on_behalf_of_email: NotRequired[str]
+    triggered_by: NotRequired[str]
+    user_principal_name: NotRequired[str]
     user_role: NotRequired[UserRole]
     r"""* '0' - Unspecified
     * '1' - Admin
@@ -45,6 +55,7 @@ class CreatedByTypedDict(TypedDict):
     * '12' - Segment Server Provisioning
     * '13' - Connect Server Provisioning
     * '14' - Segment Connector Provisioning
+    * '15' - External Sync
 
     """
 
@@ -71,8 +82,19 @@ class CreatedBy(BaseModel):
     * '10' - DownloadPortal
     * '11' - ExternalAccessPortal
     * '12' - DayTwo
+    * '13' - K8s Cluster
 
     """
+
+    on_behalf_of_email: Annotated[
+        Optional[str], pydantic.Field(alias="onBehalfOfEmail")
+    ] = None
+
+    triggered_by: Annotated[Optional[str], pydantic.Field(alias="triggeredBy")] = None
+
+    user_principal_name: Annotated[
+        Optional[str], pydantic.Field(alias="userPrincipalName")
+    ] = None
 
     user_role: Annotated[Optional[UserRole], pydantic.Field(alias="userRole")] = None
     r"""* '0' - Unspecified
@@ -90,17 +112,35 @@ class CreatedBy(BaseModel):
     * '12' - Segment Server Provisioning
     * '13' - Connect Server Provisioning
     * '14' - Segment Connector Provisioning
+    * '15' - External Sync
 
     """
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
-        optional_fields = set(["createdBy", "email", "enforcementSource", "userRole"])
+        optional_fields = set(
+            [
+                "createdBy",
+                "email",
+                "enforcementSource",
+                "onBehalfOfEmail",
+                "triggeredBy",
+                "userPrincipalName",
+                "userRole",
+            ]
+        )
+        exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and skip_filtered:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:

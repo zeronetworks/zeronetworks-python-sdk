@@ -34,7 +34,10 @@ SERVER_URL = os.getenv("ZERONETWORKS_SERVER_URL", "")  # empty → SDK default
 # Asset / user IDs used by live integration tests
 LIVE_FQDN_1 = os.getenv("ZN_ASSET_FQDN_1", "")
 LIVE_FQDN_2 = os.getenv("ZN_ASSET_FQDN_2", "")
-LIVE_USER_ID = os.getenv("ZN_USER_ID", "u:a:anyUser")  # "any user" group works for most rules
+# `or` (not a getenv default) so an exported-but-empty variable still falls back
+LIVE_USER_ID = os.getenv("ZN_USER_ID", "").strip() or "u:a:anyUser"  # "any user" group works for most rules
+# Outbound MFA only accepts some destination types; set this to one your tenant allows
+LIVE_MFA_OUTBOUND_DST = os.getenv("ZN_MFA_OUTBOUND_DST_ID", "").strip()
 
 # ---------------------------------------------------------------------------
 # pytest markers

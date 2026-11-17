@@ -13,6 +13,8 @@ InactiveReason = Union[
         4,
         5,
         6,
+        7,
+        8,
     ],
     UnrecognizedInt,
 ]
@@ -22,5 +24,7 @@ r"""* '1' - Duplicated in asset repository
 * '4' - Disabled in asset repository
 * '5' - Inactive in asset repository
 * '6' - Deleted in asset repository
+* '7' - Sync disabled
+* '8' - Resource group inactive
 
 """

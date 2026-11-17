@@ -16,10 +16,21 @@ pytest fixture that yields and tears down), so the tests leave no debris in
 the tenant even on failure.
 """
 
+import time
+
 import pytest
-from zeronetworks import Zeronetworks, errors
-from zeronetworks.models import PortsList
-from tests.conftest import LIVE_USER_ID
+from zeronetworks import Zeronetworks, errors, models
+from zeronetworks.models import (
+    PortsList,
+    ReactivePolicyInboundBodyDstEntityInfo,
+    ReactivePolicyInboundBodySrcEntityInfo,
+    ReactivePolicyInboundBodySrcUserInfo,
+    ReactivePolicyOutboundBodyDstEntityInfo,
+    ReactivePolicyOutboundBodySrcEntityInfo,
+    ReactivePolicyOutboundBodySrcUserInfo,
+    SrcUsersList,
+)
+from tests.conftest import LIVE_MFA_OUTBOUND_DST, LIVE_USER_ID
 
 # All tests in this module require the live marker
 pytestmark = pytest.mark.live
@@ -34,14 +45,16 @@ class TestLiveAssets:
         asset_id, _ = live_asset_ids
         assert asset_id.startswith("a:")
 
-    def test_search_unknown_fqdn_returns_no_id(self, live_client):
-        res = live_client.assets.assets_search(fqdn="this.host.does.not.exist.invalid")
-        assert res.asset_id is None
+    def test_search_unknown_fqdn_raises_404(self, live_client):
+        with pytest.raises(errors.Error) as exc:
+            live_client.assets.assets_search(fqdn="this.host.does.not.exist.invalid")
+        assert exc.value.raw_response.status_code == 404
 
-    def test_search_without_fqdn(self, live_client):
-        # Should not raise; the API may return None or the first asset.
-        res = live_client.assets.assets_search()
-        assert res is not None
+    def test_search_without_fqdn_raises_400(self, live_client):
+        # API: "asset identifier is unrecognized"
+        with pytest.raises(errors.Error) as exc:
+            live_client.assets.assets_search()
+        assert exc.value.raw_response.status_code == 400
 
 
 # ---------------------------------------------------------------------------
@@ -100,9 +113,10 @@ class TestLiveCustomGroups:
         )
         group_id = res.entity.id
         live_client.groups_custom.custom_groups_delete(id=group_id)
-        # Confirm it's gone
+        # Custom groups are soft-deleted (marked inactive), so GET still returns them.
+        # Deleting again is rejected once the group is inactive.
         with pytest.raises(errors.ZeronetworksError):
-            live_client.groups_custom.custom_groups_get(id=group_id)
+            live_client.groups_custom.custom_groups_delete(id=group_id)
 
     def test_get_nonexistent_raises(self, live_client):
         with pytest.raises(errors.ZeronetworksError):
@@ -306,7 +320,7 @@ def live_iap(live_client, live_asset_ids):
         dst_ports_list=[PortsList(protocol_type=6, ports="22")],
         dst_process_names_list=["*"],
         name="[pytest] Temp IAP",
-        rule_duration=5,  # Never
+        rule_duration=1,  # Hour – IAP rejects "Never"
         src_user_ids_list=[LIVE_USER_ID],
         state=2,  # Disabled
         description="Created by automated test suite – safe to delete",
@@ -335,7 +349,7 @@ class TestLiveInternalAccessPolicy:
             dst_ports_list=[PortsList(protocol_type=6, ports="22")],
             dst_process_names_list=["*"],
             name="[pytest] Temp IAP (updated)",
-            rule_duration=5,
+            rule_duration=1,  # Hour – IAP rejects 'Never'
             src_user_ids_list=[LIVE_USER_ID],
             state=2,
         )
@@ -348,10 +362,285 @@ class TestLiveInternalAccessPolicy:
             dst_ports_list=[PortsList(protocol_type=6, ports="22")],
             dst_process_names_list=["*"],
             name="[pytest] Delete Me IAP",
-            rule_duration=5,
+            rule_duration=1,  # Hour – IAP rejects 'Never'
+            state=2,  # required by the API despite the spec
             src_user_ids_list=[LIVE_USER_ID],
         )
         iap_id = res.item.id
         live_client.internal_access_policy.internal_access_policy_delete(id=iap_id)
         with pytest.raises(errors.ZeronetworksError):
             live_client.internal_access_policy.internal_access_policy_get(id=iap_id)
+
+
+# ===========================================================================
+# 1.1.0 features (spec 1.26.9)
+# ===========================================================================
+
+def _inbound_rule_kwargs(asset_id, asset_id_2, port, description, **extra):
+    return dict(
+        action=1,
+        local_entity_id=asset_id,
+        local_processes_list=["*"],
+        ports_list=[PortsList(protocol_type=6, ports=port)],
+        remote_entity_ids_list=[asset_id_2],
+        state=2,  # Disabled
+        description=description,
+        **extra,
+    )
+
+
+def _wait_for_new_millis(ts):
+    """Make sure the next write lands on a later updatedAt than *ts*."""
+    while int(time.time() * 1000) <= ts:
+        time.sleep(0.005)
+
+
+# ---------------------------------------------------------------------------
+# Optimistic concurrency: zn-expected-updated-at → 409 StaleConflictError
+# ---------------------------------------------------------------------------
+
+class TestLiveStaleConflict:
+    def test_inbound_rule_update_with_current_updated_at_succeeds(
+        self, live_client, live_inbound_rule, live_asset_ids
+    ):
+        asset_id, asset_id_2 = live_asset_ids
+        rule_id = live_inbound_rule.item.id
+        current = live_client.rules_inbound.inbound_rule_get(id=rule_id).item.updated_at
+        assert current, "rule GET did not return updatedAt"
+        res = live_client.rules_inbound.inbound_rule_update(
+            id=rule_id,
+            zn_expected_updated_at=current,
+            **_inbound_rule_kwargs(asset_id, asset_id_2, "19997", "[pytest] fresh update"),
+        )
+        assert res.item is not None
+
+    def test_inbound_rule_update_with_stale_updated_at_raises_409(
+        self, live_client, live_inbound_rule, live_asset_ids
+    ):
+        asset_id, asset_id_2 = live_asset_ids
+        rule_id = live_inbound_rule.item.id
+        stale = live_client.rules_inbound.inbound_rule_get(id=rule_id).item.updated_at
+        _wait_for_new_millis(stale)
+        # Someone else changes the rule…
+        live_client.rules_inbound.inbound_rule_update(
+            id=rule_id,
+            **_inbound_rule_kwargs(asset_id, asset_id_2, "19997", "[pytest] concurrent edit"),
+        )
+        # …so our update based on the old read must be rejected.
+        with pytest.raises(errors.StaleConflictError) as exc:
+            live_client.rules_inbound.inbound_rule_update(
+                id=rule_id,
+                zn_expected_updated_at=stale,
+                **_inbound_rule_kwargs(asset_id, asset_id_2, "19997", "[pytest] stale edit"),
+            )
+        assert exc.value.raw_response.status_code == 409
+        assert exc.value.data.updated_at and exc.value.data.updated_at > stale
+        # The concurrent edit must still be in place
+        after = live_client.rules_inbound.inbound_rule_get(id=rule_id).item
+        assert after.description == "[pytest] concurrent edit"
+
+    def test_inbound_rule_delete_with_stale_updated_at_raises_409(
+        self, live_client, live_inbound_rule, live_asset_ids
+    ):
+        asset_id, asset_id_2 = live_asset_ids
+        rule_id = live_inbound_rule.item.id
+        stale = live_client.rules_inbound.inbound_rule_get(id=rule_id).item.updated_at
+        _wait_for_new_millis(stale)
+        live_client.rules_inbound.inbound_rule_update(
+            id=rule_id,
+            **_inbound_rule_kwargs(asset_id, asset_id_2, "19997", "[pytest] concurrent edit"),
+        )
+        with pytest.raises(errors.StaleConflictError):
+            live_client.rules_inbound.inbound_rule_delete(id=rule_id, zn_expected_updated_at=stale)
+        # Rule must survive the rejected delete
+        assert live_client.rules_inbound.inbound_rule_get(id=rule_id).item.id == rule_id
+
+    def test_iap_update_with_stale_updated_at_raises_409(self, live_client, live_iap, live_asset_ids):
+        asset_id, _ = live_asset_ids
+        iap_id = live_iap.item.id
+        stale = live_client.internal_access_policy.internal_access_policy_get(id=iap_id).item.updated_at
+        kwargs = dict(
+            id=iap_id,
+            dst_asset_id=asset_id,
+            dst_ports_list=[PortsList(protocol_type=6, ports="22")],
+            dst_process_names_list=["*"],
+            rule_duration=1,  # Hour – IAP rejects 'Never'
+            src_user_ids_list=[LIVE_USER_ID],
+            state=2,
+        )
+        _wait_for_new_millis(stale)
+        live_client.internal_access_policy.internal_access_policy_update(
+            name="[pytest] Temp IAP (concurrent)", **kwargs
+        )
+        with pytest.raises(errors.StaleConflictError):
+            live_client.internal_access_policy.internal_access_policy_update(
+                name="[pytest] Temp IAP (stale)", zn_expected_updated_at=stale, **kwargs
+            )
+
+
+# ---------------------------------------------------------------------------
+# New / renamed rule fields
+# ---------------------------------------------------------------------------
+
+class TestLiveRuleFields:
+    def test_rule_category_round_trips(self, live_client, live_asset_ids):
+        asset_id, asset_id_2 = live_asset_ids
+        res = live_client.rules_inbound.inbound_rules_create(
+            **_inbound_rule_kwargs(
+                asset_id, asset_id_2, "29995", "[pytest] rule category", rule_category=1  # IT
+            )
+        )
+        rule_id = res.item.id
+        try:
+            got = live_client.rules_inbound.inbound_rule_get(id=rule_id).item
+            assert got.rule_category == 1
+        finally:
+            live_client.rules_inbound.inbound_rule_delete(id=rule_id)
+
+    def test_src_user_infos_populated(self, live_client, live_asset_ids):
+        """Regression: 1.0.x read `srcUsersInfos`, the API sends `srcUserInfos`.
+
+        Source users are only allowed on outbound rules
+        (inbound → "Cannot create inbound rule with source users").
+        """
+        asset_id, asset_id_2 = live_asset_ids
+        res = live_client.rules_outbound.outbound_rules_create(
+            **_inbound_rule_kwargs(
+                asset_id, asset_id_2, "29994", "[pytest] src users",
+                src_users_list=[SrcUsersList(id=LIVE_USER_ID)],
+            )
+        )
+        rule_id = res.item.id
+        try:
+            got = live_client.rules_outbound.outbound_rule_get(id=rule_id).item
+            assert got.src_user_infos, "srcUserInfos missing from rule GET"
+            assert LIVE_USER_ID in [u.id for u in got.src_user_infos]
+        finally:
+            live_client.rules_outbound.outbound_rule_delete(id=rule_id)
+
+
+# ---------------------------------------------------------------------------
+# Custom group GET now returns GroupEntity
+# ---------------------------------------------------------------------------
+
+class TestLiveCustomGroupEntity:
+    def test_get_returns_group_entity(self, live_client, live_custom_group):
+        group_id = live_custom_group.entity.id
+        res = live_client.groups_custom.custom_groups_get(id=group_id)
+        assert isinstance(res, models.GroupEntity)
+        assert isinstance(res.entity, models.Group)
+        assert res.entity.name == "[pytest] Temp Group"
+
+
+# ---------------------------------------------------------------------------
+# MFA policies (create → get → delete), both directions
+# ---------------------------------------------------------------------------
+
+def _mfa_kwargs(asset_id, asset_id_2, dst_cls, src_cls, user_cls, port):
+    return dict(
+        additional_ports_list=[],
+        dst_entity_info=dst_cls(id=asset_id),
+        dst_port=port,
+        dst_process_names=["*"],
+        fallback_to_logged_on_user=False,
+        mfa_methods=[4],  # Browser
+        override_builtins=False,
+        protocol_type=6,
+        rule_duration=5,  # Never
+        src_entity_infos=[src_cls(id=asset_id_2)],
+        src_process_names=["*"],
+        src_user_infos=[user_cls(id=LIVE_USER_ID)],
+        state=2,  # Disabled
+        description="[pytest] temp MFA policy – safe to delete",
+    )
+
+
+class TestLiveMFAPolicies:
+    def test_inbound_lifecycle(self, live_client, live_asset_ids):
+        asset_id, asset_id_2 = live_asset_ids
+        res = live_client.mfa_inbound.mfa_inbound_policies_create(
+            **_mfa_kwargs(
+                asset_id, asset_id_2,
+                ReactivePolicyInboundBodyDstEntityInfo,
+                ReactivePolicyInboundBodySrcEntityInfo,
+                ReactivePolicyInboundBodySrcUserInfo,
+                "19993",
+            )
+        )
+        pol_id = res.item.id
+        try:
+            got = live_client.mfa_inbound.mfa_inbound_policies_get(id=pol_id)
+            assert got.items.id == pol_id
+            assert got.items.src_user_infos  # anyOf group/user/idNamePair parses
+        finally:
+            live_client.mfa_inbound.mfa_inbound_policies_delete(id=pol_id)
+        with pytest.raises(errors.ZeronetworksError):
+            live_client.mfa_inbound.mfa_inbound_policies_get(id=pol_id)
+
+    def test_outbound_lifecycle(self, live_client, live_asset_ids):
+        asset_id, asset_id_2 = live_asset_ids
+        dst_id = LIVE_MFA_OUTBOUND_DST or asset_id
+        try:
+            res = live_client.mfa_outbound.mfa_outbound_policies_create(
+                **_mfa_kwargs(
+                    dst_id, asset_id_2,
+                    ReactivePolicyOutboundBodyDstEntityInfo,
+                    ReactivePolicyOutboundBodySrcEntityInfo,
+                    ReactivePolicyOutboundBodySrcUserInfo,
+                    "19992",
+                )
+            )
+        except errors.Error as e:
+            if "destination entity not supported" in str(e) and not LIVE_MFA_OUTBOUND_DST:
+                pytest.skip(
+                    f"{dst_id} is not a valid outbound MFA destination – "
+                    "set ZN_MFA_OUTBOUND_DST_ID to one your tenant allows"
+                )
+            raise
+        pol_id = res.item.id
+        try:
+            got = live_client.mfa_outbound.mfa_outbound_policies_get(id=pol_id)
+            assert got.items.id == pol_id
+        finally:
+            live_client.mfa_outbound.mfa_outbound_policies_delete(id=pol_id)
+
+
+# ---------------------------------------------------------------------------
+# RPC rules (create → get → delete)
+# ---------------------------------------------------------------------------
+
+def _create_rpc_rule(live_client, asset_id, asset_id_2):
+    return live_client.rules_rpc.rpc_rules_create(
+        action=1,
+        description="[pytest] temp RPC rule – safe to delete",
+        excluded_asset_ids_list=[],
+        interface_uuids_list=["rpcAnyInterfaceId"],
+        local_asset_id=asset_id,
+        op_numbers_list=[0],
+        protocols_list=[2],  # RPC over TCP
+        remote_asset_ids_list=[asset_id_2],
+        state=2,  # Disabled
+        user_ids_list=[LIVE_USER_ID],
+    )
+
+
+class TestLiveRPCRules:
+    def test_lifecycle(self, live_client, live_asset_ids):
+        asset_id, asset_id_2 = live_asset_ids
+        try:
+            res = _create_rpc_rule(live_client, asset_id, asset_id_2)
+        except errors.ZeronetworksDefaultError as e:
+            if e.raw_response.status_code == 403:
+                pytest.skip("API key lacks permission for RPC rules (403)")
+            raise
+        rule_id = res.item.id
+        try:
+            got = live_client.rules_rpc.rpc_rule_get(id=rule_id).item
+            assert got.id == rule_id
+            # localAssetInfo is now assetBasicInfo; remoteAssetInfos is anyOf
+            if got.local_asset_info is not None:
+                assert got.local_asset_info.id == asset_id
+        finally:
+            live_client.rules_rpc.rpc_rule_delete(id=rule_id)
+        with pytest.raises(errors.ZeronetworksError):
+            live_client.rules_rpc.rpc_rule_get(id=rule_id)
